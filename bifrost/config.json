@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    {
+      "name": "semantic_cache",
+      "enabled": false,
+      "config": {
+        "dimension": 1,
+        "ttl": 1800,
+        "cache_by_model": true,
+        "cache_by_provider": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "monorepo-sample",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Workshop fixture — minimal two-package monorepo",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev:api": "pnpm --filter @sample/api dev",
+    "dev:web": "pnpm --filter @sample/web dev"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

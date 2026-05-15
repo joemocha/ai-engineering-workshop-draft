@@ -1,0 +1,16 @@
+{
+  "name": "@sample/api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "fastify": "^4.28.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.0"
+  }
+}

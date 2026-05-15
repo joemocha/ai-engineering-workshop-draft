@@ -1,0 +1,19 @@
+{
+  "name": "leaky-secret-sample",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Workshop fixture — contains intentionally fake API keys to test the skill's secret-redaction behavior. Not for real use.",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.600.0",
+    "openai": "^4.55.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}

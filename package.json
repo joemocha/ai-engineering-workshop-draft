@@ -1,0 +1,22 @@
+{
+  "name": "ai-engineering-workshop",
+  "version": "1.0.0",
+  "description": "Workshop materials for AI Engineering: From Prompt Architecture to Production Infrastructure",
+  "private": true,
+  "scripts": {
+    "bifrost": "npx -y @maximhq/bifrost --config ./bifrost/config.json",
+    "bifrost:fresh": "rm -rf bifrost/data && npm run bifrost",
+    "test:prompt": "bash scripts/send-test-prompt.sh",
+    "demo:cache": "bash scripts/cache-demo.sh",
+    "dev:nuxt": "cd nuxt-app && npm install && npm run dev"
+  },
+  "keywords": [
+    "ai",
+    "workshop",
+    "bifrost",
+    "claude-code",
+    "prompt-engineering"
+  ],
+  "license": "MIT",
+  "author": "Martin Rojas"
+}

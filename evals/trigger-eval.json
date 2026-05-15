@@ -1,0 +1,92 @@
+[
+  {
+    "query": "I just inherited this Nuxt project and I have no idea what's going on. Can you help me understand the structure? The repo is at ~/work/inherited-app.",
+    "should_trigger": true
+  },
+  {
+    "query": "we're onboarding a new senior to the api team next week and i want to give them a head start. can you go through the main api repo and write up a summary of how the data flows? the repo is in our monorepo under packages/api",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you analyze the entry points in this Vite app?",
+    "should_trigger": true
+  },
+  {
+    "query": "give me a walkthrough of /Users/me/code/old-project — i haven't touched it in 18 months and need to ship a fix by friday",
+    "should_trigger": true
+  },
+  {
+    "query": "client just sent us a tarball of their legacy app. need to understand how it's structured before our kickoff next monday — its in ~/Downloads/client-export-2026",
+    "should_trigger": true
+  },
+  {
+    "query": "this monorepo has 12 packages and i have no idea what depends on what. can you help me make sense of it",
+    "should_trigger": true
+  },
+  {
+    "query": "produce a structured briefing of the api/ directory — focus on the route handlers and how they call into the services layer",
+    "should_trigger": true
+  },
+  {
+    "query": "before i submit a PR i want to know what other parts of this codebase touch the user auth flow — can you walk it for me",
+    "should_trigger": true
+  },
+  {
+    "query": "my new hire starts monday. write up an architecture summary of the main repo so i can hand it to them — focus on the Vue side",
+    "should_trigger": true
+  },
+  {
+    "query": "ok i'm going to be honest i have no idea what this codebase does — it's an old vue 2 project the previous dev left. help me get oriented",
+    "should_trigger": true
+  },
+  {
+    "query": "Help me write a function that recursively reads a directory and returns the file tree as a nested object.",
+    "should_trigger": false,
+    "rationale": "Sounds like repo navigation but it's a coding task, not analysis of an existing repo"
+  },
+  {
+    "query": "What's the best way to structure a monorepo? I'm starting a new project with both a Vue frontend and a Fastify backend.",
+    "should_trigger": false,
+    "rationale": "Architecture advice request, not analysis of an existing repo"
+  },
+  {
+    "query": "Can you do a code review on these three files I just changed? They're in src/services/auth/",
+    "should_trigger": false,
+    "rationale": "Code review is a different task — different tool/skill should handle"
+  },
+  {
+    "query": "summarize this Slack thread for me — it's about the auth refactor decision",
+    "should_trigger": false,
+    "rationale": "Not a repo; communications summarization"
+  },
+  {
+    "query": "what's the best way to onboard new engineers to a complex codebase? we have a lot of folks joining this quarter",
+    "should_trigger": false,
+    "rationale": "General onboarding advice, not analysis of any specific repo"
+  },
+  {
+    "query": "explain how unit tests work in vitest — i'm new to it coming from jest",
+    "should_trigger": false,
+    "rationale": "General explanation request, not repo analysis"
+  },
+  {
+    "query": "compare Nuxt 3 and Next.js — which should i use for a new content site",
+    "should_trigger": false,
+    "rationale": "Tool comparison / decision support, not repo analysis"
+  },
+  {
+    "query": "i need to refactor the auth module — what should i consider before i start",
+    "should_trigger": false,
+    "rationale": "Refactor planning advice; needs context but doesn't require structured briefing"
+  },
+  {
+    "query": "i'm thinking of breaking this monolith into microservices — what's your opinion on the right cut points",
+    "should_trigger": false,
+    "rationale": "Architecture strategy advice, not repo briefing"
+  },
+  {
+    "query": "review my plan for the q3 platform migration",
+    "should_trigger": false,
+    "rationale": "Plan review, not repo analysis"
+  }
+]
