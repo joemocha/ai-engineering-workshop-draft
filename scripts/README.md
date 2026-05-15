@@ -8,6 +8,7 @@ Small shell scripts used during the workshop. All scripts read `.env` from the r
 |---|---|---|
 | `cache-demo.sh` | **Block 4.6** | Sends an identical prompt to Bifrost twice. With `semantic_cache` enabled, the second call hits cache (sub-100ms). |
 | `send-test-prompt.sh` | Anytime — sanity check | One-shot prompt to verify Bifrost is alive, your VK works, the model responds. Accepts a custom prompt as `$1`. |
+| `capture-budget-cap-shape.sh` | **Dry-run only** (pre-workshop) | Hammers the gateway until the VK budget cap fires (HTTP 402). Saves each response to `/tmp/bifrost-call-N.json` so you can capture the exact 402 JSON shape for the Block 4.5 slide. |
 
 ## Running
 
