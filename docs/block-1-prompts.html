@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<title>Block 1 / Topic 1.2 — Prompt level set + layer walk</title>
+<title>Block 1 / Topic 1.2 — Prompt level set + AI-as-Coach HO</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="assets/tailwind-config.js"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -63,7 +63,7 @@
           <li><a href="#beat-1-2-2"><span class="toc-num">1.2.2</span>Six components</a></li>
           <li><a href="#beat-1-2-3"><span class="toc-num">1.2.3</span>Ambiguity tax</a></li>
           <li><a href="#beat-1-2-4"><span class="toc-num">1.2.4</span>Chain-of-thought</a></li>
-          <li><a href="#beat-1-2-5" style="background:#a04100;color:#fff;font-weight:800"><span class="toc-num" style="color:#ffb693">1.2.5</span>5-layer model ★</a></li>
+          <li><a href="#beat-1-2-5" style="background:#a04100;color:#fff;font-weight:800"><span class="toc-num" style="color:#ffb693">1.2.5</span>5 components ★</a></li>
           <li><a href="#beat-1-2-6"><span class="toc-num">1.2.6</span>Awareness pass</a></li>
           <li><a href="#beat-1-2-7" style="background:#a04100;color:#fff;font-weight:800"><span class="toc-num" style="color:#ffb693">1.2.7</span>AI-as-Coach HO ★</a></li>
         </ol>
@@ -110,8 +110,8 @@
         <aside class="notes-block">
           <span class="block-label">Speaker notes</span>
           <p><strong>Slide 1 — name the pattern:</strong> <em>"This is what most developers write. Six words. 'Summarize this codebase.' It's a naked prompt — no scaffolding, no role, no examples, no structure. And here's the thing: it works just well enough to make you think prompts are unreliable. They're not. Naked prompts are unreliable."</em></p>
-          <p><strong>Slide 2 — the three runs:</strong> <em>"Same naked prompt, three runs. Different shape every time. Different facts. Different framing. Most teams ship something like this, see the variance, and call it 'AI being non-deterministic.' That's not non-determinism — that's underspecification. We're going to fix it in five layers."</em></p>
-          <p>Anchor: <em>"By the end of this topic, you'll have walked one naked prompt through five layers of constraint engineering. That walked prompt is what you feed into the skill-creator in Block 2."</em></p>
+          <p><strong>Slide 2 — the three runs:</strong> <em>"Same naked prompt, three runs. Different shape every time. Different facts. Different framing. Most teams ship something like this, see the variance, and call it 'AI being non-deterministic.' That's not non-determinism — that's underspecification. We're going to fix it by adding the five components — role, examples, CoT, constraints, safety — and you'll direct an AI coach through it."</em></p>
+          <p>Anchor: <em>"By the end of this topic, you'll have produced a v5 prompt with an AI coach — the 5 components as your rubric. That prompt is what you feed into the skill-creator in Block 2."</em></p>
         </aside>
 
         <aside class="demo-block">
@@ -276,7 +276,7 @@ Then, summarize.</code></pre></div>
           <span class="block-label">Speaker notes</span>
           <p><strong>Slide 1:</strong> <em>"Chain-of-thought is the highest-leverage prompt technique that exists. Just tell the model to think in steps before answering. Doubles or triples accuracy on multi-step tasks. It's free — no new tooling, no fine-tuning, just words."</em></p>
           <p><strong>Slide 2 — show it applied:</strong> <em>"This is CoT for Project Inspector. Four named steps. Each step constrains the next. The model can't skip ahead and hallucinate. It has to scan first, identify entry points second, trace flow third, then summarize."</em></p>
-          <p><strong>Slide 3 — when to reach for it:</strong> <em>"CoT pays the most when the task has multiple steps, when errors compound, when you want to audit the reasoning. For repo inspection? All three. So CoT is non-negotiable in our layer walk."</em></p>
+          <p><strong>Slide 3 — when to reach for it:</strong> <em>"CoT pays the most when the task has multiple steps, when errors compound, when you want to audit the reasoning. For repo inspection? All three. So CoT is non-negotiable — when your AI coach proposes a v5 without numbered steps, push back."</em></p>
           <p>Anchor: <em>"Atom: <code>Atom - Chain-of-Thought (CoT) Prompting</code>. Single biggest leverage point in this whole block."</em></p>
         </aside>
 
@@ -389,7 +389,7 @@ Then, summarize.</code></pre></div>
 
         <article class="slide-card">
           <span class="slide-label">Slide 2 / 2 · When they matter</span>
-          <h3 class="slide-title">When the 5-layer model isn't enough</h3>
+          <h3 class="slide-title">When the 5 components aren't enough</h3>
           <ul class="slide-bullets">
             <li>ToT — when there are multiple plausible approaches</li>
             <li>Self-Consistency — when you need confidence, not just an answer</li>
