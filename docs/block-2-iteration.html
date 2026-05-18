@@ -85,7 +85,7 @@
         </header>
 
         <article class="slide-card">
-          <span class="slide-label">Slide 1 / 3 · Anatomy</span>
+          <span class="slide-label">Slide 1 / 4 · Anatomy</span>
           <h3 class="slide-title">SKILL.md = frontmatter + body</h3>
           <ul class="slide-bullets">
             <li><strong><code>name</code></strong> — the identifier (<code>project-inspector</code>)</li>
@@ -96,7 +96,7 @@
         </article>
 
         <article class="slide-card">
-          <span class="slide-label">Slide 2 / 3 · Pushy</span>
+          <span class="slide-label">Slide 2 / 4 · Pushy</span>
           <h3 class="slide-title">Why our description is slightly pushy</h3>
           <ul class="slide-bullets">
             <li>Claude has a documented tendency to <em>under</em>-trigger skills</li>
@@ -106,26 +106,73 @@
         </article>
 
         <article class="slide-card">
-          <span class="slide-label">Slide 3 / 3 · Hands-on</span>
+          <span class="slide-label">Slide 3 / 4 · Hands-on</span>
           <h3 class="slide-title">Your turn (3 min)</h3>
           <ul class="slide-bullets">
             <li>Open <code>skills/project-inspector/SKILL.md</code></li>
             <li>Confirm the pre-filled <code>name</code> + <code>description</code></li>
-            <li>Paste your v5 prompt (from Block 1.2) as the body</li>
+            <li>Paste your v5 prompt (from Block 1.2 AI-as-Coach HO) as the body</li>
             <li>Save</li>
+            <li><em>Didn't bring a v5 you like? Use ours →</em></li>
           </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 4 / 4 · Our canonical v5</span>
+          <h3 class="slide-title">Our v5 — copy if you didn't bring one you like</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant" style="font-style:italic">
+            Use this if your AI-as-Coach session went sideways, or if you'd rather follow the example step-by-step. Also at <code>prompts/project-inspector-v5.txt</code> in the workshop repo.
+          </p>
+          <div class="code-block" data-label="CANONICAL V5 — COPY ME"><pre><code>ROLE
+You are a senior engineer reading a repository to onboard yourself.
+Produce a structured briefing that helps another senior engineer get
+oriented in under five minutes.
+
+EXAMPLE (shape only)
+{
+  "architecture": "Nuxt 3 SSR app. File-based routing under pages/, server routes under server/api/, Pinia for state.",
+  "entry_points": ["nuxt.config.ts", "app.vue", "server/api/chat.post.ts"],
+  "data_flow": "Vue page calls useFetch('/api/chat') → server route forwards to LLM → response streams back to the composable → component renders.",
+  "key_dependencies": ["nuxt@3.x (framework)", "@pinia/nuxt (state)", "ofetch (HTTP)"],
+  "test_patterns": "Vitest with @nuxt/test-utils. One spec per composable; e2e via Playwright."
+}
+
+STEPS
+1. List the top-level directory structure. Identify framework signals
+   (package.json scripts, config files).
+2. Locate entry points: server entry, app entry, build config, route handlers.
+3. Trace one representative data flow from user input to rendered output.
+4. Inventory key dependencies, grouped by purpose (framework, state, HTTP, testing).
+5. Summarize the test pattern (framework, structure, coverage shape).
+
+FORMAT
+Return a single JSON object with these top-level keys: architecture,
+entry_points, data_flow, key_dependencies, test_patterns. Every value
+must be a string or an array of strings. If a field cannot be
+determined from the input, set its value to "unclear".
+
+SAFETY
+- Do not invent file paths, function names, or dependencies that are
+  not present in the input.
+- If the framework is ambiguous (e.g., Vite + React without Next.js
+  or Nuxt), name what IS observable and explicitly state which
+  frameworks are NOT present.
+- If a secret or credential appears in the input, do not echo its
+  value; note its presence and recommend rotation.</code></pre></div>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">Same 5 components as your rubric: ROLE · EXAMPLE · STEPS · FORMAT · SAFETY</p>
         </article>
 
         <aside class="notes-block">
           <span class="block-label">Speaker notes</span>
           <p><em>"Frontmatter is the activation contract. <code>name</code> is the identifier. <code>description</code> is what Claude reads to decide whether to invoke. Notice this description is slightly pushy: 'use this whenever the user asks to understand, summarize, onboard to, or get a briefing on a codebase, even if they don't say inspect.'"</em></p>
           <p><em>"The pushiness is deliberate. Claude has a documented tendency to under-trigger skills — to skip them even when they'd help. The description optimizer at the end of this block will refine this pushiness based on held-out test scores. For now, we ship pushy and let the data tell us if we overshot."</em></p>
-          <p>On the paste: <em>"Paste your v5 prompt as the body. This is the instructions Claude follows once the skill activates. Five sentences from me on this — it's mechanical. The interesting work is the eval, not the paste."</em></p>
-          <p>Then: <em>"Take three minutes. Paste your v5. I'll loop the room."</em> Set a 3-min timer. Walk the room; fix stragglers from the plugin check in Beat 2.1.4.</p>
+          <p>On the paste: <em>"Paste your v5 prompt — the one you produced this morning with your AI coach — as the body. This is the instructions Claude follows once the skill activates. Five sentences from me on this — it's mechanical. The interesting work is the eval, not the paste."</em></p>
+          <p>Then: <em>"Take three minutes. Paste your v5. If your AI-as-Coach session went sideways or you'd rather follow my example — Slide 4 has our canonical v5. Copy from screen or grab it from <code>prompts/project-inspector-v5.txt</code> in the workshop repo. Same five components: role, example, steps, format, safety. I'll loop the room."</em></p>
+          <p><strong>Stage direction:</strong> switch to Slide 4 once the 3-min timer starts so the canonical v5 stays projected for the duration. Walk the room; fix stragglers from the plugin check in Beat 2.1.4.</p>
         </aside>
 
         <aside class="demo-block">
-          <span class="block-label">Demo piece — pre-filled SKILL.md</span>
+          <span class="block-label">Demo piece — pre-filled SKILL.md + canonical v5 visibility</span>
           <p>Instructor projects their own <code>skills/project-inspector/SKILL.md</code> open in editor.</p>
           <div class="code-block" data-label="SKILL.md (PRE-FILLED STUB)"><pre><code>---
 name: project-inspector
@@ -135,7 +182,7 @@ description: Point at any code repo. Produces a structured briefing — architec
 # Instructions
 
 &lt;!-- PASTE YOUR V5 PROJECT INSPECTOR PROMPT HERE --&gt;</code></pre></div>
-          <p><strong>Fallback for stragglers:</strong> grab the canonical v5 at <code>prompts/project-inspector-v5.txt</code>. Distribute only on request.</p>
+          <p><strong>Canonical v5 visibility:</strong> Slide 4 shows the full canonical v5 on-screen for the duration of the 3-min HO timer — anyone whose AI-as-Coach v5 went sideways or who'd rather follow the example can copy from screen or grab <code>prompts/project-inspector-v5.txt</code> from the workshop repo. No request needed; it's the projected slide.</p>
         </aside>
       </section>
 
@@ -299,21 +346,21 @@ description: Point at any code repo. Produces a structured briefing — architec
           <span class="slide-label">Slide 3 / 3 · The gap</span>
           <h3 class="slide-title">With-skill vs baseline pass rates</h3>
           <ul class="slide-bullets">
-            <li>With-skill pass rate: <code>[X]%</code></li>
-            <li>Without-skill pass rate: <code>[Y]%</code></li>
-            <li>Gap = your skill's contribution</li>
-            <li><strong>If the gap is zero or near-zero:</strong> either the skill isn't pulling its weight, <em>or</em> your tests aren't measuring it</li>
+            <li>With-skill pass rate: <code>88%</code></li>
+            <li>Without-skill pass rate: <code>75%</code></li>
+            <li>Gap = <strong>+13%</strong> = your skill's contribution</li>
+            <li><strong>The skill is pulling some weight.</strong> But the gap is small — is it the skill working, or your tests not measuring it?</li>
             <li>Next beat: find out which</li>
           </ul>
-          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">[X] and [Y] filled from dry-run capture before live delivery</p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">Numbers from 2026-05-18 dry-run · benchmark.json</p>
         </article>
 
         <aside class="notes-block">
           <span class="block-label">Speaker notes</span>
           <p><strong>Slide 1:</strong> <em>"The grader is reading each assertion in your <code>evals.json</code>, looking at the corresponding output, and producing a structured <code>passed: true/false</code> with <code>evidence</code> text. Not just a thumbs up — it has to explain why each assertion passed or failed."</em></p>
           <p><strong>Slide 2:</strong> <em>"One <code>grading.json</code> per run directory. The aggregator pulls all those into a single <code>benchmark.json</code> at the iteration level. Pass rate, mean tokens, mean duration — with stddev across runs. That's your concrete numbers."</em></p>
-          <p><strong>Slide 3 — the cliffhanger:</strong> <em>"We have a benchmark. With-skill pass rate is [X]%. Without-skill pass rate is [Y]%. Difference is your skill's contribution. If that gap is zero or near-zero, your skill isn't pulling its weight — or your tests aren't measuring it. Let's find out which."</em></p>
-          <p>Fill in [X] and [Y] from the dry-run capture so the room sees a real number on the slide, not a placeholder.</p>
+          <p><strong>Slide 3 — the cliffhanger:</strong> <em>"We have a benchmark. With-skill: 88%. Without-skill: 75%. Thirteen-point gap — your skill is pulling some weight. But thirteen points is small. Is it the skill earning its keep, or is the eval suite not measuring what we think it is? Let's find out which."</em></p>
+          <p><em>Numbers locked in from the 2026-05-18 dry-run. If you re-run live and they shift, the framing still works as long as the gap is positive but small.</em></p>
         </aside>
 
         <aside class="demo-block">
@@ -428,22 +475,22 @@ description: Point at any code repo. Produces a structured briefing — architec
           <span class="slide-label">Slide 2 / 5 · The flag</span>
           <h3 class="slide-title">Case 0 assertion: <code>contains: "code"</code></h3>
           <blockquote style="border-left:8px solid #a04100;padding:16px 20px;background:#f6ded3;margin:10px 0;font-size:16px;line-height:1.5;font-weight:700">
-            Assertion <code>eval-0/contains:code</code> has a 100% pass rate across both with-skill and without-skill runs (5/5 each). This assertion does not discriminate between the two configurations. Consider tightening it or removing it.
+            This assertion is ambiguous — it's unclear what meaningful task outcome 'contains the word code' is supposed to verify. A project inspector outputting valid JSON about a Nuxt repo has no reason to include the word 'code' unless it appears in identifiers or descriptions. The assertion likely <strong>fails for correct outputs</strong> and would <strong>pass for incorrect ones that pad descriptions with generic text</strong>. Consider replacing it with a more discriminating check.
           </blockquote>
           <ul class="slide-bullets">
-            <li>100% with-skill · 100% baseline</li>
-            <li><em>Pass rates are matched — assertion isn't measuring the skill</em></li>
+            <li>0% with-skill · 0% baseline · <strong>both failed</strong></li>
+            <li><em>Same result for both configurations — assertion isn't measuring the skill</em></li>
           </ul>
-          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">Replace this with exact analyzer output text from dry-run capture</p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">Analyzer wording from 2026-05-18 dry-run · grading.json eval_feedback</p>
         </article>
 
         <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
           <span class="slide-label">Slide 3 / 5 · Why it matters</span>
           <h3 class="slide-title">What this teaches</h3>
           <ul class="slide-bullets">
-            <li>"Code" is too broad — any response to "inspect this repository" mentions it</li>
-            <li>Both configurations pass; assertion measures <em>neither</em></li>
-            <li>The assertion tests what <em>any</em> model would do, not what your skill does</li>
+            <li>"Code" is the <strong>wrong shape</strong> of test for THIS task — a structured JSON briefing about a Nuxt repo has no natural reason to use it</li>
+            <li>The assertion <em>fails on correct outputs</em> and would <em>pass on outputs that pad with generic text</em> — rewarding the wrong behavior</li>
+            <li>Both configurations got the same result; assertion measures <em>neither</em></li>
             <li><strong>Without the analyzer pass, you would not have caught this</strong></li>
           </ul>
         </article>
@@ -452,7 +499,7 @@ description: Point at any code repo. Produces a structured briefing — architec
           <span class="slide-label" style="color:#ffb693">Slide 4 / 5 · The discipline</span>
           <h3 class="slide-title" style="color:#ffffff">Evaluate the eval</h3>
           <p style="font-family:'Public Sans';font-size:22px;line-height:1.4;font-weight:700;font-style:italic;color:#ffdbcc;border-left:6px solid #fe6b00;padding-left:20px;margin:16px 0">
-            "Every prompt-engineering team writes assertions like this. They look reasonable. They pass. You feel good. The skill regresses silently in production. Your evals stay green."
+            "Every prompt-engineering team writes assertions like this. They look reasonable. The numbers don't change when your skill changes. You feel comfortable shipping. The skill regresses silently in production. Your evals don't catch it."
           </p>
         </article>
 
@@ -473,9 +520,9 @@ description: Point at any code repo. Produces a structured briefing — architec
         <aside class="notes-block">
           <span class="block-label">Speaker notes</span>
           <p><strong>Slide 1 — frame the analyzer:</strong> <em>"Benchmark tab. Top section is the analyzer pass — patterns the aggregate numbers might hide. Read this section carefully whenever you run evals; it's the highest-signal output the plugin produces."</em></p>
-          <p><strong>Slide 2 — find the flag:</strong> <em>"Here. Look at this. The analyzer flagged the first assertion on case 0 — <code>contains: code</code> — as non-discriminating. 100% pass rate with-skill. 100% pass rate without-skill."</em> <strong>Read the analyzer's exact text aloud</strong> (captured at dry-run — paste exact wording here).</p>
-          <p>Then: <em>"What does that tell us?"</em> <strong>Pause for 90 seconds.</strong> Take 2–3 audience guesses. Likely: "the assertion is too broad," "it's not testing the skill." Affirm both.</p>
-          <p><strong>Slide 3 — land the explanation:</strong> <em>"It means the word 'code' is too broad. Any reasonable response to 'inspect this repository' — with or without your skill — is going to mention 'code' somewhere. The assertion passes either way. It's not testing what your skill does; it's testing what any response would do."</em></p>
+          <p><strong>Slide 2 — find the flag:</strong> <em>"Here. Look at this. The analyzer flagged the first assertion on case 0 — <code>contains: code</code> — as non-discriminating. Both with-skill and without-skill failed it. Same result, both configurations."</em> <strong>Read the analyzer's exact text aloud from the slide quote.</strong></p>
+          <p>Then: <em>"What does that tell us?"</em> <strong>Pause for 90 seconds.</strong> Take 2–3 audience guesses. Likely: "the assertion isn't testing the skill," "it's the wrong shape of test." Affirm both.</p>
+          <p><strong>Slide 3 — land the explanation:</strong> <em>"It means the word 'code' is the wrong shape of test for this task. A structured JSON briefing about a Nuxt repo has no natural reason to mention 'code' — so the skill's correct output fails the assertion. And a baseline that pads with generic prose probably would mention 'code' — so a bad output would pass. The assertion is rewarding the wrong behavior. Either way, with-skill and without-skill both got the same result, so the assertion isn't measuring what your skill does."</em></p>
           <p><strong>Slide 4 — the discipline (memorized — do not read live):</strong> <em>"This is the planted pathology. We seeded the eval set with one assertion that doesn't work. The point isn't 'gotcha.' The point is — every prompt-engineering team writes assertions like this. They look reasonable. They pass. You feel good. The skill regresses silently in production. Your evals stay green."</em></p>
           <p><strong>Group discussion:</strong> <em>"What would a discriminating assertion look like for case 0? Take 30 seconds, talk to your neighbor."</em> Pause. <em>"Show of hands — who has a better assertion?"</em> Take 2–3 suggestions.</p>
           <p><strong>Slide 5 — fix and close:</strong> <em>"Good. Let's replace <code>contains: code</code> with <code>contains: architecture</code>. The skill produces a key called <code>architecture</code> in its JSON output; the baseline often doesn't. Now we have a discriminator."</em> Save the file.</p>
@@ -492,7 +539,7 @@ description: Point at any code repo. Produces a structured briefing — architec
             <li>Save</li>
           </ol>
           <p><strong>📸 Dry-run capture target:</strong> screenshot of Benchmark tab showing the analyzer flag. Lives at <code>assets/block2-analyzer-flag.png</code>.</p>
-          <p><strong>📋 Dry-run text capture:</strong> the <em>exact</em> analyzer output wording for <code>eval-0/contains:code</code>. Paste into Slide 2 quote block and the Speaker notes "Read the analyzer's exact text" cue.</p>
+          <p><strong>📋 Analyzer wording sourced from 2026-05-18 dry-run</strong> — <code>grading.json</code> <code>eval_feedback.suggestions[0]</code> for case 0. Slide 2 quote is the exact grader text. If you re-run live and the wording shifts, update the slide.</p>
         </aside>
       </section>
 
