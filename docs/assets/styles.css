@@ -1,0 +1,500 @@
+/* Workshop styles — companion to Tailwind utilities defined in tailwind-config.js */
+
+/* ============================================================
+   Base + grid background
+============================================================ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #fbf9f9;
+  color: #1b1c1c;
+}
+
+.bg-grid {
+  background-image: radial-gradient(circle, rgba(34, 22, 16, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* ============================================================
+   Brutalist offset-shadow helpers (used inline via Tailwind in pages)
+   These are utility classes for places where Tailwind arbitrary values
+   would get verbose. Use the explicit Tailwind classes where possible
+   for consistency with the design samples.
+============================================================ */
+
+.shadow-brut-sm {
+  box-shadow: 4px 4px 0 0 rgba(34, 22, 16, 1);
+}
+.shadow-brut-md {
+  box-shadow: 6px 6px 0 0 rgba(34, 22, 16, 1);
+}
+.shadow-brut-lg {
+  box-shadow: 8px 8px 0 0 rgba(34, 22, 16, 1);
+}
+.shadow-brut-primary {
+  box-shadow: 8px 8px 0 0 rgba(160, 65, 0, 1);
+}
+
+/* ============================================================
+   Beat sections
+============================================================ */
+
+.beat {
+  scroll-margin-top: 96px; /* anchor links land below sticky nav */
+}
+
+.beat-number {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: #221610;
+  color: #ffffff;
+  padding: 6px 10px;
+  display: inline-block;
+}
+
+.beat-critical .beat-number {
+  background: #a04100;
+}
+
+.slide-card {
+  border: 4px solid #221610;
+  background: #fbf9f9;
+  box-shadow: 8px 8px 0 0 rgba(34, 22, 16, 1);
+  padding: 24px;
+}
+
+.slide-card + .slide-card {
+  margin-top: 24px;
+}
+
+.slide-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #5a4136;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.slide-title {
+  font-family: "Public Sans", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #1b1c1c;
+  margin: 0 0 16px 0;
+}
+
+.slide-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.slide-bullets li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #1b1c1c;
+  margin-bottom: 10px;
+}
+
+.slide-bullets li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #a04100;
+  font-weight: 900;
+}
+
+.slide-bullets li strong {
+  font-weight: 800;
+  color: #a04100;
+}
+
+/* ============================================================
+   Tables inside slides
+============================================================ */
+
+.slide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  background: #ffffff;
+  border: 2px solid #221610;
+}
+
+.slide-table th,
+.slide-table td {
+  border: 1px solid #221610;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.4;
+  vertical-align: top;
+}
+
+.slide-table th {
+  background: #221610;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.slide-table tr:nth-child(even) td {
+  background: #f5f3f3;
+}
+
+.slide-table code {
+  background: #efeded;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   Code blocks + copy buttons
+============================================================ */
+
+.code-block {
+  position: relative;
+  margin: 16px 0;
+  border: 4px solid #221610;
+  background: #221610;
+  box-shadow: 6px 6px 0 0 rgba(160, 65, 0, 1);
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1b1c1c;
+  color: #ffb693;
+  padding: 8px 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #a04100;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 18px;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #fbf9f9;
+  background: #1b1c1c;
+}
+
+.code-block code {
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.copy-btn {
+  background: #a04100;
+  color: #ffffff;
+  border: 2px solid #ffb693;
+  padding: 4px 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.05s, background 0.15s;
+}
+
+.copy-btn:hover {
+  background: #fe6b00;
+}
+
+.copy-btn:active {
+  transform: translate(1px, 1px);
+}
+
+.copy-btn.copied {
+  background: #009efc;
+  color: #ffffff;
+}
+
+/* Inline code */
+p code,
+li code,
+td code {
+  background: #efeded;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: 1px solid #e2bfb0;
+}
+
+/* ============================================================
+   Speaker notes + demo piece
+============================================================ */
+
+.notes-block,
+.demo-block {
+  border: 4px solid #221610;
+  background: #ffffff;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+
+.notes-block {
+  background: #f6ded3;
+  border-left: 12px solid #a04100;
+  display: none; /* hidden by default; JS toggles */
+}
+
+body.show-notes .notes-block {
+  display: block;
+}
+
+.demo-block {
+  background: #f8f6f6;
+  border-left: 12px solid #00629f;
+}
+
+/* Explicit escape hatch — add class="demo-block is-empty" to force hide */
+.demo-block.is-empty {
+  display: none !important;
+}
+
+.block-label {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  margin-bottom: 14px;
+}
+
+.notes-block .block-label {
+  background: #a04100;
+  color: #ffffff;
+}
+
+.demo-block .block-label {
+  background: #00629f;
+  color: #ffffff;
+}
+
+.notes-block p,
+.demo-block p {
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 12px 0;
+}
+
+.notes-block p:last-child,
+.demo-block p:last-child {
+  margin-bottom: 0;
+}
+
+.notes-block em {
+  background: #ffdbcc;
+  font-style: normal;
+  padding: 1px 4px;
+}
+
+/* ============================================================
+   Beat header
+============================================================ */
+
+.beat-header {
+  margin-top: 64px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #221610;
+}
+
+.beat-header .meta-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.beat-header .meta-chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: #f6ded3;
+  border: 2px solid #221610;
+  color: #221610;
+}
+
+.beat-header .meta-chip.critical {
+  background: #a04100;
+  color: #ffffff;
+}
+
+.beat-header h2 {
+  font-family: "Public Sans", sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 12px 0 0 0;
+}
+
+/* ============================================================
+   In-page beat nav (sticky sidebar on desktop, inline on tablet)
+============================================================ */
+
+.beat-toc {
+  position: sticky;
+  top: 96px;
+  background: #fbf9f9;
+  border: 4px solid #221610;
+  padding: 16px;
+  box-shadow: 6px 6px 0 0 rgba(34, 22, 16, 1);
+}
+
+.beat-toc .toc-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #5a4136;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.beat-toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.beat-toc li {
+  margin-bottom: 4px;
+}
+
+.beat-toc a {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1b1c1c;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-left: 4px solid transparent;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.beat-toc a:hover {
+  background: rgba(160, 65, 0, 0.08);
+  border-left-color: #a04100;
+}
+
+.beat-toc a .toc-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #a04100;
+  margin-right: 8px;
+}
+
+/* ============================================================
+   Notes-mode banner (when speaker notes visible)
+============================================================ */
+
+.notes-mode-banner {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  background: #a04100;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid #221610;
+  box-shadow: 3px 3px 0 0 rgba(34, 22, 16, 1);
+}
+
+body.show-notes .notes-mode-banner {
+  display: block;
+}
+
+/* ============================================================
+   Small-viewport fallback (below tablet)
+============================================================ */
+
+.small-viewport-notice {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .small-viewport-notice {
+    display: block;
+    padding: 16px;
+    margin: 16px;
+    border: 4px solid #221610;
+    background: #ffdad6;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+/* ============================================================
+   Print (clean copy-paste / projector use)
+============================================================ */
+
+@media print {
+  .top-nav,
+  .bottom-nav,
+  .copy-btn,
+  .beat-toc,
+  .notes-mode-banner {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+  }
+  .slide-card,
+  .notes-block,
+  .demo-block {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+  }
+}

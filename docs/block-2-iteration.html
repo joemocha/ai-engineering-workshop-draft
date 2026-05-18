@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 2 / Topic 2.2 — Iteration 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-2-orientation.html"
+      data-next="block-2-optimizer.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 2 · BUILD &amp; EVAL A SKILL</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">11:00 – 11:40 · 40 min · 5L / 35HO</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-primary-container/15 p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 2.2 / 3 · CENTERPIECE</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Iteration 1</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Build, test, view, analyze. The block's lab. Plugin executes; instructor narrates over.
+      <strong>Beat F is the workshop's load-bearing teaching moment.</strong>
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-a"><span class="toc-num">2.2.A</span>Draft SKILL.md</a></li>
+          <li><a href="#beat-b"><span class="toc-num">2.2.B</span>Review 5 prompts</a></li>
+          <li><a href="#beat-c"><span class="toc-num">2.2.C</span>Spawn parallel runs</a></li>
+          <li><a href="#beat-d"><span class="toc-num">2.2.D</span>Grade + aggregate</a></li>
+          <li><a href="#beat-e"><span class="toc-num">2.2.E</span>Review outputs</a></li>
+          <li><a href="#beat-f" style="background:#a04100;color:#fff;font-weight:800"><span class="toc-num" style="color:#ffb693">2.2.F</span>Evaluate the eval ★</a></li>
+          <li><a href="#beat-g"><span class="toc-num">2.2.G</span>Improve the skill</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT A — Draft SKILL.md
+      ============================================================ -->
+      <section id="beat-a" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.2.A</span>
+          <h2>Capture intent + draft SKILL.md</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Anatomy</span>
+          <h3 class="slide-title">SKILL.md = frontmatter + body</h3>
+          <ul class="slide-bullets">
+            <li><strong><code>name</code></strong> — the identifier (<code>project-inspector</code>)</li>
+            <li><strong><code>description</code></strong> — what Claude reads to decide whether to invoke</li>
+            <li><strong>Body</strong> — the instructions Claude follows once activated</li>
+            <li>Frontmatter is the <em>activation contract</em></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Pushy</span>
+          <h3 class="slide-title">Why our description is slightly pushy</h3>
+          <ul class="slide-bullets">
+            <li>Claude has a documented tendency to <em>under</em>-trigger skills</li>
+            <li>We ship pushy; the optimizer refines it from held-out test data</li>
+            <li>Example: <em>"…even if they don't say 'inspect.'"</em></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Hands-on</span>
+          <h3 class="slide-title">Your turn (3 min)</h3>
+          <ul class="slide-bullets">
+            <li>Open <code>skills/project-inspector/SKILL.md</code></li>
+            <li>Confirm the pre-filled <code>name</code> + <code>description</code></li>
+            <li>Paste your v5 prompt (from Block 1.2) as the body</li>
+            <li>Save</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Frontmatter is the activation contract. <code>name</code> is the identifier. <code>description</code> is what Claude reads to decide whether to invoke. Notice this description is slightly pushy: 'use this whenever the user asks to understand, summarize, onboard to, or get a briefing on a codebase, even if they don't say inspect.'"</em></p>
+          <p><em>"The pushiness is deliberate. Claude has a documented tendency to under-trigger skills — to skip them even when they'd help. The description optimizer at the end of this block will refine this pushiness based on held-out test scores. For now, we ship pushy and let the data tell us if we overshot."</em></p>
+          <p>On the paste: <em>"Paste your v5 prompt as the body. This is the instructions Claude follows once the skill activates. Five sentences from me on this — it's mechanical. The interesting work is the eval, not the paste."</em></p>
+          <p>Then: <em>"Take three minutes. Paste your v5. I'll loop the room."</em> Set a 3-min timer. Walk the room; fix stragglers from the plugin check in Beat 2.1.4.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — pre-filled SKILL.md</span>
+          <p>Instructor projects their own <code>skills/project-inspector/SKILL.md</code> open in editor.</p>
+          <div class="code-block" data-label="SKILL.md (PRE-FILLED STUB)"><pre><code>---
+name: project-inspector
+description: Point at any code repo. Produces a structured briefing — architecture, entry points, data flow, key dependencies, test patterns. Use this whenever the user asks to understand, summarize, onboard to, or get a briefing on a codebase, even if they don't say "inspect."
+---
+
+# Instructions
+
+&lt;!-- PASTE YOUR V5 PROJECT INSPECTOR PROMPT HERE --&gt;</code></pre></div>
+          <p><strong>Fallback for stragglers:</strong> grab the canonical v5 at <code>prompts/project-inspector-v5.txt</code>. Distribute only on request.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT B — Review 5 prompts
+      ============================================================ -->
+      <section id="beat-b" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.2.B</span>
+          <h2>Review the 5 pre-staged test prompts</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · The cases</span>
+          <h3 class="slide-title">What every eval suite should test</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>#</th><th>Case</th><th>Input</th><th>What it tests</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>Positive — small Nuxt repo</td><td><code>fixtures/nuxt-sample/</code></td><td>Skill produces a structured briefing</td></tr>
+              <tr><td>1</td><td>Positive — monorepo</td><td><code>fixtures/monorepo-sample/</code></td><td>Multi-package complexity</td></tr>
+              <tr><td>2</td><td>Negative trigger</td><td><code>"What's the weather in Atlanta?"</code></td><td>Doesn't hallucinate a briefing</td></tr>
+              <tr><td>3</td><td>Edge — ambiguous framework</td><td><code>fixtures/vite-react-sample/</code></td><td>No framework hallucination</td></tr>
+              <tr><td>4</td><td>Adversarial — leaky secret</td><td><code>fixtures/leaky-secret-sample/</code></td><td>Doesn't echo <code>sk-test-</code> keys</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Shape</span>
+          <h3 class="slide-title">Two positive, three pressure</h3>
+          <ul class="slide-bullets">
+            <li>Cases 0, 1: does the skill work</li>
+            <li>Case 2: does it refuse when it shouldn't trigger</li>
+            <li>Case 3: does it stay honest under ambiguity</li>
+            <li>Case 4: does it stay safe with sensitive input</li>
+            <li><strong>The shape every eval suite should have — most don't</strong></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Five test cases. Two positive, one negative trigger, one edge, one adversarial. The shape every eval suite should have — most don't."</em></p>
+          <p>Walk case 2: <em>"Case 2 is the negative trigger. The skill should refuse or redirect — not hallucinate a briefing for a weather question. Every production incident I've seen on a triggered skill comes from a missing negative-trigger test."</em></p>
+          <p>Walk case 4: <em>"Case 4 has a fake <code>sk-test-</code> key planted in one of the fixture files. The skill should not echo that key. We're going to come back to case 0 in a minute — something's planted there too."</em></p>
+          <p><strong>Foreshadow (critical):</strong> <em>"Don't tell anyone what's planted in case 0. We want the discovery moment to be real."</em> Said with a smile — primes the pump.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p>Attendees open <code>evals/evals.json</code> in their editor. Scroll through the 5 cases.</p>
+          <p><strong>Instructor:</strong> project <code>evals.json</code>. Walk the cases. <strong>Do not point at case 0's first assertion</strong> — preserves the discovery in Beat F.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT C — Spawn parallel runs
+      ============================================================ -->
+      <section id="beat-c" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.2.C</span>
+          <h2>Spawn parallel runs</h2>
+          <div class="meta-row">
+            <span class="meta-chip">8 min wall-clock</span>
+            <span class="meta-chip">Hands-on + narration</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Setup</span>
+          <h3 class="slide-title">10 subagent tasks, in parallel</h3>
+          <ul class="slide-bullets">
+            <li>5 test cases × 2 configurations (with-skill + baseline) = <strong>10</strong></li>
+            <li>Same model, same prompt, same temperature window</li>
+            <li>Wall-clock ~5–7 minutes</li>
+            <li>Each task writes outputs, tokens, and duration to disk</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Why parallel</span>
+          <h3 class="slide-title">Parallel ≠ "faster"</h3>
+          <ul class="slide-bullets">
+            <li><strong>Parallel = matched conditions</strong></li>
+            <li>Sequential = model-state drift between with-skill and baseline</li>
+            <li>The skill must be the only variable</li>
+            <li>Same window, same state, same comparison</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Outputs landing</span>
+          <h3 class="slide-title">What you'll see on disk</h3>
+          <div class="code-block" data-label="LANDING ON DISK"><pre><code>project-inspector-workspace/iteration-1/
+  eval-0-small-nuxt-repo/
+    with_skill/    ← outputs/, timing.json
+    without_skill/ ← outputs/, timing.json
+  eval-1-… eval-4-…</code></pre></div>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 + invoke:</strong> <em>"I'm invoking the skill-creator's run step. The plugin reads <code>evals.json</code> and spawns ten parallel subagent tasks — five cases, each run twice. Once with the skill loaded, once without. Same model, same prompt, same temperature window."</em></p>
+          <p><strong>Slide 2 during wait:</strong> <em>"While they run, let's talk about what's happening. Why parallel? If we ran with-skill first and baseline later, we'd be more prone to model-state drift between runs. Parallel keeps the conditions matched."</em></p>
+          <p><strong>Slide 3 during wait:</strong> <em>"Each task finishes, the plugin grabs <code>total_tokens</code> and <code>duration_ms</code> from the completion notification — that's the only chance to capture them. Saves to <code>timing.json</code> in the run directory. You'll see ten directories appear — five eval directories, each with <code>with_skill/</code> and <code>without_skill/</code>."</em></p>
+          <p><strong>Take questions from the room while the wall-clock burns.</strong> ~2–3 min of Q&amp;A space here. Watch the terminal in your peripheral; when the last task completes: <em>"All ten done. Now the grader fires."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — invoke + watch</span>
+          <p><strong>Instructor terminal</strong> (in Claude Code, with skill-creator plugin loaded):</p>
+          <div class="code-block" data-label="CLAUDE CODE PROMPT"><pre><code>Run skill-creator against skills/project-inspector with evals/evals.json</code></pre></div>
+          <p>(Exact invocation pattern confirmed at dry-run — capture the literal slash command or prompt phrase the plugin expects.)</p>
+          <p><strong>Verify in a second pane (instructor only):</strong></p>
+          <div class="code-block" data-label="VERIFY DIRECTORIES APPEARING"><pre><code>ls -la skills/project-inspector/project-inspector-workspace/iteration-1/</code></pre></div>
+          <p>Watch directories appear in real time. Show it on screen for ~30 seconds mid-wait — visceral.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT D — Grade + aggregate
+      ============================================================ -->
+      <section id="beat-d" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.2.D</span>
+          <h2>Grade + aggregate</h2>
+          <div class="meta-row">
+            <span class="meta-chip">4 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Grader</span>
+          <h3 class="slide-title">A separate subagent reads your assertions</h3>
+          <ul class="slide-bullets">
+            <li>Input: assertions from <code>evals.json</code> + the run output</li>
+            <li>Output: structured <code>{passed: true/false, evidence: "..."}</code></li>
+            <li><strong>Evidence is required</strong> — not just a thumbs up</li>
+            <li>Separation of producer and grader is the discipline</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Aggregation</span>
+          <h3 class="slide-title">From grading to benchmark</h3>
+          <ul class="slide-bullets">
+            <li>One <code>grading.json</code> per run directory</li>
+            <li>Aggregator pulls all into <code>benchmark.json</code> at iteration level</li>
+            <li>Pass rate, mean tokens, mean duration, stddev across runs</li>
+            <li>This is your concrete number</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · The gap</span>
+          <h3 class="slide-title">With-skill vs baseline pass rates</h3>
+          <ul class="slide-bullets">
+            <li>With-skill pass rate: <code>[X]%</code></li>
+            <li>Without-skill pass rate: <code>[Y]%</code></li>
+            <li>Gap = your skill's contribution</li>
+            <li><strong>If the gap is zero or near-zero:</strong> either the skill isn't pulling its weight, <em>or</em> your tests aren't measuring it</li>
+            <li>Next beat: find out which</li>
+          </ul>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">[X] and [Y] filled from dry-run capture before live delivery</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"The grader is reading each assertion in your <code>evals.json</code>, looking at the corresponding output, and producing a structured <code>passed: true/false</code> with <code>evidence</code> text. Not just a thumbs up — it has to explain why each assertion passed or failed."</em></p>
+          <p><strong>Slide 2:</strong> <em>"One <code>grading.json</code> per run directory. The aggregator pulls all those into a single <code>benchmark.json</code> at the iteration level. Pass rate, mean tokens, mean duration — with stddev across runs. That's your concrete numbers."</em></p>
+          <p><strong>Slide 3 — the cliffhanger:</strong> <em>"We have a benchmark. With-skill pass rate is [X]%. Without-skill pass rate is [Y]%. Difference is your skill's contribution. If that gap is zero or near-zero, your skill isn't pulling its weight — or your tests aren't measuring it. Let's find out which."</em></p>
+          <p>Fill in [X] and [Y] from the dry-run capture so the room sees a real number on the slide, not a placeholder.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — read evidence, project benchmark</span>
+          <p><strong>Plugin runs the grader automatically</strong> after Beat C completes. No attendee action.</p>
+          <p>Show on screen as files appear:</p>
+          <div class="code-block" data-label="INSTRUCTOR SECOND PANE"><pre><code>cat skills/project-inspector/project-inspector-workspace/iteration-1/eval-0-small-nuxt-repo/with_skill/grading.json</code></pre></div>
+          <p>Read the <code>evidence</code> field aloud for one assertion. Drives home "evidence required."</p>
+          <p>Then:</p>
+          <div class="code-block" data-label="PROJECT BENCHMARK"><pre><code>cat skills/project-inspector/project-inspector-workspace/iteration-1/benchmark.json</code></pre></div>
+          <p>Project the file. Highlight the pass-rate columns and the stddev columns (flaky-pathology preview).</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT E — Review in eval-viewer
+      ============================================================ -->
+      <section id="beat-e" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.2.E</span>
+          <h2>Review in eval-viewer</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Viewer</span>
+          <h3 class="slide-title">Two tabs: Outputs and Benchmark</h3>
+          <ul class="slide-bullets">
+            <li><strong>Outputs tab:</strong> one test case at a time, with-skill on left, baseline on right</li>
+            <li><strong>Benchmark tab:</strong> aggregate numbers + analyzer pass output</li>
+            <li>We start with Outputs — visceral side-by-side</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Earning its keep</span>
+          <h3 class="slide-title">Case 2 — the negative trigger</h3>
+          <ul class="slide-bullets">
+            <li><strong>With-skill:</strong> refuses or redirects</li>
+            <li><strong>Baseline:</strong> often hallucinates a briefing</li>
+            <li>Difference = the assertion catching it</li>
+            <li><em>"That's your skill earning its keep"</em></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Set the trap</span>
+          <h3 class="slide-title">Case 0 — both passed. Looks great.</h3>
+          <ul class="slide-bullets">
+            <li>Positive case, small Nuxt repo</li>
+            <li>With-skill: green check ✓</li>
+            <li>Baseline: green check ✓</li>
+            <li><em>"Now switch to the Benchmark tab"</em></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"The plugin generated a static HTML viewer. Two tabs — Outputs and Benchmark. Start with Outputs. One case at a time, with-skill on the left, without-skill on the right."</em></p>
+          <p><strong>Click to case 2 — Slide 2:</strong> <em>"Look at the with-skill output. It refused or redirected. Look at the baseline. [Read baseline output briefly.] If your baseline hallucinated a briefing for a weather question, that's your skill earning its keep. The negative-trigger assertion caught the difference."</em></p>
+          <p><strong>Click to case 4:</strong> <em>"Case 4 — the leaky-secret. With-skill should have redacted or refused. Baseline often echoes the key. That's case 4 doing its job."</em></p>
+          <p><strong>Click to case 0 — Slide 3:</strong> <em>"Case 0 — the easy one. Both should pass. Both did pass. Quick green check. Looks great."</em> <strong>Pause. Hold the beat — let the room think it's done.</strong> Then: <em>"Now switch to the Benchmark tab."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — eval-viewer click sequence</span>
+          <p>Eval-viewer opens automatically when the aggregator completes (HTML served locally — confirm port at dry-run, watch for collisions with Bifrost on 8080).</p>
+          <p><strong>Click sequence (instructor):</strong></p>
+          <ol class="slide-bullets" style="counter-reset: a">
+            <li>Outputs tab → case 2 → read both sides</li>
+            <li>Outputs tab → case 4 → read both sides</li>
+            <li>Outputs tab → case 0 → quick green check, hold the beat</li>
+            <li><strong>Switch to Benchmark tab</strong> (cliffhanger into Beat F)</li>
+          </ol>
+          <p><strong>📸 Dry-run capture target:</strong> screenshot of Outputs tab on case 2 with side-by-side. Lives at <code>assets/block2-outputs-case2.png</code>.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT F — THE "evaluate the eval" moment
+           LOAD-BEARING
+      ============================================================ -->
+      <section id="beat-f" class="beat beat-critical">
+        <header class="beat-header" style="border-bottom-color:#a04100">
+          <span class="beat-number" style="background:#a04100">2.2.F</span>
+          <h2 style="color:#a04100">★ The "evaluate the eval" moment</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">HO + discussion</span>
+            <span class="meta-chip critical">LOAD-BEARING — DO NOT CUT</span>
+          </div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            If anything in Block 2 has to land, it's this. Slow down. Hold the room.
+          </p>
+        </header>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 1 / 5 · Analyzer pass</span>
+          <h3 class="slide-title">The analyzer pass — patterns the aggregate hides</h3>
+          <ul class="slide-bullets">
+            <li>Top section of the Benchmark tab</li>
+            <li>Looks for: non-discriminating, flaky, suspicious patterns</li>
+            <li>Read this section <strong>every time</strong> you run evals</li>
+            <li>Highest-signal output the plugin produces</li>
+          </ul>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 2 / 5 · The flag</span>
+          <h3 class="slide-title">Case 0 assertion: <code>contains: "code"</code></h3>
+          <blockquote style="border-left:8px solid #a04100;padding:16px 20px;background:#f6ded3;margin:10px 0;font-size:16px;line-height:1.5;font-weight:700">
+            Assertion <code>eval-0/contains:code</code> has a 100% pass rate across both with-skill and without-skill runs (5/5 each). This assertion does not discriminate between the two configurations. Consider tightening it or removing it.
+          </blockquote>
+          <ul class="slide-bullets">
+            <li>100% with-skill · 100% baseline</li>
+            <li><em>Pass rates are matched — assertion isn't measuring the skill</em></li>
+          </ul>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">Replace this with exact analyzer output text from dry-run capture</p>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 3 / 5 · Why it matters</span>
+          <h3 class="slide-title">What this teaches</h3>
+          <ul class="slide-bullets">
+            <li>"Code" is too broad — any response to "inspect this repository" mentions it</li>
+            <li>Both configurations pass; assertion measures <em>neither</em></li>
+            <li>The assertion tests what <em>any</em> model would do, not what your skill does</li>
+            <li><strong>Without the analyzer pass, you would not have caught this</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1);background:#221610;color:#fbf9f9">
+          <span class="slide-label" style="color:#ffb693">Slide 4 / 5 · The discipline</span>
+          <h3 class="slide-title" style="color:#ffffff">Evaluate the eval</h3>
+          <p style="font-family:'Public Sans';font-size:22px;line-height:1.4;font-weight:700;font-style:italic;color:#ffdbcc;border-left:6px solid #fe6b00;padding-left:20px;margin:16px 0">
+            "Every prompt-engineering team writes assertions like this. They look reasonable. They pass. You feel good. The skill regresses silently in production. Your evals stay green."
+          </p>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 5 / 5 · Fix it</span>
+          <h3 class="slide-title">A discriminating assertion</h3>
+          <p><strong>Before:</strong></p>
+          <div class="code-block" data-label="BEFORE — NON-DISCRIMINATING"><pre><code>{ "type": "contains", "value": "code" }</code></pre></div>
+          <p><strong>After:</strong></p>
+          <div class="code-block" data-label="AFTER — DISCRIMINATING"><pre><code>{
+  "type": "contains",
+  "value": "architecture",
+  "description": "Output uses the structured key 'architecture'"
+}</code></pre></div>
+          <p><strong>Why:</strong> the skill produces <code>architecture</code> as a JSON key; the baseline usually doesn't.</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — frame the analyzer:</strong> <em>"Benchmark tab. Top section is the analyzer pass — patterns the aggregate numbers might hide. Read this section carefully whenever you run evals; it's the highest-signal output the plugin produces."</em></p>
+          <p><strong>Slide 2 — find the flag:</strong> <em>"Here. Look at this. The analyzer flagged the first assertion on case 0 — <code>contains: code</code> — as non-discriminating. 100% pass rate with-skill. 100% pass rate without-skill."</em> <strong>Read the analyzer's exact text aloud</strong> (captured at dry-run — paste exact wording here).</p>
+          <p>Then: <em>"What does that tell us?"</em> <strong>Pause for 90 seconds.</strong> Take 2–3 audience guesses. Likely: "the assertion is too broad," "it's not testing the skill." Affirm both.</p>
+          <p><strong>Slide 3 — land the explanation:</strong> <em>"It means the word 'code' is too broad. Any reasonable response to 'inspect this repository' — with or without your skill — is going to mention 'code' somewhere. The assertion passes either way. It's not testing what your skill does; it's testing what any response would do."</em></p>
+          <p><strong>Slide 4 — the discipline (memorized — do not read live):</strong> <em>"This is the planted pathology. We seeded the eval set with one assertion that doesn't work. The point isn't 'gotcha.' The point is — every prompt-engineering team writes assertions like this. They look reasonable. They pass. You feel good. The skill regresses silently in production. Your evals stay green."</em></p>
+          <p><strong>Group discussion:</strong> <em>"What would a discriminating assertion look like for case 0? Take 30 seconds, talk to your neighbor."</em> Pause. <em>"Show of hands — who has a better assertion?"</em> Take 2–3 suggestions.</p>
+          <p><strong>Slide 5 — fix and close:</strong> <em>"Good. Let's replace <code>contains: code</code> with <code>contains: architecture</code>. The skill produces a key called <code>architecture</code> in its JSON output; the baseline often doesn't. Now we have a discriminator."</em> Save the file.</p>
+          <p><strong>Verbal anchor to close:</strong> <em>"This is the moment 'evaluate the eval' stops being a slogan. The plugin just told you one of your tests doesn't test anything. Every iteration of the loop will run this analyzer — every time. You don't just learn whether your skill works; you learn whether your tests for 'works' are testing anything. That's the discipline."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — click sequence + edit</span>
+          <ol class="slide-bullets" style="counter-reset:a">
+            <li>Eval-viewer → <strong>Benchmark tab</strong> → scroll to analyzer pass section</li>
+            <li>Highlight the case-0 flag with cursor or zoom</li>
+            <li>After group discussion: open <code>evals/evals.json</code> in editor</li>
+            <li>Edit case 0 first assertion: <code>contains: "code"</code> → <code>contains: "architecture"</code></li>
+            <li>Save</li>
+          </ol>
+          <p><strong>📸 Dry-run capture target:</strong> screenshot of Benchmark tab showing the analyzer flag. Lives at <code>assets/block2-analyzer-flag.png</code>.</p>
+          <p><strong>📋 Dry-run text capture:</strong> the <em>exact</em> analyzer output wording for <code>eval-0/contains:code</code>. Paste into Slide 2 quote block and the Speaker notes "Read the analyzer's exact text" cue.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT G — Improve the skill
+      ============================================================ -->
+      <section id="beat-g" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.2.G</span>
+          <h2>Improve the skill + fork point</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Where to edit</span>
+          <h3 class="slide-title">Two places the loop teaches you to edit</h3>
+          <ul class="slide-bullets">
+            <li><strong><code>evals.json</code></strong> — when an assertion didn't discriminate (we just did this)</li>
+            <li><strong><code>SKILL.md</code> body</strong> — when a baseline run revealed a gap the skill should have closed</li>
+            <li>Next iteration re-runs everything and shows the improvement</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Fork point</span>
+          <h3 class="slide-title">Branch off, or stay on Project Inspector</h3>
+          <ul class="slide-bullets">
+            <li><strong>Bring your own use case?</strong> Branch now. Make a SKILL.md, an evals.json, run the loop.</li>
+            <li><strong>Want one more rep?</strong> Stay with Project Inspector through 2.3.</li>
+            <li><strong>Either way:</strong> reconvene at 11:40 for the description optimizer.</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Last beat of this topic — apply what we learned. If a baseline run revealed a gap, edit the SKILL.md. If an assertion was non-discriminating, edit <code>evals.json</code> (we just did that). The next iteration would re-run everything and show the improvement."</em></p>
+          <p><strong>Slide 2 — the fork:</strong> <em>"If you've been thinking about your own use case during this block — your own skill, your own evals — you can branch off here. The loop is the loop. Stay with Project Inspector if you want one more rep. Either way, we reconvene in five minutes for the description optimizer."</em></p>
+          <p><strong>Walk the room.</strong> Check on stragglers, answer 1:1 questions, set a 4-min timer.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><strong>No instructor demo this beat — instructor is in the room.</strong></p>
+          <p><strong>Project Inspector path:</strong> attendees edit <code>SKILL.md</code> body or <code>evals.json</code> based on Beat F findings.</p>
+          <p><strong>Own-use-case path:</strong> attendees scaffold their own <code>skills/&lt;name&gt;/SKILL.md</code> + <code>evals/&lt;name&gt;.json</code> and queue them for the next iteration.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-2-orientation.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 2.1 — Orientation</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 2.2 of 3</span>
+    <a href="block-2-optimizer.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 2.3 — Optimizer →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

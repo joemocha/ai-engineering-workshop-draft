@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 2 / Topic 2.1 — Orientation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="index.html"
+      data-next="block-2-iteration.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<!-- Top nav -->
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <!-- Breadcrumb / context -->
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 2 · BUILD &amp; EVAL A SKILL</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">10:45 – 11:00 · 15 min · 12L / 3HO</span>
+  </div>
+
+  <!-- Topic header -->
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 2.1 / 3</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Orientation</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Skill-creator orientation and the <em>"evaluate the eval"</em> doctrine. Level-set the workflow,
+      name the three eval pathologies, verify everyone's environment before we drive into the lab.
+    </p>
+  </header>
+
+  <!-- Grid: TOC + beats -->
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <!-- TOC sidebar -->
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-2-1-1"><span class="toc-num">2.1.1</span>Opening hook</a></li>
+          <li><a href="#beat-2-1-2"><span class="toc-num">2.1.2</span>Workflow at a glance</a></li>
+          <li><a href="#beat-2-1-3"><span class="toc-num">2.1.3</span>Three eval pathologies</a></li>
+          <li><a href="#beat-2-1-4"><span class="toc-num">2.1.4</span>Workspace + setup</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <!-- Beats column -->
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 2.1.1 — Opening hook
+      ============================================================ -->
+      <section id="beat-2-1-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.1.1</span>
+          <h2>Opening hook</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <!-- Slide 1 — Title -->
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Title</span>
+          <h3 class="slide-title">Block 2 — Build &amp; Eval a Skill</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            <em>Evaluate the eval.</em>
+          </p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">75 min · ~64% hands-on</p>
+        </article>
+
+        <!-- Slide 2 — Premise -->
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Premise</span>
+          <h3 class="slide-title">What this block does</h3>
+          <ul class="slide-bullets">
+            <li>Turn your v5 prompt into a working skill on disk</li>
+            <li>Run with-skill vs without-skill in parallel</li>
+            <li><strong>Watch the analyzer catch a test that doesn't test anything</strong></li>
+            <li>Optimize the description on a held-out test set</li>
+          </ul>
+        </article>
+
+        <!-- Slide 3 — Workflow diagram -->
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Workflow</span>
+          <h3 class="slide-title">The skill-creator loop</h3>
+          <div class="code-block" data-label="DIAGRAM"><pre><code>intent → SKILL.md draft → test prompts
+            ↓
+    spawn parallel runs (with-skill + baseline)
+            ↓
+    grade + benchmark  →  analyzer pass  →  view
+            ↓
+    improve  →  next iteration
+            ↓
+    description optimizer (5 iter, 60/40 train/test)</code></pre></div>
+        </article>
+
+        <!-- Speaker notes -->
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p>Open hard. <em>"In Block 1 you wrote a pretty good prompt. Now we're going to find out how good. And — more importantly — whether your test for 'good' is actually testing anything."</em></p>
+          <p>Then set the stake: <em>"Most people in this room who've written prompt evals have written at least one that doesn't measure what they thought it measured. By the end of this block, you'll know how to spot one. The plugin we're about to use does the spotting for you — but only if you know what it's pointing at."</em></p>
+          <p>Walk the diagram once, top to bottom, naming each step. Don't explain yet — just name. <em>"That's one iteration. Most teams call this 'evals.' I'm going to insist on calling it 'evaluating the evals' — because that analyzer pass is where the real learning happens."</em></p>
+        </aside>
+
+        <!-- Demo piece -->
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure framing — set the room, then transition into the workflow lecture.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.1.2 — Workflow at a glance
+      ============================================================ -->
+      <section id="beat-2-1-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.1.2</span>
+          <h2>The skill-creator workflow at a glance</h2>
+          <div class="meta-row">
+            <span class="meta-chip">4 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 4 · Parallel</span>
+          <h3 class="slide-title">Why parallel runs?</h3>
+          <ul class="slide-bullets">
+            <li>Same prompt, same model, same temperature window</li>
+            <li>One subagent has the skill loaded; one doesn't</li>
+            <li><strong>The skill is the only difference</strong></li>
+            <li>Sequential runs drift; parallel runs match</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 4 · Baseline</span>
+          <h3 class="slide-title">The baseline is the discriminator</h3>
+          <ul class="slide-bullets">
+            <li>If the baseline passes your test, your skill isn't earning its keep</li>
+            <li>That's not a passing test — it's a non-discriminating assertion</li>
+            <li>Plugin flags assertions where with-skill AND without-skill both pass</li>
+            <li><strong>First-class concern, not an afterthought</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 4 · Grader</span>
+          <h3 class="slide-title">Separation of concerns inside the loop</h3>
+          <ul class="slide-bullets">
+            <li>The grader is a different subagent from the producer</li>
+            <li>Letting the producer grade itself = AI tar pit ("yes, I did the thing")</li>
+            <li>Grader reads assertions → <code>{passed, evidence}</code></li>
+            <li><strong>Evidence text is required — not just a thumbs up</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 4 / 4 · Optimizer</span>
+          <h3 class="slide-title">Last step: optimize the trigger</h3>
+          <ul class="slide-bullets">
+            <li>5 auto-iterations on the <code>description</code> field (body unchanged)</li>
+            <li>20-query trigger eval, split 60/40 train/test</li>
+            <li>Picks the description with the best <strong>test</strong> score</li>
+            <li>Catches overfit before production does</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p>This is your "design choices of the loop" lecture. Four slides, four design choices, ~1 minute each.</p>
+          <p><strong>Parallel:</strong> model-state drift. Sequential runs see slightly different model states; parallel keeps conditions matched.</p>
+          <p><strong>Baseline:</strong> <em>"If the without-skill run passes your test, your skill isn't earning its keep. That's the seed of evaluate-the-eval."</em></p>
+          <p><strong>Grader separation:</strong> <em>"Letting the model that produced the output also grade it is the classic AI tar pit. Separation of concerns matters even inside an eval loop."</em> (Memorized line.)</p>
+          <p><strong>Description optimizer:</strong> <em>"Triggering accuracy is the number-one production failure mode for skills. The plugin does this in ten minutes."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Lecture only. You'll show the actual workspace tree in Beat 2.1.4.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.1.3 — Three eval pathologies
+      ============================================================ -->
+      <section id="beat-2-1-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.1.3</span>
+          <h2>The three eval pathologies</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Pathologies</span>
+          <h3 class="slide-title">Three ways evals lie to you</h3>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Pathology</th>
+                <th>What it looks like</th>
+                <th>Where it surfaces</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Non-discriminating</strong></td>
+                <td>Passes for BOTH with-skill and baseline</td>
+                <td>Analyzer pass — explicit flag</td>
+              </tr>
+              <tr>
+                <td><strong>Flaky / high-variance</strong></td>
+                <td>Same input, different result on re-runs</td>
+                <td><code>benchmark.json</code> mean ± stddev</td>
+              </tr>
+              <tr>
+                <td><strong>Overfit</strong></td>
+                <td>Passes on your fixture, fails everywhere else</td>
+                <td>Optimizer's 60/40 train/test gap</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Foreshadow</span>
+          <h3 class="slide-title">Today we will see…</h3>
+          <ul class="slide-bullets">
+            <li><strong>Non-discriminating</strong> — planted in your eval set. Watch for it.</li>
+            <li><strong>Flaky</strong> — described, not planted (too noisy to teach with)</li>
+            <li><strong>Overfit</strong> — surfaces in the optimizer report at end of block</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p>Show the table. Walk the three rows.</p>
+          <p><strong>Row 1:</strong> <em>"Non-discriminating — passes for both your skill and the baseline. Means your test doesn't measure what your skill does — it just measures what any model tends to do. We've planted one of these in your eval set."</em></p>
+          <p><strong>Row 2:</strong> <em>"Flaky — same input, different result across re-runs. Usually shows up in LLM-as-judge assertions where the rubric is too vague. The benchmark shows mean ± stddev. High variance means you can't trust the eval. We didn't plant a flaky one because they're noisy to teach with — but you'll meet them in production."</em></p>
+          <p><strong>Row 3:</strong> <em>"Overfit — your eval passes on the fixture you wrote it for, fails everywhere else. Surfaces in the description optimizer's train-vs-test gap. Watch for that gap when the optimizer report comes up at the end of the block."</em></p>
+          <p>Verbal anchor on the second slide: <em>"Three pathologies. Each surfaces in a specific place. By the time we're done, you'll be able to walk the loop on your own."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure setup — the "watch for it" foreshadowing pays off in Beat F (Topic 2.2).</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.1.4 — Workspace + setup
+      ============================================================ -->
+      <section id="beat-2-1-4" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.1.4</span>
+          <h2>Workspace layout + hands-on setup</h2>
+          <div class="meta-row">
+            <span class="meta-chip">4 min</span>
+            <span class="meta-chip">1L / 3HO</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Workspace</span>
+          <h3 class="slide-title">What appears on disk</h3>
+          <div class="code-block" data-label="DIRECTORY TREE"><pre><code>project-inspector/
+├── SKILL.md
+├── evals/
+│   └── evals.json
+└── project-inspector-workspace/
+    └── iteration-1/
+        ├── eval-0-small-nuxt-repo/
+        │   ├── with_skill/   (outputs + timing + grading)
+        │   └── without_skill/ (outputs + timing + grading)
+        ├── eval-1-… eval-4-…
+        ├── benchmark.json
+        └── benchmark.md</code></pre></div>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Setup check (HO)</span>
+          <h3 class="slide-title">Before we drive — three checks</h3>
+          <ul class="slide-bullets">
+            <li><code>cd ai-engineering-workshop</code></li>
+            <li><code>skills/project-inspector/SKILL.md</code> exists as a stub</li>
+            <li><code>evals/evals.json</code> exists with 5 cases</li>
+            <li>Verify <code>skill-creator</code> is installed (one-liner below)</li>
+          </ul>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4">
+            <strong>Verify command:</strong>
+          </p>
+          <div class="code-block" data-label="VERIFY"><pre><code>grep -q '"skill-creator@' ~/.claude/plugins/installed_plugins.json \
+  &amp;&amp; echo "✓ skill-creator installed" \
+  || echo "✗ NOT installed"</code></pre></div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+            <strong>If the red X appears:</strong> launch <code>claude</code> → type <code>/plugin</code> → search "skill-creator" → install.
+          </p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> one minute on the tree. <em>"Skill goes in its own folder. Eval suite goes in <code>evals/evals.json</code>. Plugin creates <code>project-inspector-workspace/iteration-1/</code> as a sibling — one directory per case, one for with-skill, one for without-skill, plus a <code>benchmark.json</code> at the iteration level. You'll see all this on disk in about ten minutes."</em></p>
+          <p><strong>Slide 2 setup beat:</strong> pure environment verification, no judgment. <em>"Everyone open the starter repo. Should see the stub SKILL.md and the 5-case evals.json. Hand-raise — anyone missing either? Send stragglers to back-of-room helper."</em></p>
+          <p>Then plugin check: <em>"You did this in Block 1.3. The one-liner on screen reads the plugins config on disk and tells you yes or no. If you get the red X — launch <code>claude</code>, type <code>/plugin</code>, install skill-creator from the marketplace, rejoin. Pause."</em></p>
+          <p>Close: <em>"Good. Now we drive."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — three commands attendees run</span>
+          <p>Attendees run these three commands. Instructor mirrors on the projector.</p>
+          <div class="code-block" data-label="ATTENDEE TERMINAL"><pre><code>cd ~/code/ai-engineering-workshop
+ls skills/project-inspector/SKILL.md evals/evals.json
+grep -q '"skill-creator@' ~/.claude/plugins/installed_plugins.json \
+  &amp;&amp; echo "✓ skill-creator installed" \
+  || echo "✗ NOT installed"</code></pre></div>
+          <p><strong>If any attendee gets the red X:</strong> they install during Beat A's 3-min room loop. There's no break between 2.1 and 2.2 — fix in-band.</p>
+          <p><strong>Why this check (not <code>claude /plugin list</code>):</strong> <code>/plugin</code> is an interactive REPL command, not a CLI subcommand. You can't pipe its output to <code>grep</code>. The <code>installed_plugins.json</code> file is the source of truth — Claude Code writes to it whenever a plugin is installed or updated.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Bottom nav -->
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="index.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Workshop home</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 2.1 of 3</span>
+    <a href="block-2-iteration.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 2.2 — Iteration 1 →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

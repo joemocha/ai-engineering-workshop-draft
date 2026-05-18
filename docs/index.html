@@ -1,12 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Engineering Workshop</title>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>AI Engineering Workshop — VueConf US 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
 </head>
-<body>
-  <h1>Hello, world</h1>
-  <p>AI Engineering Workshop — VueConf US 2026.</p>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0">
+
+<!-- Grid overlay -->
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<!-- Small viewport notice (tablet+ only) -->
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong>
+  This workshop site is intended to be viewed at 768px or wider. On a phone, jump to a tablet or laptop for the best experience.
+</div>
+
+<!-- Top nav -->
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<!-- Speaker-notes mode banner -->
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-12 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max flex flex-col gap-gutter">
+
+  <!-- Hero -->
+  <section class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)]">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">VueConf US 2026 · Workshop Day · 9 AM – 5 PM</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">AI Engineering Workshop</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      From Prompt Architecture to Production Infrastructure. Constraint engineering at four altitudes —
+      prompt → skill → developer-workflow → infrastructure.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-2">
+      <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">Martin Rojas</span>
+      <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">Samuel Obukwelu</span>
+      <span class="font-mono-tag text-mono-tag bg-primary px-3 py-1.5 border-2 border-border-primary text-on-primary">2026-05-19</span>
+      <span class="font-mono-tag text-mono-tag bg-surface-variant px-3 py-1.5 border-2 border-border-primary">Atlanta, GA</span>
+    </div>
+  </section>
+
+  <!-- Day shape -->
+  <section class="border-4 border-border-primary bg-surface-container-lowest p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)]">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">DAY SHAPE</p>
+    <h2 class="font-display-xl-mobile text-display-xl-mobile text-on-background uppercase mb-6">Schedule</h2>
+    <table class="slide-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Block</th>
+          <th>Owner</th>
+          <th>Mode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>9:00 – 10:30</code></td>
+          <td><strong>1 — Foundations</strong></td>
+          <td>Martin</td>
+          <td>Lecture + HO</td>
+        </tr>
+        <tr>
+          <td><code>10:30 – 10:45</code></td>
+          <td>Break</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><code>10:45 – 12:00</code></td>
+          <td><strong>2 — Build &amp; Eval a Skill</strong></td>
+          <td>Martin</td>
+          <td>Lab</td>
+        </tr>
+        <tr>
+          <td><code>12:00 – 1:00</code></td>
+          <td>Lunch</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><code>1:00 – 2:30</code></td>
+          <td><strong>3 — Vibe Coding → Agentic Engineering</strong></td>
+          <td>Sam</td>
+          <td>Lab</td>
+        </tr>
+        <tr>
+          <td><code>2:30 – 2:45</code></td>
+          <td>Break</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><code>2:45 – 5:00</code></td>
+          <td><strong>4 — AI Gateway (Production)</strong></td>
+          <td>Martin</td>
+          <td>Lab + Q&amp;A</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Blocks grid -->
+  <section>
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">FOUR ALTITUDES</p>
+    <h2 class="font-display-xl-mobile text-display-xl-mobile text-on-background uppercase mb-6">Blocks</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+      <!-- Block 1 -->
+      <a href="block-1-foundations.html" class="block border-4 border-border-primary bg-surface p-6 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] hover:bg-primary/5 transition-colors group">
+        <div class="flex justify-between items-start mb-4">
+          <span class="font-mono-tag text-mono-tag bg-primary text-on-primary px-3 py-1.5 border-2 border-border-primary">BLOCK 1</span>
+          <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">90 min</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md uppercase text-on-background mb-2" style="font-size:24px;line-height:1.15">Foundations</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Mental model, CLI comfort, skill/plugin/agent decision framework. The conceptual floor.</p>
+        <p class="font-mono-tag text-mono-tag text-primary group-hover:underline">Open block →</p>
+      </a>
+
+      <!-- Block 2 -->
+      <a href="block-2-orientation.html" class="block border-4 border-border-primary bg-primary-container/15 p-6 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] hover:bg-primary/15 transition-colors group">
+        <div class="flex justify-between items-start mb-4">
+          <span class="font-mono-tag text-mono-tag bg-primary text-on-primary px-3 py-1.5 border-2 border-border-primary">BLOCK 2</span>
+          <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">75 min</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md uppercase text-on-background mb-2" style="font-size:24px;line-height:1.15">Build &amp; Eval a Skill</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Promote your v5 prompt to a working skill via skill-creator. Run with-skill vs baseline. <strong>Evaluate the eval.</strong></p>
+        <p class="font-mono-tag text-mono-tag text-primary group-hover:underline">Open block →</p>
+      </a>
+
+      <!-- Block 3 -->
+      <div class="border-4 border-dashed border-border-primary bg-surface-container-low p-6">
+        <div class="flex justify-between items-start mb-4">
+          <span class="font-mono-tag text-mono-tag bg-surface-variant px-3 py-1.5 border-2 border-border-primary">BLOCK 3</span>
+          <span class="font-mono-tag text-mono-tag bg-surface-variant px-3 py-1.5 border-2 border-border-primary">90 min</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md uppercase text-on-background mb-2" style="font-size:24px;line-height:1.15">Vibe Coding → Agentic Engineering</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Sam's block. How working engineers compose skills, hooks, multi-CLI verification daily.</p>
+        <p class="font-mono-tag text-mono-tag text-on-surface-variant">Sam-led · materials TBD</p>
+      </div>
+
+      <!-- Block 4 -->
+      <div class="border-4 border-dashed border-border-primary bg-surface-container-low p-6">
+        <div class="flex justify-between items-start mb-4">
+          <span class="font-mono-tag text-mono-tag bg-surface-variant px-3 py-1.5 border-2 border-border-primary">BLOCK 4</span>
+          <span class="font-mono-tag text-mono-tag bg-surface-variant px-3 py-1.5 border-2 border-border-primary">135 min</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md uppercase text-on-background mb-2" style="font-size:24px;line-height:1.15">AI Gateway (Production)</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Configure Bifrost end-to-end. Tour OSS vs paywalled features. Wire into a Nuxt app. Q&amp;A floor at 15 min.</p>
+        <p class="font-mono-tag text-mono-tag text-on-surface-variant">Pending build · next session</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reference / quick links -->
+  <section id="reference" class="border-4 border-border-primary bg-surface-container-lowest p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)]">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">REFERENCE</p>
+    <h2 class="font-display-xl-mobile text-display-xl-mobile text-on-background uppercase mb-6">Quick links</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+      <div class="border-2 border-border-primary bg-surface p-4">
+        <h3 class="font-headline-md text-headline-md uppercase mb-2">Attendees</h3>
+        <ul class="slide-bullets">
+          <li><a class="underline hover:text-primary" href="https://github.com/your-org/ai-engineering-workshop">Workshop repo (clone before workshop)</a></li>
+          <li>Prerequisites doc (in repo <code>README.md</code>)</li>
+          <li><kbd>s</kbd> reveals speaker notes inline · also <code>?notes=1</code> in URL</li>
+        </ul>
+      </div>
+      <div class="border-2 border-border-primary bg-surface p-4">
+        <h3 class="font-headline-md text-headline-md uppercase mb-2">Presenter</h3>
+        <ul class="slide-bullets">
+          <li>Arrow keys navigate between topic pages</li>
+          <li><code>Ctrl/Cmd + P</code> for clean print view</li>
+          <li>Copy buttons on every code block</li>
+          <li>Notes mode persists across page loads (localStorage)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="border-4 border-border-primary bg-surface p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)]">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">ABOUT</p>
+    <h2 class="font-display-xl-mobile text-display-xl-mobile text-on-background uppercase mb-6">The pedagogical claim</h2>
+    <blockquote class="text-on-background border-l-4 border-primary pl-6 py-2 max-w-3xl" style="font-size:22px;font-weight:700;line-height:1.4">
+      "Stop building demos. Start shipping AI systems that actually work."
+    </blockquote>
+    <p class="font-body-sm text-body-sm text-on-surface-variant mt-6 max-w-3xl">
+      Most developers can call an API and write a prompt. Few can build AI systems that consistently
+      deliver production-quality results in enterprise environments. This all-day workshop teaches both —
+      engineering prompts that work, and infrastructure that delivers them.
+    </p>
+  </section>
+
+</div>
+</main>
+
+<footer class="border-t-4 border-border-primary bg-background-light px-edge-margin-desktop py-6 mt-10">
+  <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <p class="font-mono-tag text-mono-tag text-on-surface-variant">CORE_WORKSHOP_v1.0 · 2026-05-19 · VueConf US</p>
+    <p class="font-mono-tag text-mono-tag text-on-surface-variant">Built with Tailwind · No framework. No magic.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
 </body>
 </html>

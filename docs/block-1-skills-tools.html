@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 1 / Topic 1.3 — AI coding tools + decision framework</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-1-prompts.html"
+      data-next="block-2-orientation.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 1 · FOUNDATIONS</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">9:45 – 10:30 · 45 min · 25L / 20HO</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-primary-container/15 p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 1.3 / 3 · MENTAL MODEL</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Skills, Plugins, Agents</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      AI coding tools, the Claude Code loop, and the load-bearing
+      <strong>skill / plugin / agent decision framework</strong> that Block 2 builds on.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-1-3-1"><span class="toc-num">1.3.1</span>CLI vs IDE-chat</a></li>
+          <li><a href="#beat-1-3-2"><span class="toc-num">1.3.2</span>Claude Code core flow</a></li>
+          <li><a href="#beat-1-3-3" style="background:#a04100;color:#fff;font-weight:800"><span class="toc-num" style="color:#ffb693">1.3.3</span>Decision framework ★</a></li>
+          <li><a href="#beat-1-3-4"><span class="toc-num">1.3.4</span>Marketplace tour</a></li>
+          <li><a href="#beat-1-3-5"><span class="toc-num">1.3.5</span>Boot + verify HO</a></li>
+          <li><a href="#beat-1-3-6"><span class="toc-num">1.3.6</span>Tour on disk HO</a></li>
+          <li><a href="#beat-1-3-7"><span class="toc-num">1.3.7</span>Classify HO</a></li>
+          <li><a href="#beat-1-3-8"><span class="toc-num">1.3.8</span>Bridge to Block 2</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 1.3.1 — CLI vs IDE-chat
+      ============================================================ -->
+      <section id="beat-1-3-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.1</span>
+          <h2>CLI-first vs IDE-chat</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Two shapes</span>
+          <h3 class="slide-title">Where does the model live?</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Shape</th><th>Examples</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>IDE chat</strong></td><td>Cursor, Copilot Chat, JetBrains AI</td><td>Tight loop, lower engineering ceiling</td></tr>
+              <tr><td><strong>CLI agent</strong></td><td>Claude Code, Codex CLI, Gemini CLI</td><td>Composable, scriptable, higher ceiling</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Why CLI</span>
+          <h3 class="slide-title">CLI = composability</h3>
+          <ul class="slide-bullets">
+            <li>Pipes to other tools (<code>grep</code>, <code>jq</code>, <code>gh</code>)</li>
+            <li>Triggers from CI, hooks, cron, MCP servers</li>
+            <li>Versionable config — settings, skills, plugins on disk</li>
+            <li>Multi-CLI verification (run Codex + Claude on the same task)</li>
+            <li><strong>This is why Sam's block lives at the CLI altitude</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Convergent shape</span>
+          <h3 class="slide-title">The shape is convergent</h3>
+          <ul class="slide-bullets">
+            <li>Prompt → plan → tool use → diff → confirm</li>
+            <li>Most CLIs implement some variation of this loop</li>
+            <li>Differences are surface, not deep</li>
+            <li>We'll demo with Claude Code; <strong>portability is the point</strong></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Two shapes of AI coding tool. IDE chat — Cursor, Copilot, JetBrains. Lives inside your editor. Tight loop, low friction, lower engineering ceiling. CLI agent — Claude Code, Codex CLI, Gemini CLI. Lives in your terminal. Composable, scriptable, higher ceiling."</em></p>
+          <p><strong>Slide 2:</strong> <em>"Why CLI matters at the engineering altitude? Composability. Pipes. Hooks. CI triggers. Multi-CLI verification — Sam will show you how to run Codex and Claude on the same task and use one to verify the other. None of that is possible inside an IDE chat. This is why every block from here on lives at the CLI altitude."</em></p>
+          <p><strong>Slide 3:</strong> <em>"The shape across CLIs is convergent. Prompt, plan, tool use, diff, confirm. Most CLIs implement some version. We'll demo with Claude Code today, but the patterns are portable."</em></p>
+          <p>Calibration check (from Topic 1.1 tool poll): if the room is mostly Claude Code, move on. If it's mixed, spend an extra 30s on the Codex/Gemini analogues.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p>Optional — if the room is mixed CLIs, project a one-screen comparison of the launch commands:</p>
+          <div class="code-block" data-label="CLI LAUNCH COMMANDS"><pre><code>claude       # Claude Code REPL
+codex        # OpenAI Codex CLI
+gemini       # Google Gemini CLI</code></pre></div>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.2 — Claude Code core flow
+      ============================================================ -->
+      <section id="beat-1-3-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.2</span>
+          <h2>Claude Code core flow</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · The loop</span>
+          <h3 class="slide-title">Claude Code core flow</h3>
+          <div class="code-block" data-label="THE LOOP"><pre><code>PROMPT  →  PLAN  →  TOOL USE  →  DIFF  →  CONFIRM
+                                      ↑                 ↓
+                                      └──── iterate ←───┘</code></pre></div>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · One turn</span>
+          <h3 class="slide-title">Anatomy of one turn</h3>
+          <ul class="slide-bullets">
+            <li><strong>Prompt</strong> — you describe the goal</li>
+            <li><strong>Plan</strong> — model proposes steps (you can edit)</li>
+            <li><strong>Tool use</strong> — model edits files, runs commands, reads diagnostics</li>
+            <li><strong>Diff</strong> — every write is staged as a diff</li>
+            <li><strong>Confirm</strong> — you accept, reject, or redirect</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Plugins extend the loop</span>
+          <h3 class="slide-title">Plugins extend the loop</h3>
+          <ul class="slide-bullets">
+            <li>A plugin can inject <strong>skills</strong> (extra knowledge)</li>
+            <li>A plugin can inject <strong>slash commands</strong> (new entry points)</li>
+            <li>A plugin can ship its own <strong>subagents</strong></li>
+            <li>The <strong>skill-creator</strong> plugin we'll use next: all three</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Claude Code's core flow. Five nodes. Prompt, plan, tool use, diff, confirm. The loop iterates until you accept the result or quit."</em></p>
+          <p><strong>Slide 2 — walk each step in ~30 sec:</strong> <em>"Plan is the step most people skip — they hit Enter on the prompt and let the model dive in. The plan step is where you redirect early before tool-use happens. Diff is where every write lands — nothing gets written to disk without you seeing the diff first. Confirm is the human gate."</em></p>
+          <p><strong>Slide 3 — bridge to Block 2:</strong> <em>"Plugins extend this loop. They inject skills — extra knowledge the model can pull in. They inject slash commands — new entry points like <code>/skill-creator</code>. They can ship subagents. The skill-creator plugin we'll use in Block 2 does all three."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — optional (~90s)</span>
+          <p>Launch <code>claude</code>, type a small task like <em>"add a comment to the top of README.md explaining this is the workshop repo"</em>, walk the room through the plan → tool use → diff → confirm prompt. <strong>Don't accept — escape out at the diff.</strong> Purely to show the loop in motion.</p>
+          <p>If time is tight, skip this — Block 2.2 Beat C will show the loop in earnest.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.3 — Decision framework — LOAD-BEARING
+      ============================================================ -->
+      <section id="beat-1-3-3" class="beat beat-critical">
+        <header class="beat-header" style="border-bottom-color:#a04100">
+          <span class="beat-number" style="background:#a04100">1.3.3</span>
+          <h2 style="color:#a04100">★ Skill vs plugin vs agent decision framework</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip critical">LOAD-BEARING — DO NOT CUT</span>
+          </div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            Block 2 depends on this mental model. Without it, attendees don't know <em>why</em> they're promoting a prompt to a skill.
+          </p>
+        </header>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 1 / 4 · Four surfaces</span>
+          <h3 class="slide-title">Four ways to package AI behavior</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Surface</th><th>What it is</th><th>When to reach for it</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Prompt</strong></td><td>Plain text, one-off</td><td>Single use, exploratory, you don't need it again</td></tr>
+              <tr><td><strong>Skill</strong></td><td><code>SKILL.md</code> with frontmatter + body + references</td><td>Repeatable workflow with specific triggers; <em>you'll want this again next week</em></td></tr>
+              <tr><td><strong>Plugin</strong></td><td>Folder bundling skills + commands + MCP servers</td><td>Shipping a capability to a team; needs versioning + distribution + multiple skills bundled</td></tr>
+              <tr><td><strong>Agent</strong></td><td>Specialized subagent dispatched for a task</td><td>Isolated context, parallel work, narrow capability — when you want a fresh model, not a fresh prompt</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 2 / 4 · Hierarchy</span>
+          <h3 class="slide-title">The packaging hierarchy</h3>
+          <div class="code-block" data-label="MENTAL MODEL"><pre><code>PLUGIN
+  ├── SKILL  (1..N)
+  │     └── prompt body + references
+  ├── slash commands
+  ├── MCP servers
+  └── subagents (AGENTS)</code></pre></div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            Skill is the atom. Plugin is the package. Agent is the dispatcher.
+          </p>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 3 / 4 · Decision flow</span>
+          <h3 class="slide-title">Decision questions, in order</h3>
+          <ol class="slide-bullets" style="list-style:decimal;padding-left:24px">
+            <li>Will I use this again? <strong>No</strong> → prompt. <strong>Yes</strong> → keep going.</li>
+            <li>Does it need its own context window? <strong>Yes</strong> → agent.</li>
+            <li>Will I ship it to others? <strong>Yes</strong> → plugin. <strong>No</strong> → skill.</li>
+            <li>Does it bundle commands + MCP + multiple skills? <strong>Yes</strong> → plugin.</li>
+          </ol>
+        </article>
+
+        <article class="slide-card" style="border-color:#a04100;box-shadow:8px 8px 0 0 rgba(160,65,0,1)">
+          <span class="slide-label">Slide 4 / 4 · Five examples</span>
+          <h3 class="slide-title">Where does each example land?</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Example</th><th>Surface</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>One-off PR description for a single PR</td><td><strong>Prompt</strong></td><td>Single use</td></tr>
+              <tr><td>Generating PR descriptions for all PRs going forward</td><td><strong>Skill</strong></td><td>Repeatable trigger</td></tr>
+              <tr><td>Running 5 different code reviewers in parallel on one PR</td><td><strong>Agent(s)</strong></td><td>Isolated contexts, parallel work</td></tr>
+              <tr><td>Standardized incident-response toolkit for a team</td><td><strong>Plugin</strong></td><td>Bundles skills + commands + RBAC</td></tr>
+              <tr><td>Reading a single file to answer a question</td><td><strong>Prompt</strong></td><td>Single use, exploratory</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — walk the four surfaces:</strong> <em>"Four ways to package AI behavior. Prompt — plain text, one-off, exploratory. Skill — a <code>SKILL.md</code> file with frontmatter and a body. Repeatable workflow with specific triggers. The thing you'll want next week. Plugin — a folder that bundles skills, slash commands, MCP servers, sometimes subagents. The thing you ship to a team. Agent — a specialized subagent dispatched for one task. Isolated context, parallel work, narrow capability."</em></p>
+          <p><strong>Slide 2 — mental model:</strong> <em>"Skill is the atom. Plugin is the package. Agent is the dispatcher. A plugin contains skills, but a skill doesn't need a plugin. An agent is a thing you dispatch to — not a thing you bundle. The packaging hierarchy is one of the most-asked questions on the Anthropic forums; this slide is the answer."</em></p>
+          <p><strong>Slide 3 — the decision flow:</strong> <em>"Four questions, in order. One: will I use this again? If no, prompt. If yes, keep going. Two: does it need its own context window? If yes, agent. Three: will I ship it to others? If yes, plugin. Four: does it bundle multiple skills + commands + MCP? If yes, plugin."</em></p>
+          <p><strong>Slide 4 — quick test:</strong> <em>"Five examples. Let's read them. [Walk the table.] Note that 'reading a single file' lands at prompt — you don't need a skill for one-shot reads. And 'running 5 reviewers in parallel' lands at agents, not plugins — because the parallelism + isolated context is the requirement."</em></p>
+          <p>Anchor: <em>"Atom on this is <code>Atom - Skills vs Plugins vs Agents — Decision Framework</code>. Single most-referenced atom in this workshop. In Block 2, we'll take your v5 prompt and walk it across the boundary from prompt to skill. You'll see exactly what that promotion looks like in code."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> The classification exercise in Beat 1.3.7 is where this slide gets <em>practiced</em>.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.4 — Marketplace tour
+      ============================================================ -->
+      <section id="beat-1-3-4" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.4</span>
+          <h2>Plugin marketplace tour</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Marketplace</span>
+          <h3 class="slide-title">The Anthropic plugin marketplace</h3>
+          <ul class="slide-bullets">
+            <li>Discovery layer for plugins</li>
+            <li>Already includes: <code>skill-creator</code>, <code>frontend-design</code>, <code>superpowers</code>, <code>context7</code>, more</li>
+            <li>Installed via <code>/plugin</code> inside the Claude Code REPL</li>
+            <li><strong>An ecosystem maturity signal</strong> — plugins are how the platform is shipping fast</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Today's plugin</span>
+          <h3 class="slide-title"><code>skill-creator</code> — our Block 2 spine</h3>
+          <ul class="slide-bullets">
+            <li>Plugin we'll use in Block 2 (the next ~75 min)</li>
+            <li>Should already be installed (Prerequisites)</li>
+            <li>We'll verify in Beat 1.3.5 hands-on</li>
+            <li>The plugin marketplace itself is worth a tour after the workshop</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"The Anthropic plugin marketplace is the discovery layer. It's where plugins live. Already includes skill-creator (our Block 2 spine), frontend-design, superpowers, context7, and more. Plugins install via the <code>/plugin</code> command inside Claude Code's REPL — interactive picker, not a one-shot CLI. The marketplace existing at this maturity is the strongest signal we have that this ecosystem is consolidating."</em></p>
+          <p><strong>Slide 2:</strong> <em>"What we'll install today is skill-creator. It should already be on your machine — Prerequisites covered it. Next beat is the verify."</em></p>
+          <p>Bridge: <em>"Let's go to your laptop."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — optional (~60s)</span>
+          <p>Launch <code>claude</code>, type <code>/plugin</code>, scroll through the interactive marketplace once. Don't install anything new. Pure tour. If time tight, skip — the next beat's hands-on covers the verify.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.5 — Boot + verify HO
+      ============================================================ -->
+      <section id="beat-1-3-5" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.5</span>
+          <h2>HO Beat A — Boot Claude Code + verify skill-creator</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Two commands</span>
+          <h3 class="slide-title">Boot + verify</h3>
+          <ul class="slide-bullets">
+            <li>Open a terminal in the workshop repo</li>
+            <li>Run the verify one-liner below</li>
+          </ul>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-3"><strong>Verify command:</strong></p>
+          <div class="code-block" data-label="VERIFY SKILL-CREATOR"><pre><code>grep -q '"skill-creator@' ~/.claude/plugins/installed_plugins.json \
+  &amp;&amp; echo "✓ skill-creator installed" \
+  || echo "✗ NOT installed"</code></pre></div>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Red X path</span>
+          <h3 class="slide-title">If you get the red X</h3>
+          <ol class="slide-bullets" style="list-style:decimal;padding-left:24px">
+            <li><code>claude</code> (launch the REPL)</li>
+            <li><code>/plugin</code> (interactive picker)</li>
+            <li>Search "skill-creator" → install</li>
+            <li>Re-run the verify command above</li>
+          </ol>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4" style="font-style:italic">
+            Don't try <code>claude /plugin list</code> — <code>/plugin</code> is an interactive REPL command, not a CLI subcommand.
+          </p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Open a terminal. <code>cd</code> into the workshop repo. Run the verify one-liner — it reads Claude Code's plugin config on disk and tells you yes or no. Should return the green check."</em></p>
+          <p><strong>Slide 2:</strong> <em>"If you got the red X — launch <code>claude</code>, type <code>/plugin</code>, search 'skill-creator', install. Then re-run the verify."</em></p>
+          <p>Note the gotcha: <em>"Heads up — <code>/plugin</code> is interactive. You can't pipe <code>claude /plugin list</code> to grep; it doesn't work that way. The on-disk JSON is the source of truth, and the one-liner queries it directly."</em></p>
+          <p>Loop the room. Stragglers come to back-of-room helper. Expected: 80%+ green check on first try since Prerequisites covered this.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — attendees run, instructor mirrors</span>
+          <p><strong>Attendees:</strong> run the verify one-liner.</p>
+          <p><strong>Instructor mirror on projector:</strong></p>
+          <div class="code-block" data-label="INSTRUCTOR MIRROR"><pre><code>cd ~/code/ai-engineering-workshop
+grep -q '"skill-creator@' ~/.claude/plugins/installed_plugins.json \
+  &amp;&amp; echo "✓ skill-creator installed" \
+  || echo "✗ NOT installed"</code></pre></div>
+          <p><strong>If room has stragglers:</strong> project the <code>claude</code> → <code>/plugin</code> flow once at the front so they can follow.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.6 — Tour skill-creator on disk
+      ============================================================ -->
+      <section id="beat-1-3-6" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.6</span>
+          <h2>HO Beat B — Tour the skill-creator on disk</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Where it lives</span>
+          <h3 class="slide-title">A plugin is a folder</h3>
+          <div class="code-block" data-label="PATH ON DISK"><pre><code>~/.claude/plugins/marketplaces/
+  claude-plugins-official/
+    plugins/
+      skill-creator/</code></pre></div>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · What's inside</span>
+          <h3 class="slide-title">The four things every plugin can ship</h3>
+          <ul class="slide-bullets">
+            <li><strong><code>SKILL.md</code></strong> — the plugin's primary skill (the one Claude reads first)</li>
+            <li><strong><code>scripts/</code></strong> — Python/shell helpers the plugin invokes</li>
+            <li><strong><code>references/</code></strong> — long-form docs the skill links to (lazy-loaded)</li>
+            <li><strong><code>agents/</code></strong> — specialized subagents the plugin dispatches (e.g. grader, analyzer)</li>
+            <li><strong>(skill-creator adds)</strong> <code>eval-viewer/</code> — the HTML report we'll see in Block 2</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Why this matters</span>
+          <h3 class="slide-title">The plugin is just files</h3>
+          <ul class="slide-bullets">
+            <li>You can read every line of a plugin before it touches your machine</li>
+            <li>The grader subagent is <code>agents/grader.md</code></li>
+            <li>The eval-viewer is a Python script you can run yourself</li>
+            <li><strong>No magic. Just structured files.</strong></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"A plugin is a folder. Yours is at <code>~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/</code>. Open it in your editor or just <code>ls</code> it. Look at it."</em></p>
+          <p><strong>Slide 2 — walk the folder shape:</strong> <em>"Inside, you'll see four kinds of things every plugin can ship. SKILL.md is the primary skill — what Claude reads first. The scripts directory holds helpers — the description optimizer we'll use in Block 2.3 lives there. References are long-form docs lazy-loaded when the skill needs them. Agents are specialized subagents — skill-creator ships a grader and an analyzer. And skill-creator adds an eval-viewer — the HTML report we'll meet in Block 2 Beat E."</em></p>
+          <p><strong>Slide 3 — the anchor:</strong> <em>"The plugin is just files. No magic. You can read every line before it touches your machine. That's why we're spending five minutes on disk-tour — when something doesn't work in Block 2, you can <code>cat</code> the agent prompts and see exactly what's happening."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — attendees + instructor mirror</span>
+          <p><strong>Attendees:</strong> open the skill-creator folder in their editor.</p>
+          <p><strong>Instructor mirror:</strong></p>
+          <div class="code-block" data-label="TOUR ON DISK"><pre><code>ls -la ~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/
+cat ~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/SKILL.md | head -30
+ls ~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator/agents/</code></pre></div>
+          <p>Read 2-3 lines of the SKILL.md frontmatter aloud — <em>"see how this plugin describes itself? That's exactly the pattern you'll write in Block 2 for project-inspector."</em></p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.7 — Classification HO
+      ============================================================ -->
+      <section id="beat-1-3-7" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.7</span>
+          <h2>HO Beat C — "Which is this?" classification</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">Hands-on · discussion</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 6 · Setup</span>
+          <h3 class="slide-title">Which surface is this?</h3>
+          <ul class="slide-bullets">
+            <li>5 scenarios on screen, one at a time</li>
+            <li>Vote: <strong>prompt</strong> / <strong>skill</strong> / <strong>plugin</strong> / <strong>agent</strong></li>
+            <li>1 min per scenario, then group discussion</li>
+            <li>No wrong answers — only better justifications</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 6 · Scenario 1</span>
+          <h3 class="slide-title">Scenario 1</h3>
+          <blockquote style="border-left:8px solid #a04100;padding:14px 20px;background:#f6ded3;font-size:18px;font-style:italic;line-height:1.5;font-weight:700;margin:10px 0">
+            "I want to generate a PR description for the PR I just opened. It's a one-line bugfix."
+          </blockquote>
+          <p><strong>Vote:</strong> prompt / skill / plugin / agent</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-2"><strong>Expected answer:</strong> <code>prompt</code> — single use, no future reuse intended</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 6 · Scenario 2</span>
+          <h3 class="slide-title">Scenario 2</h3>
+          <blockquote style="border-left:8px solid #a04100;padding:14px 20px;background:#f6ded3;font-size:18px;font-style:italic;line-height:1.5;font-weight:700;margin:10px 0">
+            "Every time anyone on my team opens a PR, they should get an auto-generated description following our team's format. I want this to be a hooked-in workflow."
+          </blockquote>
+          <p><strong>Vote:</strong> prompt / skill / plugin / agent</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-2"><strong>Expected answer:</strong> <code>skill</code> (or <code>plugin</code> if it bundles a hook + slash commands)</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 4 / 6 · Scenario 3</span>
+          <h3 class="slide-title">Scenario 3</h3>
+          <blockquote style="border-left:8px solid #a04100;padding:14px 20px;background:#f6ded3;font-size:18px;font-style:italic;line-height:1.5;font-weight:700;margin:10px 0">
+            "I want to run a security reviewer, a performance reviewer, and a style reviewer on the same PR simultaneously, each in their own fresh context, then merge their findings."
+          </blockquote>
+          <p><strong>Vote:</strong> prompt / skill / plugin / agent</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-2"><strong>Expected answer:</strong> <code>agent(s)</code> — parallel isolated contexts, narrow capability</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 5 / 6 · Scenario 4</span>
+          <h3 class="slide-title">Scenario 4</h3>
+          <blockquote style="border-left:8px solid #a04100;padding:14px 20px;background:#f6ded3;font-size:18px;font-style:italic;line-height:1.5;font-weight:700;margin:10px 0">
+            "My company has 15 internal AI-coding workflows: incident response, RFC scaffolding, code-review checklists, deploy verification, oncall handoffs. I want one install that gives every engineer all 15."
+          </blockquote>
+          <p><strong>Vote:</strong> prompt / skill / plugin / agent</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-2"><strong>Expected answer:</strong> <code>plugin</code> — bundles skills + slash commands + (probably) MCP servers, ships to a team</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 6 / 6 · Scenario 5</span>
+          <h3 class="slide-title">Scenario 5</h3>
+          <blockquote style="border-left:8px solid #a04100;padding:14px 20px;background:#f6ded3;font-size:18px;font-style:italic;line-height:1.5;font-weight:700;margin:10px 0">
+            "I want to ask the model what's in this single config file so I understand the timeout values."
+          </blockquote>
+          <p><strong>Vote:</strong> prompt / skill / plugin / agent</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-2"><strong>Expected answer:</strong> <code>prompt</code> — single-shot read, no reuse planned</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — set the exercise:</strong> <em>"Five scenarios. For each one, vote: prompt, skill, plugin, or agent? Show of hands or shout it out. One minute per scenario, then we discuss. No wrong answers — only better justifications."</em></p>
+          <p><strong>For each scenario:</strong></p>
+          <ol class="slide-bullets" style="list-style:decimal;padding-left:24px">
+            <li>Read the scenario aloud</li>
+            <li>Pause ~20s</li>
+            <li><em>"Vote — prompt? Skill? Plugin? Agent?"</em> (count hands)</li>
+            <li>Pick someone who voted differently — <em>"why did you say [X]?"</em></li>
+            <li>Affirm or redirect based on the expected answer</li>
+            <li>Move to next slide</li>
+          </ol>
+          <p><strong>Scenario 1 (prompt):</strong> <em>"Why prompt? Single use. You're not going to need this exact PR description again. Don't pay the cost of a skill."</em></p>
+          <p><strong>Scenario 2 (skill, possibly plugin):</strong> <em>"Skill is the canonical answer — repeatable, specific trigger ('every PR open'). Plugin if it also ships a hook and a slash command alongside the skill. Both are defensible."</em></p>
+          <p><strong>Scenario 3 (agents):</strong> <em>"Three reviewers, three isolated contexts, parallel. That's the agent-dispatch pattern. A single skill couldn't keep the three contexts isolated."</em></p>
+          <p><strong>Scenario 4 (plugin):</strong> <em>"Fifteen workflows, one install, distributed to a team. That's the plugin definition. Skill is too small; agent is the wrong shape."</em></p>
+          <p><strong>Scenario 5 (prompt):</strong> <em>"Single config read. No skill needed. Don't over-engineer one-shot reads."</em></p>
+          <p>Close: <em>"This is the muscle you're going to use every time you decide whether to invest in a skill. If the answer is 'I'll use this once,' it's a prompt. The moment you say 'I want this again,' you're at skill. The moment you say 'I want this for the whole team,' you're at plugin."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None — pure discussion.</em> Use hand-raises or call-outs; no terminals open.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.3.8 — Bridge to Block 2
+      ============================================================ -->
+      <section id="beat-1-3-8" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.3.8</span>
+          <h2>Bridge to Block 2</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · What you have</span>
+          <h3 class="slide-title">What you have now</h3>
+          <ul class="slide-bullets">
+            <li>A <strong>v5 prompt</strong> for Project Inspector (saved on disk)</li>
+            <li>The <strong>skill-creator plugin</strong> installed and verified</li>
+            <li>The <strong>decision framework</strong> for skill vs plugin vs agent</li>
+            <li>Working terminal, working CLI, working Claude Code session</li>
+          </ul>
+        </article>
+
+        <article class="slide-card" style="background:#fe6b00;color:#221610;border-color:#221610">
+          <span class="slide-label" style="color:#221610">Slide 2 / 2 · What's next</span>
+          <h3 class="slide-title" style="color:#221610">Block 2 — Build &amp; Eval a Skill</h3>
+          <ul class="slide-bullets" style="font-size:16px">
+            <li style="color:#221610">We promote your v5 prompt to a working skill (Beat A — 5 min)</li>
+            <li style="color:#221610">We run with-skill vs baseline in parallel (Beat C — 8 min)</li>
+            <li style="color:#221610">The plugin tells you which of your tests doesn't test anything (Beat F)</li>
+            <li style="color:#221610">You leave with a benchmarked, optimized, eval-tested skill on disk</li>
+          </ul>
+          <p class="font-mono-tag text-mono-tag mt-4" style="color:#221610;font-size:14px"><strong>Coffee first.</strong> Back at 10:45.</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"You leave Block 1 with four things. A v5 prompt for Project Inspector saved on disk. The skill-creator plugin installed and verified. The mental model for prompt versus skill versus plugin versus agent. And a working terminal — meaning Block 2 starts with zero setup time."</em></p>
+          <p><strong>Slide 2:</strong> <em>"In Block 2 we promote your v5 prompt to a working skill — five minutes. We run it with-skill versus without-skill in parallel — the plugin spawns ten subagents, you watch them stream. And the plugin shows you which of your test assertions doesn't actually test anything. That's the load-bearing moment of the morning."</em></p>
+          <p>Close: <em>"Fifteen-minute break. Coffee, restroom, fix your skill-creator install if you still have the red X. Back at 10:45 sharp."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Closing remarks before break.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-1-prompts.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 1.2 — Prompts</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 1.3 of 3 — Block 1 complete</span>
+    <a href="block-2-orientation.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Block 2 — Orientation →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

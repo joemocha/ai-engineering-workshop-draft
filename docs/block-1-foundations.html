@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 1 / Topic 1.1 — Kickoff + framing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="index.html"
+      data-next="block-1-prompts.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 1 · FOUNDATIONS</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">9:00 – 9:10 · 10 min · Lecture</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 1.1 / 3</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Kickoff &amp; Framing</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Open the day. Name the thesis, walk the four altitudes, run the tool poll. Get the room
+      level-planed so the rest of Block 1 can build on shared ground.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-1-1-1"><span class="toc-num">1.1.1</span>Thesis</a></li>
+          <li><a href="#beat-1-1-2"><span class="toc-num">1.1.2</span>Four altitudes</a></li>
+          <li><a href="#beat-1-1-3"><span class="toc-num">1.1.3</span>Intros + poll</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 1.1.1 — Thesis
+      ============================================================ -->
+      <section id="beat-1-1-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.1.1</span>
+          <h2>Thesis</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Title</span>
+          <h3 class="slide-title">AI Engineering: From Prompt Architecture to Production Infrastructure</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant" style="font-style:italic">
+            "Stop building demos. Start shipping AI systems that actually work."
+          </p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">Martin Rojas + Samuel Obukwelu · VueConf US 2026 · All day</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · The gap</span>
+          <h3 class="slide-title">Most developers can…</h3>
+          <ul class="slide-bullets">
+            <li>Call an API ✓</li>
+            <li>Write a prompt ✓</li>
+            <li><strong>Build AI systems that consistently work in production ✗</strong></li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            Today closes the third gap.
+          </p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p>Open hard with the thesis: <em>"Stop building demos. Start shipping AI systems that actually work."</em></p>
+          <p>Then the gap: <em>"Most developers in this room can call an API. Most can write a prompt. Very few have built AI systems that consistently deliver production-quality results in enterprise environments — the kind that survive compliance review, handle multi-LLM failover, and don't regress silently when a model version changes. Today closes that gap."</em></p>
+          <p>Anchor: <em>"Two halves. Morning: engineer prompts that work — structural patterns and constraint systems that eliminate the prompt lottery. Afternoon: production infrastructure — gateway architecture, governance, the concerns tutorials skip. Both halves teach engineering, not creative writing."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure framing.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.1.2 — Four altitudes
+      ============================================================ -->
+      <section id="beat-1-1-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.1.2</span>
+          <h2>Four altitudes</h2>
+          <div class="meta-row">
+            <span class="meta-chip">4 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · The frame</span>
+          <h3 class="slide-title">The day, in one frame</h3>
+          <div class="code-block" data-label="ALTITUDES"><pre><code>INFRASTRUCTURE  (Block 4)   ← AI gateway, routing, governance
+WORKFLOW        (Block 3)   ← composing skills, hooks, multi-CLI
+SKILL           (Block 2)   ← promote prompt → versioned skill + evals
+PROMPT          (Block 1)   ← structural patterns, constraint engineering</code></pre></div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            Constraint engineering is the discipline. The artifact splits.
+          </p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Schedule</span>
+          <h3 class="slide-title">Day shape</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Time</th><th>Block</th><th>Owner</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>9:00 – 10:30</code></td><td><strong>1. Foundations</strong></td><td>Martin</td></tr>
+              <tr><td><code>10:30 – 10:45</code></td><td>Break</td><td>—</td></tr>
+              <tr><td><code>10:45 – 12:00</code></td><td><strong>2. Build &amp; Eval a Skill</strong></td><td>Martin</td></tr>
+              <tr><td><code>12:00 – 1:00</code></td><td>Lunch</td><td>—</td></tr>
+              <tr><td><code>1:00 – 2:30</code></td><td><strong>3. Vibe Coding → Agentic Engineering</strong></td><td>Sam</td></tr>
+              <tr><td><code>2:30 – 2:45</code></td><td>Break</td><td>—</td></tr>
+              <tr><td><code>2:45 – 5:00</code></td><td><strong>4. AI Gateway (Production)</strong></td><td>Martin</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — name the four altitudes:</strong> <em>"The day has four altitudes. Prompt at the bottom — what most workshops focus on. Skill above it — the same prompt promoted to something repeatable and tested. Workflow above that — how a working engineer composes skills, hooks, and tools every day; that's Sam's block. Infrastructure on top — production gateway, governance, the concerns tutorials skip. The discipline is the same at each altitude: constraint engineering. The artifact splits."</em></p>
+          <p><strong>Slide 2 — walk the schedule once:</strong> <em>"Four blocks. Two breaks, one lunch. Sam takes Block 3 after lunch — his block is the bridge between 'you can build a skill' (Block 2) and 'you can deploy fleets of skills' (Block 4)."</em></p>
+          <p>Anchor: <em>"By the end of today you've worked at all four altitudes on the same example. That's the through-line."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure framing.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 1.1.3 — Intros + poll
+      ============================================================ -->
+      <section id="beat-1-1-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">1.1.3</span>
+          <h2>Intros + tool poll + housekeeping</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Co-presenters</span>
+          <h3 class="slide-title">Who's teaching</h3>
+          <ul class="slide-bullets">
+            <li><strong>Martin Rojas</strong> — Blocks 1, 2, 4</li>
+            <li><strong>Samuel Obukwelu</strong> — Block 3 (Vibe → Agentic)</li>
+            <li>2 voices, 4 altitudes, 1 day</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Tool poll</span>
+          <h3 class="slide-title">Which CLI did you bring?</h3>
+          <ul class="slide-bullets">
+            <li>Claude Code</li>
+            <li>Codex CLI</li>
+            <li>Cursor / Gemini CLI</li>
+            <li>Other / none yet</li>
+          </ul>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4">Calibration data for Topic 1.3.</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Housekeeping</span>
+          <h3 class="slide-title">Before we start</h3>
+          <ul class="slide-bullets">
+            <li>The workshop repo: <code>git clone …ai-engineering-workshop</code> (see Prerequisites)</li>
+            <li><code>skill-creator</code> plugin should be installed (we'll verify at end of Block 1)</li>
+            <li>Need restroom / coffee? Two breaks: 10:30 and 2:30</li>
+            <li>Stragglers: back-of-room helper available all day</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — short co-presenter intros:</strong> <em>"I'm Martin. Sam's here too — he's leading Block 3 after lunch. Two voices, four altitudes, one day."</em> Sam stands or waves.</p>
+          <p><strong>Slide 2 — the tool poll:</strong> <em>"Show of hands. Who brought Claude Code? [count]. Codex CLI? [count]. Cursor or Gemini? [count]. None / not sure yet? [count]."</em> This is calibration data for Topic 1.3 — if the room is mostly Claude Code, you can lean in; if it's split, you'll spend more time on the cross-CLI mapping.</p>
+          <p><strong>Slide 3 — housekeeping:</strong> <em>"Repo URL is in the Prerequisites doc, also on the screen. The <code>skill-creator</code> plugin should be installed — we'll verify together at the end of Block 1. Breaks at 10:30 and 2:30, lunch at noon."</em></p>
+          <p>Close: <em>"Let's get into it."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None — voice + room engagement.</em></p>
+          <p><strong>Calibration trigger:</strong> if the tool poll shows &gt;20% on "other / none," queue 5 extra minutes on Topic 1.3 Beat 1 cross-CLI mapping.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="index.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Workshop home</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 1.1 of 3</span>
+    <a href="block-1-prompts.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 1.2 — Prompts →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

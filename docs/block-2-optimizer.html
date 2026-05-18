@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 2 / Topic 2.3 — Description optimizer + recap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-2-iteration.html"
+      data-next="index.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 2 · BUILD &amp; EVAL A SKILL</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">11:40 – 12:00 · 20 min · 10L / 10HO</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 2.3 / 3</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Description Optimizer</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Auto-iterate the <code>description</code> field on a held-out test set. The third pathology —
+      <strong>overfit</strong> — surfaces here. Then recap the artifact's journey and bridge to Sam.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-2-3-1"><span class="toc-num">2.3.1</span>Launch optimizer</a></li>
+          <li><a href="#beat-2-3-2"><span class="toc-num">2.3.2</span>Narrate while it runs</a></li>
+          <li><a href="#beat-2-3-3"><span class="toc-num">2.3.3</span>View HTML report</a></li>
+          <li><a href="#beat-2-3-4"><span class="toc-num">2.3.4</span>Recap</a></li>
+          <li><a href="#beat-2-3-5"><span class="toc-num">2.3.5</span>Bridge to Sam</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 2.3.1 — Launch optimizer
+      ============================================================ -->
+      <section id="beat-2-3-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.3.1</span>
+          <h2>Launch the optimizer</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · What it does</span>
+          <h3 class="slide-title">Auto-iterate the <code>description</code> field</h3>
+          <ul class="slide-bullets">
+            <li>Body stays fixed; only <code>description</code> changes</li>
+            <li>Scored against <code>trigger-eval.json</code> — 20 queries</li>
+            <li>10 should-trigger, 10 should-not-trigger (near-misses on both sides)</li>
+            <li>5 iterations, 60/40 train/test split</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Launch</span>
+          <h3 class="slide-title">Launch it now</h3>
+          <div class="code-block" data-label="LAUNCH OPTIMIZER"><pre><code>python -m scripts.run_loop \
+  --eval-set evals/trigger-eval.json \
+  --skill-path skills/project-inspector \
+  --model claude-sonnet-4-6 \
+  --max-iterations 5 \
+  --verbose</code></pre></div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-3">
+            Runs ~8–10 min in the background. We'll narrate while it runs.
+          </p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"We launch the description optimizer. This is a separate script in the skill-creator plugin. It iterates the <code>description</code> field — not the body — five times, scoring against a 20-query trigger evaluation set. 10 queries that should trigger the skill, 10 that shouldn't. Near-misses on both sides — we curated them to be tricky."</em></p>
+          <p><strong>Slide 2:</strong> <em>"60/40 split. 12 queries for training, 8 held out for testing. Each iteration runs every query three times to get a reliable trigger rate — the plugin runs three samples because Claude's triggering decision has some variance and you want a stable read."</em></p>
+          <p>Kick off: <em>"It'll run for about ten minutes in the background. Let me explain what's actually happening while it runs."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — launch + smoke check</span>
+          <p><strong>Instructor + attendees:</strong> copy-paste the command into a terminal in the repo root and hit enter. Verbose output streams.</p>
+          <p><strong>Smoke check:</strong> within ~20 seconds you should see the first iteration's queries firing. If nothing appears in 60s:</p>
+          <ul class="slide-bullets">
+            <li><code>claude-sonnet-4-6</code> model is configured?</li>
+            <li><code>ANTHROPIC_API_KEY</code> is set?</li>
+            <li>Network is up?</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.3.2 — Narrate while it runs
+      ============================================================ -->
+      <section id="beat-2-3-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.3.2</span>
+          <h2>Narration while it runs</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · The loop</span>
+          <h3 class="slide-title">What the optimizer is doing right now</h3>
+          <div class="code-block" data-label="LOOP DIAGRAM"><pre><code>current description
+    ↓ evaluate on 12 train + 8 test queries (3 runs each)
+trigger rates + failures
+    ↓ ask Claude to propose improved description (failures as context)
+new description
+    ↓ evaluate on same 12 + 8 (same 3-run protocol)
+    ↓ repeat 5 times
+pick description with best TEST score</code></pre></div>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Overfit</span>
+          <h3 class="slide-title">Why select on test, not train</h3>
+          <ul class="slide-bullets">
+            <li><strong>Train score</strong> = how well you did on queries you've already seen</li>
+            <li><strong>Test score</strong> = how well you'll do on queries you haven't</li>
+            <li>Select on train → great on your 12 queries, bad on everything else</li>
+            <li>Select on test → generalizes</li>
+            <li>Same idea as ML train/test splits. Smaller scale.</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Production stakes</span>
+          <h3 class="slide-title">Triggering accuracy is the #1 production failure mode</h3>
+          <ul class="slide-bullets">
+            <li>A skill that never triggers when it should = doesn't exist</li>
+            <li>A skill that triggers on the wrong things = worse (pollutes other conversations)</li>
+            <li>Description-engineering is its own discipline</li>
+            <li>The plugin does it for you in 10 minutes</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — describe the loop:</strong> <em>"Iteration 1: evaluate the current description, get a trigger rate per query, log every miss. Call Claude with the failures as context, ask it to propose an improved description. Iteration 2: evaluate the new description. Repeat five times. At the end: pick the description with the best test score — not train."</em></p>
+          <p><strong>Slide 2 — the overfit teaching moment:</strong> <em>"Why test, not train? Overfit. The third pathology we set up at the start. If you select on train score, you'll pick a description that's great for the 12 queries you wrote and bad for everything else. The held-out test is the discipline that prevents that. Same idea as machine-learning train/test splits."</em></p>
+          <p><strong>Slide 3 — production stakes:</strong> <em>"Triggering accuracy is the number-one production failure mode for skills. A skill that never triggers when it should is a skill that doesn't exist. A skill that triggers on the wrong things is worse — it pollutes other conversations. Description-engineering is its own discipline. The plugin does it for you in ten minutes."</em></p>
+          <p>Then: <em>"Any questions while the optimizer runs?"</em> Take 1–2 from the room.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><strong>No new demo action</strong> — the optimizer is running in the background from Beat 2.3.1.</p>
+          <p><strong>Glance check:</strong> verbose output should be progressing through queries. If it's stalled, troubleshoot during questions.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.3.3 — View HTML report
+      ============================================================ -->
+      <section id="beat-2-3-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.3.3</span>
+          <h2>View the HTML report</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Hands-on</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Reading the report</span>
+          <h3 class="slide-title">Five rows, one per iteration</h3>
+          <ul class="slide-bullets">
+            <li>Proposed description (full text)</li>
+            <li>Train score (12 queries × 3 runs = 36 trigger decisions)</li>
+            <li>Test score (8 queries × 3 runs = 24 trigger decisions)</li>
+            <li><strong>The gap</strong> between train and test</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Spot overfit</span>
+          <h3 class="slide-title">When train &gt; test by a lot</h3>
+          <ul class="slide-bullets">
+            <li>Iteration <code>[N]</code> — train <code>[high]</code>, test <code>[lower]</code></li>
+            <li>That description was tuned to the training queries</li>
+            <li>It didn't generalize</li>
+            <li><strong>The optimizer did not pick it</strong></li>
+          </ul>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-3">[N], [high], [lower] filled from dry-run capture</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Winner</span>
+          <h3 class="slide-title">Best test score wins</h3>
+          <ul class="slide-bullets">
+            <li>Winning iteration: <code>[N]</code></li>
+            <li>Best test score: <code>[X]</code></li>
+            <li>Goes into <code>SKILL.md</code> frontmatter automatically</li>
+            <li>Before/after description in the report</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 as the report opens:</strong> <em>"Report's up. Five rows, one per iteration. Each row shows the proposed description, train score, test score, and the gap."</em></p>
+          <p><strong>Slide 2 — find an overfit iteration if one exists:</strong> <em>"Look at iteration [N]. Train score is [high]. Test score is [lower]. That's overfit — the description was tuned to the training queries and didn't generalize. The optimizer didn't pick it."</em> (If no iteration shows overfit cleanly, explain the principle from the slide and skip the live pointer.)</p>
+          <p><strong>Slide 3 — celebrate the winner:</strong> <em>"Winning iteration is [N]. Best test score. The optimizer selected on test, not train. That description goes into your SKILL.md frontmatter automatically — you don't have to copy-paste."</em></p>
+          <p>Open <code>SKILL.md</code> and scroll to the frontmatter: <em>"Look at your skill. Description has changed. Before-after comparison is in the report. The improvement is concrete — and the methodology is portable. You can do this for any skill, in 10 minutes of runtime, after one iteration of human iteration."</em></p>
+          <p>Anchor: <em>"The 'best description' the plugin selected is the one with the best held-out score. If it had selected on train score, you'd have an overfit description that worked great on the 12 queries you wrote and failed on everything else. That's why train/test splits exist."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — click sequence</span>
+          <p>Browser opens automatically when the optimizer finishes (HTML served locally).</p>
+          <ol class="slide-bullets" style="counter-reset:a">
+            <li>Scan the 5-iteration table</li>
+            <li>Click the iteration with the biggest train/test gap (call it out)</li>
+            <li>Click the winning iteration (call it out)</li>
+            <li>Switch to terminal:</li>
+          </ol>
+          <div class="code-block" data-label="SHOW UPDATED FRONTMATTER"><pre><code>cat skills/project-inspector/SKILL.md | head -5</code></pre></div>
+          <p>Shows the new description in frontmatter.</p>
+          <p><strong>📸 Dry-run capture target:</strong> screenshot of the report showing the 5 iterations + train/test scores. Lives at <code>assets/block2-optimizer-report.png</code>.</p>
+          <p><strong>📋 Dry-run note:</strong> which iteration won (highest test score)? Is there a visible train&gt;test gap on any iteration? Pre-fill the <code>[N]</code> placeholders on slides 2 + 3 from dry-run data.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.3.4 — Recap
+      ============================================================ -->
+      <section id="beat-2-3-4" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.3.4</span>
+          <h2>Recap</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · The journey</span>
+          <h3 class="slide-title">One artifact, six stages</h3>
+          <ol class="slide-bullets" style="list-style:decimal;padding-left:24px">
+            <li>v0 prompt ("summarize this codebase") — Block 1.2</li>
+            <li>v5 prompt (5-layer enhancement) — Block 1.2</li>
+            <li>v5 → working SKILL.md — Beat A</li>
+            <li>Benchmarked vs baseline — Beats C–E</li>
+            <li>Eval suite <em>itself</em> evaluated; planted pathology caught — Beat F</li>
+            <li>Description optimized on held-out test set — Topic 2.3</li>
+          </ol>
+        </article>
+
+        <article class="slide-card" style="background:#221610;color:#fbf9f9;border-color:#a04100">
+          <span class="slide-label" style="color:#ffb693">Slide 2 / 2 · Anchor</span>
+          <h3 class="slide-title" style="color:#ffffff">Three altitudes of evaluation</h3>
+          <ul class="slide-bullets" style="font-size:22px">
+            <li style="color:#fbf9f9"><strong style="color:#fe6b00">Does the output work?</strong></li>
+            <li style="color:#fbf9f9"><strong style="color:#fe6b00">Do the tests test anything?</strong></li>
+            <li style="color:#fbf9f9"><strong style="color:#fe6b00">Will the skill trigger when it should?</strong></li>
+          </ul>
+          <p style="color:#ffdbcc;margin-top:20px;font-weight:700;font-style:italic">
+            Seventy-five minutes. One artifact.
+          </p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Let's trace the artifact. v0 was 'summarize this codebase' — a naked prompt, Block 1.2. v5 was the same prompt walked through five layers of constraint engineering. v5 became a skill, Beat A. The skill got benchmarked against a baseline, Beats C–E. The eval suite itself got evaluated, Beat F — and we caught a planted pathology. We improved both the skill and the eval, Beat G. And finally, the description was optimized on a held-out test set, Topic 2.3."</em></p>
+          <p><strong>Slide 2 — the anchor</strong> (this is the workshop's closing-of-the-morning line): <em>"One artifact. Three altitudes of evaluation: does the output work? Do the tests test anything? Will the skill trigger when it should? Seventy-five minutes."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure narrative recap.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.3.5 — Bridge to Sam
+      ============================================================ -->
+      <section id="beat-2-3-5" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.3.5</span>
+          <h2>Bridge to Sam</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · After lunch</span>
+          <h3 class="slide-title">Block 3 — Sam takes the stage</h3>
+          <ul class="slide-bullets">
+            <li><strong>Vibe coding → agentic engineering</strong></li>
+            <li>How working engineers compose skills like this every day</li>
+            <li>Superpowers, beads, hooks, multi-CLI verification, token discipline</li>
+            <li>The discipline you just learned doesn't go away — the workflow around it deepens</li>
+          </ul>
+        </article>
+
+        <article class="slide-card" style="background:#fe6b00;color:#221610;border-color:#221610">
+          <span class="slide-label" style="color:#221610">Slide 2 / 2 · Lunch</span>
+          <h3 class="slide-title" style="color:#221610">See you at one</h3>
+          <p style="font-size:22px;font-weight:700;font-style:italic;line-height:1.4;margin:12px 0">
+            "The plugin you used today is the training-wheels version of what Sam does without thinking."
+          </p>
+          <p class="font-mono-tag text-mono-tag mt-4" style="color:#221610">Lunch · 12:00 – 1:00 · See you at 1 PM</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"After lunch, Sam takes the stage. His block is vibe coding → agentic engineering — how working engineers compose skills like this every day. Superpowers, beads, hooks, multi-CLI verification, token discipline. The discipline you just learned doesn't go away; the workflow around it deepens."</em></p>
+          <p><strong>Slide 2 — final line:</strong> <em>"The plugin you used today is the training-wheels version of what Sam does without thinking. See you at one."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-2-iteration.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 2.2 — Iteration 1</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 2.3 of 3 — Block 2 complete</span>
+    <a href="index.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Workshop home →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
