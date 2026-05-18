@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Block 3 | Vibe Coding -> Agentic Engineering | VueConf US 2026</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="tpl-tech-sharing">
+<div class="deck">
+
+  <!-- 1. Cover -->
+  <section class="slide" data-title="Cover">
+    <p class="kicker">vueconf us 2026 | workshop block 3 | 2026-05-19</p>
+    <h1 class="h1 anim-fade-up" data-anim="fade-up" style="font-size:64px;line-height:1.08">Vibe Coding to <span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">Agentic Engineering</span></h1>
+    <p class="lede mt-m">Skills can lie. You build, you ship, you trust the brief, and the lie slips by. <span class="mono">90 min</span> to fix that.</p>
+    <div class="speaker" style="margin-bottom:96px"><div class="av"></div><div><b>Samuel Obukwelu</b><span>co-presenter | 1:00 - 2:30 PM | 90 min + Q&amp;A</span></div></div>
+    <div class="deck-footer"><span class="mono">#pi #agentic #vue</span><span class="slide-number" data-current="1" data-total="24"></span></div>
+    <aside class="notes">Welcome back. In Block 1 you wrote a prompt. In Block 2 you turned that prompt into a skill, therefore you also learned something uncomfortable. You learned that evals can lie. For the next 90 minutes we're going up one altitude. The thesis: skills can lie too. Agentic engineering is the discipline of building systems that catch themselves. I'm not going to show you that on a slide. Here's a real failure, therefore here's what you build to catch it.</aside>
+  </section>
+
+  <!-- 2. Four altitudes -->
+  <section class="slide" data-title="Altitudes">
+    <p class="kicker">// you are here</p>
+    <h2 class="h2">Four altitudes. One discipline.</h2>
+    <div class="grid g4 mt-l">
+      <div class="card"><h4>Prompt</h4><p class="dim">Block 1 | words on a page</p><span class="tag mt-s">past</span></div>
+      <div class="card"><h4>Skill</h4><p class="dim">Block 2 | evals + analyzer</p><span class="tag mt-s">past</span></div>
+      <div class="card card-accent"><h4>Workflow</h4><p class="dim">Block 3 | skills + hooks + verifiers</p><span class="tag mt-s">you are here</span></div>
+      <div class="card"><h4>Infra</h4><p class="dim">Block 4 | gateway + budgets</p><span class="tag mt-s">next</span></div>
+    </div>
+    <p class="lede mt-l">Block 2 was about <em>a</em> skill. Block 4 is fleets of skills. Block 3 is the bridge: the developer-workflow layer.</p>
+    <aside class="notes">Same diagram Martin used on day-shape, reused so the room sees continuity. Block 3 is the workflow altitude. Below us, skills. Above us, infra. Same composition thesis, three different scopes.</aside>
+  </section>
+
+  <!-- 3. Pi at a glance -->
+  <section class="slide" data-title="Pi at a glance">
+    <p class="kicker">pi.dev | the runtime</p>
+    <h2 class="h2">Pi: minimal terminal coding harness.</h2>
+    <div class="grid g3 mt-l">
+      <div class="card card-accent"><h4>Minimal</h4><p class="dim">No MCP, no sub-agents, no plan mode in core. Extensions add what you need, nothing you don't.</p></div>
+      <div class="card card-accent"><h4>Defaults to Gemini</h4><p class="dim">Native web grounding makes today's security CVE lookup free. <span class="mono">--provider</span> switches model with one flag.</p></div>
+      <div class="card card-accent"><h4>Auto-discovers</h4><p class="dim"><span class="mono">.pi/skills/</span> + <span class="mono">.pi/extensions/</span> load on session start. Project-local, no install step.</p></div>
+    </div>
+    <div class="terminal mt-l">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>verify install</span></div>
+<pre><span class="cmt"># installed via prereq:</span>
+$ pi --version
+<span class="str">0.74.1</span>
+<span class="cmt"># launch from the workshop repo root:</span>
+$ <span class="kw">cd</span> ai-engineering-workshop &amp;&amp; pi</pre>
+    </div>
+    <aside class="notes">Pi is the runtime. Minimal terminal harness, defaults to Gemini. If you finished the prereq you have it installed. If you don't, raise your hand and grab a neighbor for ninety seconds. Don't wait for the lab to find out.</aside>
+  </section>
+
+  <!-- 4. YOUR TURN prompt -->
+  <section class="slide" data-title="Lab 1 | Port">
+    <p class="kicker">your turn | 20 min</p>
+    <h2 class="h2">Port your inspector into Pi.</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div>
+        <p class="lede">Copy your SKILL.md from Block 2 to where Pi can find it. Then ask Pi to inspect a fixture.</p>
+        <div class="stack mt-m">
+          <div class="tag">1 | copy <span class="mono">skills/project-inspector/SKILL.md</span></div>
+          <div class="tag">2 | paste into <span class="mono">.pi/skills/project-inspector/</span></div>
+          <div class="tag">3 | launch <span class="mono">pi</span> from the repo root</div>
+          <div class="tag">4 | run the prompt below</div>
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>type this</span></div>
+<pre><span class="cmt"># the prompt for your first run</span>
+<span class="str">"Inspect the repository at</span>
+<span class="str"> fixtures/agentic-target-sample/</span>
+<span class="str"> and produce a structural briefing."</span></pre>
+      </div>
+    </div>
+    <aside class="notes">Take fifteen minutes. Get it running. If you finish early, look at the output, but don't analyze it yet. We're going to do that together.</aside>
+  </section>
+
+  <!-- 5. Stuck-points -->
+  <section class="slide" data-title="Stuck-points">
+    <p class="kicker">if you're stuck, check these first</p>
+    <h2 class="h2">Three common failures.</h2>
+    <div class="grid g3 mt-l">
+      <div class="card card-accent"><h4>Wrong cwd</h4><p class="dim">Pi must launch from the repo root for project-local skills to auto-discover.</p><span class="tag mt-s">pwd ?</span></div>
+      <div class="card card-accent"><h4>Skill not under .pi/</h4><p class="dim">Pi looks at <span class="mono">.pi/skills/&lt;name&gt;/SKILL.md</span>. Block 2's <span class="mono">skills/</span> path isn't the same.</p><span class="tag mt-s">copy, don't symlink yet</span></div>
+      <div class="card card-accent"><h4>Missing API key</h4><p class="dim"><span class="mono">GEMINI_API_KEY</span> for the default provider. Or pass <span class="mono">--provider openai</span> with <span class="mono">OPENAI_API_KEY</span>.</p><span class="tag mt-s">env | grep</span></div>
+    </div>
+    <aside class="notes">Three failures cover ~95% of the stuck-points. Held during circulation. Sam circulates, helps people who are stuck, gives a five-minute warning at the 12-minute mark.</aside>
+  </section>
+
+  <!-- 6. Inspector output -->
+  <section class="slide" data-title="The Output">
+    <p class="kicker">the inspector's verdict</p>
+    <h2 class="h2">Look at this. Clean briefing.</h2>
+    <div class="terminal mt-m">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>project-inspector -> fixtures/agentic-target-sample/</span></div>
+<pre>{
+  <span class="str">"architecture"</span>: <span class="str">"Nuxt 3 web application using Vue 3</span>
+                   <span class="str"> and TypeScript. Standard Nuxt directory</span>
+                   <span class="str"> structure with file-based routing in</span>
+                   <span class="str"> pages/, auto-imported components."</span>,
+  <span class="str">"entry_points"</span>: [<span class="str">"pages/index.vue"</span>,
+                    <span class="str">"pages/about.vue"</span>,
+                    <span class="str">"nuxt.config.ts"</span>],
+  <span class="str">"data_flow"</span>: <span class="str">"Pages render via Nuxt's server,</span>
+                <span class="str"> consume composables, render components."</span>,
+  <span class="str">"key_dependencies"</span>: [<span class="str">"nuxt"</span>, <span class="str">"vue"</span>, <span class="str">"axios"</span>,
+                       <span class="str">"lodash"</span>, <span class="str">"minimist"</span>,
+                       <span class="str">"serialize-javascript"</span>],
+  <span class="str">"test_patterns"</span>: <span class="str">"No tests detected."</span>
+}</pre>
+    </div>
+    <p class="lede mt-m">Framework, entry points, data flow, deps, tests. You could hand this to a teammate cold. So, what's the real problem here?</p>
+    <aside class="notes">Read the JSON aloud, briskly. That's a clean briefing. The skill did its job. You could hand this to a teammate cold and they could navigate this repo. So. What's the real problem here? Hold the beat. Let the room think. Five to ten seconds of silence is fine.</aside>
+  </section>
+
+  <!-- 7. Annotated output -->
+  <section class="slide" data-title="The Lie">
+    <p class="kicker">what's <em>not</em> here</p>
+    <h2 class="h2">The problem isn't what's there.</h2>
+    <div class="terminal mt-m">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>key_dependencies | read this slowly</span></div>
+<pre>  <span class="str">"key_dependencies"</span>: [
+    <span class="str">"nuxt"</span>,
+    <span class="str">"vue"</span>,
+    <span class="str">"axios"</span>,             <span class="cmt">// pinned 0.21.0 | CVE-2020-28168 | SSRF</span>
+    <span class="str">"lodash"</span>,            <span class="cmt">// pinned 4.17.20 | CVE-2021-23337 | cmd injection</span>
+    <span class="str">"minimist"</span>,          <span class="cmt">// pinned 1.2.5  | CVE-2021-44906 | proto pollution</span>
+    <span class="str">"serialize-javascript"</span> <span class="cmt">// pinned 3.0.0  | CVE-2020-7660 | XSS</span>
+  ]</pre>
+    </div>
+    <p class="lede mt-m">Four of those packages are pinned at vulnerable versions, therefore the inspector lists every one of them, blindly. No version. No CVE. No security context. The lie is the missing context.</p>
+    <aside class="notes">The problem is what isn't. The inspector lists axios as a key dependency, but it doesn't tell you the pinned version is 0.21.0, and 0.21.0 has a public CVE. Server-side request forgery. Same for lodash, minimist, serialize-javascript. Four packages pinned at vulnerable versions, therefore the inspector lists every one of them, blindly.</aside>
+  </section>
+
+  <!-- 8. Skills can lie -->
+  <section class="slide center tc" data-title="Skills can lie">
+    <div>
+      <p class="kicker">the thesis</p>
+      <h1 class="h1 anim-fade-up" data-anim="fade-up" style="font-size:96px;letter-spacing:-.03em">Skills can lie.</h1>
+      <p class="lede mt-l" style="max-width:680px;margin:0 auto">This isn't a buggy skill. The inspector's spec doesn't ask it to look at version-bound security. The failure is at the <em>system</em> level.</p>
+    </div>
+    <aside class="notes">Hold this slide for ten seconds in silence. Let the contrast between "the inspector is correct" and "the answer is wrong" sit with the room. This is the spine moment of the entire block.</aside>
+  </section>
+
+  <!-- 9. Thesis -->
+  <section class="slide center tc" data-title="Agentic engineering">
+    <div>
+      <p class="kicker">the discipline</p>
+      <h2 class="h2" style="font-size:64px;line-height:1.1;letter-spacing:-.02em">Agentic engineering<br>is the discipline of building<br><span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">systems that catch themselves.</span></h2>
+      <p class="lede mt-l" style="max-width:680px;margin:0 auto">Let's build that.</p>
+    </div>
+    <aside class="notes">Here's the insight. Agentic engineering is what you build when you stop trying to make one skill do everything and start composing skills into systems that catch themselves. Let's build that.</aside>
+  </section>
+
+  <!-- 10. Lens framing -->
+  <section class="slide" data-title="Two lenses">
+    <p class="kicker">// same data | different question</p>
+    <h2 class="h2">Inspector. Then verifier.</h2>
+    <div class="grid g2 mt-l">
+      <div class="card card-accent">
+        <h4>Inspector</h4>
+        <p class="lede mt-s">Reads the project as an <em>architect</em>.</p>
+        <p class="dim mt-m">"What does this thing do? How does data move through it? Where do I start reading?"</p>
+        <span class="tag mt-m">structural lens</span>
+      </div>
+      <div class="card card-accent">
+        <h4>Verifier</h4>
+        <p class="lede mt-s">Reads the project as a <em>security engineer</em>.</p>
+        <p class="dim mt-m">"What pinned versions live here? Which of them have public advisories? What's the supply-chain posture?"</p>
+        <span class="tag mt-m">security lens</span>
+      </div>
+    </div>
+    <p class="lede mt-l">Same data. Different question. Different answer. That's the composition move.</p>
+    <aside class="notes">What we need is a second lens. The inspector reads the project as an architect. The verifier reads it as a security engineer. Same data, different question. Same composition move you'll see at the infrastructure altitude in Block 4 when Martin shows you the gateway sitting in front of multiple model providers.</aside>
+  </section>
+
+  <!-- 11. Verifier SKILL.md -->
+  <section class="slide" data-title="project-verifier">
+    <p class="kicker">.pi/skills/project-verifier/SKILL.md</p>
+    <h2 class="h2">The verifier is forty lines.</h2>
+    <div class="terminal mt-m">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>SKILL.md (excerpt)</span></div>
+<pre><span class="cmt">---</span>
+<span class="kw">name</span>: project-verifier
+<span class="kw">description</span>: Audit a codebase against the security and supply-chain
+             risks that a structural briefing misses. Trigger when the
+             user asks to verify, audit, or second-opinion a project ...
+<span class="cmt">---</span>
+
+# Process
+1. Locate the dependency manifest (package.json, ...)
+2. Extract <span class="fn">pinned exact versions</span>
+3. Use web search to look up <span class="fn">known CVE / GHSA advisories</span>
+4. Cross-reference with <span class="mono">npm audit</span> if available
+5. Emit JSON: { verified, lens, findings[], recommendation }</pre>
+    </div>
+    <p class="lede mt-m">It doesn't shell out to a separate process. It uses Gemini's native web grounding to look up CVEs by pinned version. <span class="mono">Multi-CLI at the workflow altitude.</span></p>
+    <aside class="notes">Read the description line. That's what makes Pi reach for this skill when the trigger words show up. Read the process. One thing to notice. This skill doesn't shell out to a separate process. It uses Gemini's native web grounding to look up CVEs by pinned version. Same composition move at the infrastructure altitude in Block 4.</aside>
+  </section>
+
+  <!-- 12. The reveal -->
+  <section class="slide" data-title="The Reveal">
+    <p class="kicker">the punchline</p>
+    <h2 class="h2">Side by side. The verifier knows what was missed.</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>inspector</span></div>
+<pre>{
+  <span class="str">"architecture"</span>: <span class="str">"Nuxt 3 ..."</span>,
+  <span class="str">"entry_points"</span>: [<span class="str">"pages/index.vue"</span>, ...],
+  <span class="str">"key_dependencies"</span>: [
+    <span class="str">"nuxt"</span>, <span class="str">"vue"</span>, <span class="str">"axios"</span>,
+    <span class="str">"lodash"</span>, <span class="str">"minimist"</span>,
+    <span class="str">"serialize-javascript"</span>
+  ],
+  <span class="str">"test_patterns"</span>: <span class="str">"No tests detected."</span>
+}</pre>
+      </div>
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>verifier</span></div>
+<pre>{
+  <span class="str">"verified"</span>: <span class="kw">false</span>,
+  <span class="str">"lens"</span>: <span class="str">"security / supply-chain"</span>,
+  <span class="str">"findings"</span>: [
+    { axios 0.21.0 -> CVE-2020-28168 | high },
+    { lodash 4.17.20 -> CVE-2021-23337 | high },
+    { minimist 1.2.5 -> CVE-2021-44906 | high },
+    { serialize-javascript 3.0.0 -> CVE-2020-7660 | high }
+  ],
+  <span class="str">"missed_by_structural_briefing"</span>: [
+    <span class="str">"axios"</span>, <span class="str">"lodash"</span>,
+    <span class="str">"minimist"</span>, <span class="str">"serialize-javascript"</span>
+  ]
+}</pre>
+      </div>
+    </div>
+    <p class="lede mt-l">Same data. Different question. Different answer.</p>
+    <aside class="notes">Pull yours up next to the inspector output. Side by side. Look at this field, missed_by_structural_briefing. Every one of the four. The verifier knows what the inspector missed because it applied a different lens to the same input. Same data. Different question. Different answer. That's the composition move.</aside>
+  </section>
+
+  <!-- 13. Pi events -->
+  <section class="slide" data-title="Pi events">
+    <p class="kicker">// the lifecycle</p>
+    <h2 class="h2">Pi gives you events to hook.</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div class="stack">
+        <div class="agenda-row"><span class="num">01</span><span class="t"><span class="mono">session_start</span></span><span class="d">on launch</span></div>
+        <div class="agenda-row"><span class="num">02</span><span class="t"><span class="mono">before_agent_start</span></span><span class="d">inject context</span></div>
+        <div class="agenda-row"><span class="num">03</span><span class="t"><span class="mono">tool_call</span></span><span class="d">can block</span></div>
+        <div class="agenda-row"><span class="num">04</span><span class="t"><span class="mono">tool_result</span></span><span class="d">can modify</span></div>
+        <div class="agenda-row"><span class="num">05</span><span class="t"><span class="mono">turn_end</span></span><span class="d">per LLM cycle</span></div>
+        <div class="agenda-row"><span class="num">06</span><span class="t"><span class="mono">agent_end</span></span><span class="d">turn complete</span></div>
+      </div>
+      <div class="card" style="padding:32px">
+        <h4 class="mono" style="color:var(--accent-2)">we'll use this one</h4>
+        <p class="lede mt-m"><span class="mono">agent_end</span></p>
+        <p class="dim mt-m">Fires once per user prompt completion. We listen for the inspector's output shape, therefore we inject a verifier follow-up.</p>
+      </div>
+    </div>
+    <aside class="notes">Pi has an extension system. TypeScript modules that subscribe to agent lifecycle events. Six events that matter for what we're building. The one we'll use is agent_end. When the agent finishes a turn, this listener checks the last assistant message and decides whether to fire a follow-up.</aside>
+  </section>
+
+  <!-- 14. inspect-verify.ts -->
+  <section class="slide" data-title="inspect-verify.ts">
+    <p class="kicker">.pi/extensions/inspect-verify.ts</p>
+    <h2 class="h2">Forty lines. Two pieces.</h2>
+    <div class="terminal mt-m">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>inspect-verify.ts (the load-bearing bit)</span></div>
+<pre><span class="kw">import type</span> { ExtensionAPI } <span class="kw">from</span> <span class="str">"@earendil-works/pi-coding-agent"</span>;
+
+<span class="kw">export default function</span> (pi: ExtensionAPI) {
+  <span class="cmt">// piece 1 | the ambient lesson (interactive mode)</span>
+  pi.<span class="fn">on</span>(<span class="str">"agent_end"</span>, <span class="kw">async</span> (event) =&gt; {
+    <span class="kw">const</span> last = lastAssistantText(event.messages);
+    <span class="kw">if</span> (!looksLikeInspectorBriefing(last)) <span class="kw">return</span>;
+    pi.<span class="fn">sendUserMessage</span>(
+      <span class="str">"Now run project-verifier on the same target."</span>,
+      { deliverAs: <span class="str">"followUp"</span> }
+    );
+  });
+
+  <span class="cmt">// piece 2 | the reliable path (works in -p mode too)</span>
+  pi.<span class="fn">registerCommand</span>(<span class="str">"audit"</span>, {
+    description: <span class="str">"Inspector then verifier on a path."</span>,
+    handler: <span class="kw">async</span> (args) =&gt; {
+      pi.<span class="fn">sendUserMessage</span>(coordinatedAuditPrompt(args));
+    },
+  });
+}</pre>
+    </div>
+    <aside class="notes">Forty lines total. Two pieces. First piece: when the agent finishes a turn, this listener checks the last assistant message. If it looks like an inspector briefing, the extension injects a follow-up. Pi treats that as if you typed it, therefore the verifier fires automatically. Second piece: a slash command. Slash audit, path. Belt and suspenders.</aside>
+  </section>
+
+  <!-- 15. Two paths -->
+  <section class="slide" data-title="Two paths">
+    <p class="kicker">belt and suspenders</p>
+    <h2 class="h2">Ambient and explicit.</h2>
+    <div class="grid g2 mt-l">
+      <div class="card card-accent">
+        <h4>Ambient | agent_end listener</h4>
+        <p class="lede mt-s">The system catches itself.</p>
+        <p class="dim mt-m">No user action after install. Inspector runs -> extension detects -> verifier fires. Interactive mode only.</p>
+        <span class="tag mt-m">the lesson</span>
+      </div>
+      <div class="card card-accent">
+        <h4>Explicit | /audit slash command</h4>
+        <p class="lede mt-s">The user names what they want.</p>
+        <p class="dim mt-m">One coordinated prompt, single turn. Works in interactive <em>and</em> print mode. Reliable across environments.</p>
+        <span class="tag mt-m">the workhorse</span>
+      </div>
+    </div>
+    <p class="lede mt-l">Build both. Ship both. I used to think one path was enough, but I learned the hard way the ambient one only fires in interactive mode.</p>
+    <aside class="notes">Two paths, one outcome. The auto-fire is the ambient lesson. The slash command is the reliable path. Build both, ship both. I used to think one path was enough, but I learned the hard way that the ambient one only fires in interactive mode.</aside>
+  </section>
+
+  <!-- 16. Loading order -->
+  <section class="slide" data-title="Loading order">
+    <p class="kicker">hygiene | 1 / 3</p>
+    <h2 class="h2">Closer scope wins.</h2>
+    <div class="grid g3 mt-l" style="align-items:start">
+      <div class="card"><h4>1 | global</h4><p class="dim"><span class="mono">~/.pi/agent/AGENTS.md</span></p><p class="dim mt-s">Your defaults across every project.</p></div>
+      <div class="card"><h4>2 | parents</h4><p class="dim">Every directory up to cwd.</p><p class="dim mt-s">Org or workspace conventions.</p></div>
+      <div class="card card-accent"><h4>3 | cwd</h4><p class="dim">The project root.</p><p class="dim mt-s">This repo's rules. Wins over everything above.</p></div>
+    </div>
+    <p class="lede mt-l">Same model as <span class="mono">.gitignore</span>, <span class="mono">.editorconfig</span>, <span class="mono">tsconfig</span>. Walk up. Inherit. Override.</p>
+    <aside class="notes">Pi reads two files automatically at session start. AGENTS.md and SYSTEM.md. Both project-scoped. Loading order matters. First the global, then every parent directory of your cwd, then the cwd itself. Closer scope wins.</aside>
+  </section>
+
+  <!-- 17. AGENTS.md rules -->
+  <section class="slide" data-title="AGENTS.md">
+    <p class="kicker">hygiene | 2 / 3 | AGENTS.md</p>
+    <h2 class="h2">Five rules. No more.</h2>
+    <div class="stack mt-l">
+      <div class="agenda-row"><span class="num">01</span><span class="t">Skills are the unit of agent capability</span><span class="d">structure</span></div>
+      <div class="agenda-row"><span class="num">02</span><span class="t">Extensions wire, skills reason</span><span class="d">division of labor</span></div>
+      <div class="agenda-row"><span class="num">03</span><span class="t">One JSON shape per verifier</span><span class="d">composability</span></div>
+      <div class="agenda-row"><span class="num">04</span><span class="t">Never echo secrets</span><span class="d">safety</span></div>
+      <div class="agenda-row"><span class="num">05</span><span class="t">Honest scoping over performative thoroughness</span><span class="d">discipline</span></div>
+    </div>
+    <p class="lede mt-l">Less is more. The conventions you actually need, written down once. Pi reads them at every session start, therefore the room and the code line up.</p>
+    <aside class="notes">This file is project instructions. It tells Pi what this repo is, where things live, what conventions the agent should follow inside it. Five rules, no more. Read yours and the room and the code should line up.</aside>
+  </section>
+
+  <!-- 18. SYSTEM.md -->
+  <section class="slide" data-title="SYSTEM.md">
+    <p class="kicker">hygiene | 3 / 3 | SYSTEM.md</p>
+    <h2 class="h2">Framing, not facts.</h2>
+    <div class="terminal mt-m">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>SYSTEM.md (excerpt)</span></div>
+<pre>You are operating inside the AI Engineering workshop repo.
+
+- When a skill is invoked, run the skill faithfully
+  and emit its declared output shape.
+
+- Verifier skills emit JSON only. No preamble, no
+  postscript.
+
+- Honest scoping over performative thoroughness.
+  A clean verifier result is a valid output.
+
+- Cite, never fabricate, advisories. If you cannot
+  verify a CVE for a pinned version, omit it.</pre>
+    </div>
+    <p class="lede mt-m">AGENTS.md carries the conventions. SYSTEM.md carries the framing. Skills carry the reasoning. Three layers, one rule each.</p>
+    <aside class="notes">This file appends to the default system prompt. Use it for framing that should shape every response in the repo. Pedagogical-honesty rules, output-shape rules, citation rules. I used to throw everything into one file, therefore my agent got confused. Now I scope by purpose.</aside>
+  </section>
+
+  <!-- 19. Three verifiers -->
+  <section class="slide" data-title="Three verifiers">
+    <p class="kicker">showcase | pattern extended</p>
+    <h2 class="h2">More agents. Same primitive.</h2>
+    <div class="grid g4 mt-l" style="align-items:stretch">
+      <div class="card card-accent"><h4>inspector</h4><p class="dim">architect lens</p><p class="dim mt-s">"How is it built?"</p></div>
+      <div class="card card-accent"><h4>project-verifier</h4><p class="dim">security lens</p><p class="dim mt-s">"What CVEs?"</p></div>
+      <div class="card card-accent"><h4>architecture-verifier</h4><p class="dim">staff architect lens</p><p class="dim mt-s">"Coupling? Layers?"</p></div>
+      <div class="card card-accent"><h4>performance-verifier</h4><p class="dim">build / runtime lens</p><p class="dim mt-s">"Bundle weight? Hot paths?"</p></div>
+    </div>
+    <p class="lede mt-l">Three verifiers fan out from one inspector. A deliberator agent merges the four outputs into one combined audit. <span class="mono">Same skill / extension / hook primitives, just more skills.</span></p>
+    <aside class="notes">Same pattern you just built. More agents. Inspector reads the project as an architect. Project-verifier reads it as a security engineer. Architecture-verifier reads it as a staff architect. Performance-verifier reads it as a build engineer. Each one is a different lens on the same source.</aside>
+  </section>
+
+  <!-- 20. Merged audit -->
+  <section class="slide" data-title="Deliberator">
+    <p class="kicker">three lenses | one verdict</p>
+    <h2 class="h2">A clean lens is a valid output.</h2>
+    <div class="terminal mt-m">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>deliberator -> fixtures/agentic-target-sample/</span></div>
+<pre>{
+  <span class="str">"verified"</span>: <span class="kw">false</span>,
+  <span class="str">"verdict"</span>: <span class="str">"ship with security fixes; architecture and</span>
+              <span class="str">performance are already green"</span>,
+  <span class="str">"lenses"</span>: {
+    <span class="str">"security"</span>:     { verified: <span class="kw">false</span>, findings: 4 },
+    <span class="str">"architecture"</span>: { verified: <span class="kw">true</span>,  findings: 0 },
+    <span class="str">"performance"</span>:  { verified: <span class="kw">true</span>,  findings: 0 }
+  },
+  <span class="str">"required_before_merge"</span>: [
+    <span class="str">"axios -> 0.21.1+"</span>,
+    <span class="str">"lodash -> 4.17.21+"</span>,
+    <span class="str">"minimist -> 1.2.6+"</span>,
+    <span class="str">"serialize-javascript -> 3.1.0+"</span>
+  ]
+}</pre>
+    </div>
+    <p class="lede mt-m">Two of three lenses came back clean. The architecture verifier wasn't padding to look thorough. That's discipline.</p>
+    <aside class="notes">On this fixture only one lens flagged anything. Security found four high-severity issues. Architecture came back clean. Performance came back clean. The deliberator says ship with the security fixes. A clean lens is a valid output. The architecture verifier wasn't padding to look thorough.</aside>
+  </section>
+
+  <!-- 21. Roundtable cameo -->
+  <section class="slide" data-title="Roundtable">
+    <p class="kicker">cameo | same pattern | different domain</p>
+    <h2 class="h2">Skill plus extension plus dispatch plus deliberation.</h2>
+    <div class="grid g2 mt-l" style="align-items:start">
+      <div>
+        <p class="lede">A council of persona agents running on a non-technical question. Each persona is a skill. Each one applies a different lens. A synthesizer reads all the takes and pulls out the load-bearing disagreement.</p>
+        <div class="stack mt-l">
+          <div class="tag">Strategy lens | 7 Powers framework</div>
+          <div class="tag">Security lens | adversarial threat model</div>
+          <div class="tag">Distribution lens | cost-of-acquisition</div>
+          <div class="tag">Synthesizer | 5-test antifragility audit</div>
+        </div>
+      </div>
+      <div class="card" style="padding:32px">
+        <h4 class="mono" style="color:var(--accent-2)">the lesson</h4>
+        <p class="lede mt-m">Once you build agentic engineering as a habit, this stops looking like dev tooling.</p>
+        <p class="lede mt-m">It starts looking like a thinking partner.</p>
+      </div>
+    </div>
+    <aside class="notes">Last demo, briefly. Same composition pattern. Different domain. The pattern is identical to what you just built. The only things that scale are the count of lenses and the depth of the deliberator. Once you build agentic engineering as a habit, this stops looking like dev tooling. It starts looking like a thinking partner.</aside>
+  </section>
+
+  <!-- 22. What to do tomorrow -->
+  <section class="slide" data-title="Tomorrow">
+    <p class="kicker">// what to do tomorrow</p>
+    <h2 class="h2">Pick one skill that lies a little.</h2>
+    <div class="grid g3 mt-l">
+      <div class="card card-accent"><h4>1 | pick</h4><p class="dim">One skill from your own work where the output is technically correct but operationally incomplete.</p></div>
+      <div class="card card-accent"><h4>2 | build</h4><p class="dim">The verifier that catches what it misses. One skill. One extension. One hook.</p></div>
+      <div class="card card-accent"><h4>3 | ship</h4><p class="dim">Wire it ambient. Wire it explicit. Both paths. Belt and suspenders.</p></div>
+    </div>
+    <p class="lede mt-l">Same pattern. Same primitives. Different domain. Build the habit once, therefore you can apply it everywhere.</p>
+    <aside class="notes">Here's what you can do tomorrow. Pick one skill from your own work where the output is technically correct but operationally incomplete. Therefore build the verifier that catches what it misses. Same pattern. Same primitives. Different domain. One skill, one verifier, one hook. That's the habit. Build it once. Apply it everywhere.</aside>
+  </section>
+
+  <!-- 23. Handoff -->
+  <section class="slide center tc" data-title="Handoff">
+    <div>
+      <p class="kicker">block 4 | after the break</p>
+      <h2 class="h2" style="font-size:56px;line-height:1.15;letter-spacing:-.02em">Same composition thesis.<br>One altitude up.</h2>
+      <p class="lede mt-l" style="max-width:680px;margin:0 auto">Block 3: gateway across vendors at the workflow layer.<br>Block 4: gateway across vendors at the infrastructure layer.</p>
+      <p class="lede mt-l" style="max-width:680px;margin:0 auto"><strong>Same skills. Same hooks. Just bigger.</strong></p>
+    </div>
+    <aside class="notes">Block 4 is next, after the break. Same composition thesis, one altitude up. The gateway is the gateway, the deliberator is the routing rule, the verifier is the guardrail. Martin takes it from here.</aside>
+  </section>
+
+  <!-- 24. Q&A -->
+  <section class="slide center tc" data-title="Q and A">
+    <div>
+      <div class="mono" style="font-size:120px;color:var(--accent);font-weight:800;letter-spacing:-.04em">?</div>
+      <h2 class="h2">Questions?</h2>
+      <p class="lede" style="margin:14px auto">github.com/joemocha | vueconf-us-2026</p>
+      <div class="row mt-l" style="justify-content:center">
+        <span class="tag">workshop repo: <span class="mono">ai-engineering-workshop</span></span>
+        <span class="tag">block 3 narration: <span class="mono">block3/narration-script.md</span></span>
+        <span class="tag">deck source: <span class="mono">block3/deck/</span></span>
+      </div>
+    </div>
+    <aside class="notes">Common Q&amp;A questions and short pre-loaded answers:
+
+1. "How do you keep the auto-fire from looping?" Fingerprint the inspector output, dedupe at the extension level. The version in your repo does that.
+2. "What if Pi defaults to a different model?" pi --provider anthropic, or --provider openai. Skills are model-agnostic. Only Gemini's web grounding made the security CVE lookup free.
+3. "What about cost?" Workshop fixtures are tiny. Real audits cost real tokens. Block 4 is where you learn to put budgets and caches around that.
+4. "Can I run multiple Pi sessions in parallel?" Yes. Pi has RPC mode. That's the showcase shape.
+
+At ~2:29 wrap: Block 4 is next. Same composition thesis. One altitude up.</aside>
+  </section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body></html>
