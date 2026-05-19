@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 3 / Reference — Skills Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../docs/assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="../../docs/assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="../../docs/index.html"
+      data-next="../../docs/index.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="../../docs/index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="../../docs/index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="../../docs/index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="../../docs/index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center">
+  </div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 3 · VIBE → AGENTIC</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">Reference · Skills catalog</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">REFERENCE / SKILLS INVENTORY</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Skills Inventory</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      The agent skills available in this workspace, what each one is generally used for, and where it
+      comes from. <strong>Custom</strong> entries are workspace- or user-private skills — your own
+      setup will differ.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Sections</span>
+        <ol>
+          <li><a href="#repo-local"><span class="toc-num">01</span>Repository-local skills</a></li>
+          <li><a href="#global-user"><span class="toc-num">02</span>Global / local user skills</a></li>
+          <li><a href="#global-swe"><span class="toc-num">03</span>Global SWE skills</a></li>
+          <li><a href="#package-provided"><span class="toc-num">04</span>Package-provided skills</a></li>
+          <li><a href="#external-sources"><span class="toc-num">05</span>External skill sources</a></li>
+          <li><a href="#precedence"><span class="toc-num">06</span>Precedence notes</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           01 — Repository-local skills
+      ============================================================ -->
+      <section id="repo-local" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">01</span>
+          <h2>Repository-local skills</h2>
+          <div class="meta-row">
+            <span class="meta-chip">13 skills</span>
+            <span class="meta-chip">Custom · workspace-scoped</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Inventory · repo-local · 13 entries</span>
+          <h3 class="slide-title">Workspace-private skills</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Skill</th><th>General use</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>plan-to-issues</code></td><td>Creating <code>bd</code>/beads issues from plans, briefs, conversations, follow-ups, or issue-derived plans.</td><td>custom</td></tr>
+              <tr><td><code>code-simplification</code></td><td>Simplifying code for clarity while preserving behavior.</td><td>custom</td></tr>
+              <tr><td><code>taskfast-beads-from-issue</code></td><td>Breaking a GitHub issue into a tracer-bullet beads breakdown.</td><td>custom</td></tr>
+              <tr><td><code>bd-molecules</code></td><td>Creating structured issue workflows using <code>bd</code> molecules and formulas.</td><td>custom</td></tr>
+              <tr><td><code>fixing-accessibility</code></td><td>Auditing and fixing web accessibility issues such as ARIA labels, keyboard navigation, focus management, contrast, forms, and interactive components.</td><td>custom</td></tr>
+              <tr><td><code>fixing-metadata</code></td><td>Auditing and fixing HTML metadata: titles, descriptions, canonicals, Open Graph, Twitter cards, favicons, JSON-LD, and robots directives.</td><td>custom</td></tr>
+              <tr><td><code>git-history-triage</code></td><td>Git-history-first audit of unfamiliar or risky repositories: churn, hotspots, ownership risk, delivery rhythm, and firefighting signals.</td><td>custom</td></tr>
+              <tr><td><code>perplexity</code></td><td>Web research with citations through a Perplexity/Sonar wrapper.</td><td>custom</td></tr>
+              <tr><td><code>qmd</code></td><td>Searching markdown knowledge bases, notes, and documentation with QMD.</td><td>custom</td></tr>
+              <tr><td><code>research-codebase</code></td><td>Factual current-state research of code flows, modules, validation paths, and architecture.</td><td>custom</td></tr>
+              <tr><td><code>showboat</code></td><td>Creating or verifying executable demo documents, golden paths, and runbooks with the <code>showboat</code> CLI.</td><td>custom</td></tr>
+              <tr><td><code>solidity-security</code></td><td>Writing or auditing Solidity smart contracts and applying smart-contract security best practices.</td><td>custom</td></tr>
+              <tr><td><code>taskfast-pm-benson</code></td><td>Routing product-management-level questions to a designated external PM/context agent.</td><td>custom</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"This top section is the most situational — these are skills that live inside <strong>this</strong> workspace. Yours will look different. The point isn't memorising the list; it's noticing the shape: small, sharply scoped, named for the job they do."</em></p>
+          <p><strong>Anchor:</strong> <em>"A good skill name reads like a verb phrase. <code>plan-to-issues</code>, <code>git-history-triage</code>, <code>fixing-metadata</code> — each one tells you what the agent will actually <em>do</em>."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Reference table only.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           02 — Global / local user skills
+      ============================================================ -->
+      <section id="global-user" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">02</span>
+          <h2>Global &amp; local user skills</h2>
+          <div class="meta-row">
+            <span class="meta-chip">28 skills</span>
+            <span class="meta-chip">User-scoped</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Inventory · user-scoped · 28 entries</span>
+          <h3 class="slide-title">Skills available across your projects</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Skill</th><th>General use</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>graphify</code></td><td>Turning code/docs/media into a knowledge graph, clustered communities, HTML, JSON, and <code>GRAPH_REPORT.md</code>.</td></tr>
+              <tr><td><code>accessibility</code></td><td>Generic WCAG accessibility audits and improvements.</td></tr>
+              <tr><td><code>babysit-pr</code></td><td>Legacy generic PR babysitter for polling review comments, CI checks, and mergeability.</td></tr>
+              <tr><td><code>best-practices</code></td><td>Applying modern web development best practices for security, compatibility, and code quality.</td></tr>
+              <tr><td><code>caveman</code></td><td>Ultra-compressed communication mode for lower token usage.</td></tr>
+              <tr><td><code>code-review-pro</code></td><td>One-shot broad code review covering security, performance, maintainability, and best practices.</td></tr>
+              <tr><td><code>code-simplifier</code></td><td>Generic code cleanup and readability refactoring while preserving functionality.</td></tr>
+              <tr><td><code>core-web-vitals</code></td><td>Optimizing LCP, INP, CLS, and page experience.</td></tr>
+              <tr><td><code>design-an-interface</code></td><td>Exploring multiple radically different API/interface designs, often via parallel sub-agents.</td></tr>
+              <tr><td><code>diagnose</code></td><td>Disciplined bug diagnosis: reproduce, minimize, hypothesize, instrument, fix, and regression-test.</td></tr>
+              <tr><td><code>find-skills</code></td><td>Discovering and installing agent skills for a requested capability.</td></tr>
+              <tr><td><code>github-triage</code></td><td>Triaging GitHub issues through a label-based state machine.</td></tr>
+              <tr><td><code>grill-me</code></td><td>Stress-testing a plan or design through intensive questioning.</td></tr>
+              <tr><td><code>huashu-design</code></td><td>Creating high-fidelity HTML prototypes, interaction demos, animations, design variants, and expert design reviews.</td></tr>
+              <tr><td><code>improve-codebase-architecture</code></td><td>Finding architectural improvement and refactoring opportunities informed by domain language and architecture decisions.</td></tr>
+              <tr><td><code>performance</code></td><td>Generic web performance optimization and audits.</td></tr>
+              <tr><td><code>request-refactor-plan</code></td><td>Creating detailed refactor plans with tiny commits and filing them as GitHub issues.</td></tr>
+              <tr><td><code>rust-best-practices</code></td><td>Writing, reviewing, or refactoring idiomatic Rust, including ownership, errors, performance, and tests.</td></tr>
+              <tr><td><code>seo</code></td><td>Generic technical SEO, structured data, sitemap/indexing, and search optimization work.</td></tr>
+              <tr><td><code>skill-creator</code></td><td>Creating or improving skills with evals, benchmarks, trigger tuning, and iterative review.</td></tr>
+              <tr><td><code>to-issues</code></td><td>Breaking generic plans, specs, or PRDs into independently grabbable GitHub issues.</td></tr>
+              <tr><td><code>to-prd</code></td><td>Turning conversation context into a PRD and submitting it as a GitHub issue.</td></tr>
+              <tr><td><code>web-quality-audit</code></td><td>Lighthouse-style audit across performance, accessibility, SEO, and best practices.</td></tr>
+              <tr><td><code>write-a-skill</code></td><td>Quickly drafting a new agent skill without a full benchmark/eval loop.</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"These are user-scoped. They follow you across every project on this machine. When you're picking a skill for a task, prefer narrower scoped above broader — repo-local beats user-scoped, user-scoped beats nothing."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           03 — Global SWE skills
+      ============================================================ -->
+      <section id="global-swe" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">03</span>
+          <h2>Global SWE skills</h2>
+          <div class="meta-row">
+            <span class="meta-chip">17 skills</span>
+            <span class="meta-chip">Source · cdd.dev</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Inventory · swe:* · 17 entries</span>
+          <h3 class="slide-title">Disciplined software-engineering workflows</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            All <code>swe:</code>-prefixed skills are sourced from
+            <a href="https://cdd.dev/skill/" class="text-primary underline">cdd.dev/skill</a> — click any
+            skill name to see its upstream definition.
+          </p>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Skill</th><th>General use</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="https://cdd.dev/skill/swe-babysit-pr" class="text-primary underline"><code>swe:babysit-pr</code></a></td><td>Preferred SWE PR babysitter: monitors one open PR, handles review feedback and CI until merge-ready or blocked.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-capture-knowledge" class="text-primary underline"><code>swe:capture-knowledge</code></a></td><td>Auditing a repo for implicit conventions and drafting agent-facing guidance updates.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-change-validation-planner" class="text-primary underline"><code>swe:change-validation-planner</code></a></td><td>Planning the narrowest trustworthy validation path for a scoped code change or diff.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-create-skill" class="text-primary underline"><code>swe:create-skill</code></a></td><td>Creating or revising repository-ready <code>swe:</code> skills with trigger boundaries and eval assets.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-docs-drift-audit" class="text-primary underline"><code>swe:docs-drift-audit</code></a></td><td>Finding human-facing or operational docs that drifted from code, config, interfaces, workflows, or repo structure.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-incident-followup-audit" class="text-primary underline"><code>swe:incident-followup-audit</code></a></td><td>Verifying durable engineering follow-up after incidents: tests, monitors, docs, runbooks, ownership, and tickets.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-init" class="text-primary underline"><code>swe:init</code></a></td><td>Creating optional repo-local agent collaboration preferences at <code>.ai/swe.json</code>.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-merged-pr-monitoring" class="text-primary underline"><code>swe:merged-pr-monitoring</code></a></td><td>Reviewing recently merged PRs, confirming deployment, and summarizing observable production impact.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-observability-gap-hunt" class="text-primary underline"><code>swe:observability-gap-hunt</code></a></td><td>Finding missing or weak logs, metrics, traces, alerts, dashboards, and deployment telemetry.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-ownership-risk-map" class="text-primary underline"><code>swe:ownership-risk-map</code></a></td><td>Mapping ownership and bus-factor risk using git history, churn, CODEOWNERS, tests, and repo evidence.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-performance-hunt" class="text-primary underline"><code>swe:performance-hunt</code></a></td><td>Hunting concrete performance bottlenecks using profiler output, benchmarks, query plans, traces, bundles, or repo evidence.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-pr-risk-review" class="text-primary underline"><code>swe:pr-risk-review</code></a></td><td>Reviewing open or draft PRs for merge risk, validation gaps, rollout/rollback issues, migrations, and hidden coupling.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-recent-commit-bug-hunt" class="text-primary underline"><code>swe:recent-commit-bug-hunt</code></a></td><td>Scanning recent commits for likely regressions using concrete repo evidence.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-refactor-opportunities" class="text-primary underline"><code>swe:refactor-opportunities</code></a></td><td>Producing a short backlog of small, low-risk refactor tickets with validation paths.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-repo-introspection" class="text-primary underline"><code>swe:repo-introspection</code></a></td><td>Producing an orientation report for an unfamiliar repo: structure, tooling, entry points, boundaries, active surfaces, and safe starts.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-security-audit" class="text-primary underline"><code>swe:security-audit</code></a></td><td>Auditing dependency vulnerabilities, outdated security-sensitive packages, license issues, and dependency hygiene.</td><td>cdd.dev</td></tr>
+              <tr><td><a href="https://cdd.dev/skill/swe-test-gap-hunt" class="text-primary underline"><code>swe:test-gap-hunt</code></a></td><td>Finding and improving high-value test coverage gaps using the local test stack.</td><td>cdd.dev</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"The <code>swe:</code> namespace is a curated set we lean on for engineering workflows. Use these when the request is specifically an SWE move — PR review, validation planning, audit work. They have crisp trigger boundaries; that's what makes them safer to dispatch."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           04 — Other package-provided skills
+      ============================================================ -->
+      <section id="package-provided" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">04</span>
+          <h2>Other package-provided skills</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 skills</span>
+            <span class="meta-chip">Third-party packages</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Inventory · packaged · 2 entries</span>
+          <h3 class="slide-title">Skills shipped by packages you've installed</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Skill</th><th>General use</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>tdd</code></td><td>Test-driven development with red-green-refactor for planned feature work and bug fixes when TDD is explicitly requested.</td><td>custom</td></tr>
+              <tr><td><code>librarian</code></td><td>Researching open-source library internals with evidence-backed answers and GitHub permalinks.</td><td><code>pi-web-access</code> (npm)</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Packaged skills come from npm or other registries — they ride along with the package you installed. They're worth knowing about because their lifecycle is tied to the package, not to your workspace."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           05 — External skill sources
+      ============================================================ -->
+      <section id="external-sources" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">05</span>
+          <h2>External skill sources</h2>
+          <div class="meta-row">
+            <span class="meta-chip">Where to look</span>
+            <span class="meta-chip">Discovery</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Resource · external catalogs</span>
+          <h3 class="slide-title">Where to discover more skills</h3>
+          <ul class="slide-bullets">
+            <li><a href="https://cdd.dev/skill/" class="text-primary underline"><strong>cdd.dev/skill</strong></a> — upstream for all <code>swe:</code>-prefixed skills listed above.</li>
+            <li><a href="https://www.aihero.dev/" class="text-primary underline"><strong>aihero.dev</strong></a> — good source of agent skills, patterns, and worked examples.</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"When your workspace doesn't already have a skill for the thing you need, these are the first two places to look before you write your own. Always prefer adopting a well-trafficked external skill over reinventing it locally — unless your job is genuinely workspace-specific."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           06 — Precedence notes
+      ============================================================ -->
+      <section id="precedence" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">06</span>
+          <h2>General precedence notes</h2>
+          <div class="meta-row">
+            <span class="meta-chip">Picking rules</span>
+            <span class="meta-chip">Lecture</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Rules · which skill wins</span>
+          <h3 class="slide-title">How to choose between overlapping skills</h3>
+          <ul class="slide-bullets">
+            <li><strong>Repo-local beats global.</strong> Prefer repository-local skills over generic global skills when both apply to the same task.</li>
+            <li><strong>Narrow beats broad.</strong> Prefer narrower skills over broader skills. Use the accessibility, metadata, PR monitoring, or validation-planning skills when the request is specifically about those areas.</li>
+            <li><strong>Right tool, right system.</strong> Use <code>bd</code>/beads skills for beads issue workflows and GitHub issue skills for GitHub-native issue workflows.</li>
+            <li><strong>Prefer the <code>swe:</code> namespace.</strong> Use SWE-prefixed skills for disciplined software-engineering workflows when available.</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"These four rules collapse to one heuristic: <strong>pick the smallest skill that fits the job</strong>. Workspace-local before global, narrow before broad, native-system before generic, curated-namespace before ad-hoc. If you remember nothing else from this page, remember that ordering."</em></p>
+          <p><strong>Anchor:</strong> <em>"This is why agentic engineering looks different from vibe coding. Vibe coding picks the most powerful tool. Agentic engineering picks the most <em>precise</em> tool."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="../../docs/index.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Workshop home</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Block 3 · Reference</span>
+    <a href="../../docs/index.html#reference" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">All reference pages →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="../../docs/assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Block 3 | Terminal Companion | VueConf US 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Brutalist editorial — matches docs/Design.md tokens.
+   * No gradients, no glassmorphism, hard 4px borders + 8px offset shadow. */
+  :root {
+    --bg: #fbf9f9;
+    --bg-soft: #f8f6f6;
+    --surface: #fbf9f9;
+    --surface-low: #f5f3f3;
+    --surface-variant: #e4e2e2;
+    --peach: #f6ded3;
+    --peach-soft: #ffdbcc;
+    --border: #221610;
+    --fg: #221610;
+    --dim: #55403a;
+    --accent: #a04100;       /* primary — burnt orange */
+    --accent-2: #fe6b00;     /* primary-container — bright orange */
+    --blue: #00629f;         /* tertiary */
+    --kw: #fe6b00;
+    --str: #f6ded3;
+    --cmt: #a89890;
+    --line: #221610;
+    --shadow: 8px 8px 0 0 #221610;
+    --shadow-soft: 4px 4px 0 0 #221610;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    line-height: 1.55;
+  }
+  body {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    /* Faint dot grid — the docs/ "blueprint" pattern. */
+    background-image: radial-gradient(rgba(34,22,16,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  /* Sidebar — TOC */
+  aside.toc {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 32px 18px;
+    background: var(--bg);
+    border-right: 4px solid var(--border);
+    font-size: 13px;
+  }
+  aside.toc h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--border);
+    margin: 0 0 14px;
+    padding: 4px 8px;
+    background: var(--peach);
+    border: 2px solid var(--border);
+    display: inline-block;
+  }
+  aside.toc ol { list-style: none; padding: 0; margin: 0; }
+  aside.toc li { margin: 4px 0; }
+  aside.toc a {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 6px 10px;
+    color: var(--fg);
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: 700;
+    transition: none;
+  }
+  aside.toc a:hover {
+    background: var(--peach);
+    border-color: var(--border);
+    color: var(--border);
+  }
+  aside.toc a .n {
+    display: inline-block; width: 26px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  aside.toc a .t {
+    color: inherit;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 13px;
+  }
+  aside.toc a.empty .t { color: var(--dim); font-weight: 500; }
+  /* Main */
+  main { padding: 56px 64px 120px; max-width: 1024px; }
+  /* Hero */
+  header.hero {
+    margin-bottom: 48px;
+    padding: 32px 36px;
+    background: var(--surface);
+    border: 4px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  header.hero .kicker {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: .05em; text-transform: uppercase;
+    color: #fff;
+    background: var(--accent);
+    border: 2px solid var(--border);
+    padding: 4px 10px;
+    margin: 0 0 18px;
+  }
+  header.hero h1 {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 40px; margin: 0;
+    line-height: 1.05;
+    letter-spacing: -.05em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--fg);
+  }
+  header.hero h1 span.grad { color: var(--accent); }
+  header.hero p.sub {
+    color: var(--fg);
+    margin: 18px 0 0;
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 640px;
+    line-height: 1.5;
+  }
+  header.hero code {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    background: var(--peach-soft);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    font-size: 13px;
+  }
+  /* Slide section */
+  section.slide {
+    margin: 0 0 32px;
+    padding: 24px 28px;
+    background: var(--surface);
+    border: 4px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  section.slide .hd {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  section.slide .hd .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: .05em;
+    padding: 4px 10px;
+    background: var(--accent);
+    color: #fff;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+  section.slide .hd h2 {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 22px; margin: 0;
+    font-weight: 900;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+    color: var(--fg);
+  }
+  section.slide .stage {
+    font-family: 'Public Sans', sans-serif;
+    font-style: italic;
+    color: var(--fg);
+    background: var(--peach);
+    border-left: 4px solid var(--accent);
+    padding: 10px 14px;
+    margin: 0 0 14px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  section.slide p.lead { margin: 10px 0; color: var(--fg); font-weight: 500; }
+  section.slide p.empty {
+    color: var(--dim);
+    font-style: italic;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin: 8px 0;
+  }
+  section.slide p.then {
+    font-size: 13px;
+    color: var(--fg);
+    font-weight: 700;
+    margin: 16px 0 8px;
+  }
+  section.slide code {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    background: var(--peach-soft);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    font-size: 13px;
+  }
+  /* Code block — brutalist code-block: hard border, offset shadow, dark interior, mono header strip. */
+  .code {
+    position: relative;
+    background: var(--border);
+    border: 4px solid var(--border);
+    margin: 12px 0;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+  }
+  .code .bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--border);
+    border-bottom: 2px solid var(--accent-2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #fbf9f9;
+  }
+  .code .bar .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-2); }
+  .code .bar .dot:nth-child(2) { background: var(--peach-soft); }
+  .code .bar .dot:nth-child(3) { background: var(--accent); }
+  .code .bar .lang { margin-left: 4px; color: #ffdbcc; }
+  .code .bar .copy {
+    margin-left: auto;
+    background: transparent;
+    border: 2px solid #fbf9f9;
+    color: #fbf9f9;
+    padding: 3px 12px;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .code .bar .copy:hover {
+    background: #fbf9f9;
+    color: var(--border);
+  }
+  .code .bar .copy.done {
+    background: var(--blue);
+    color: #fff;
+    border-color: var(--blue);
+  }
+  .code pre {
+    margin: 0;
+    padding: 18px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #fbf9f9;
+    background: var(--border);
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .code.lang-bash pre { color: #fbf9f9; }
+  .code.lang-text pre { color: #ffdbcc; }
+  .code.lang-bash pre::selection,
+  .code.lang-text pre::selection { background: var(--accent-2); color: var(--border); }
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding: 16px 18px;
+    background: var(--bg);
+    border: 4px solid var(--border);
+    color: var(--fg);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  /* Print */
+  @media print {
+    body { grid-template-columns: 1fr; background: #fff; }
+    aside.toc { display: none; }
+    main { padding: 24px; }
+    section.slide { page-break-inside: avoid; box-shadow: none; }
+    header.hero { box-shadow: none; }
+  }
+  /* Narrow */
+  @media (max-width: 800px) {
+    body { grid-template-columns: 1fr; }
+    aside.toc {
+      position: static;
+      height: auto;
+      border-right: none;
+      border-bottom: 4px solid var(--border);
+    }
+    main { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<aside class="toc">
+  <h3>Slides</h3>
+  <ol>
+    <li><a href="#s1" class="empty"><span class="n">01</span><span class="t">Cover</span></a></li>
+    <li><a href="#s2" class="empty"><span class="n">02</span><span class="t">Altitudes</span></a></li>
+    <li><a href="#s3"><span class="n">03</span><span class="t">Pi at a glance</span></a></li>
+    <li><a href="#s4"><span class="n">04</span><span class="t">Lab 1 | Port</span></a></li>
+    <li><a href="#s5"><span class="n">05</span><span class="t">Stuck-points</span></a></li>
+    <li><a href="#s6" class="empty"><span class="n">06</span><span class="t">The Output</span></a></li>
+    <li><a href="#s7" class="empty"><span class="n">07</span><span class="t">The Lie</span></a></li>
+    <li><a href="#s8" class="empty"><span class="n">08</span><span class="t">Skills can lie</span></a></li>
+    <li><a href="#s9" class="empty"><span class="n">09</span><span class="t">Agentic engineering</span></a></li>
+    <li><a href="#s10" class="empty"><span class="n">10</span><span class="t">Two lenses</span></a></li>
+    <li><a href="#s11"><span class="n">11</span><span class="t">project-verifier</span></a></li>
+    <li><a href="#s12"><span class="n">12</span><span class="t">The Reveal</span></a></li>
+    <li><a href="#s13" class="empty"><span class="n">13</span><span class="t">Pi events</span></a></li>
+    <li><a href="#s14"><span class="n">14</span><span class="t">inspect-verify.ts</span></a></li>
+    <li><a href="#s15"><span class="n">15</span><span class="t">Two paths</span></a></li>
+    <li><a href="#s16" class="empty"><span class="n">16</span><span class="t">Loading order</span></a></li>
+    <li><a href="#s17"><span class="n">17</span><span class="t">AGENTS.md</span></a></li>
+    <li><a href="#s18"><span class="n">18</span><span class="t">SYSTEM.md</span></a></li>
+    <li><a href="#s19" class="empty"><span class="n">19</span><span class="t">Three verifiers</span></a></li>
+    <li><a href="#s20"><span class="n">20</span><span class="t">Deliberator</span></a></li>
+    <li><a href="#s21" class="empty"><span class="n">21</span><span class="t">Roundtable</span></a></li>
+    <li><a href="#s22" class="empty"><span class="n">22</span><span class="t">Tomorrow</span></a></li>
+    <li><a href="#s23" class="empty"><span class="n">23</span><span class="t">Handoff</span></a></li>
+    <li><a href="#s24"><span class="n">24</span><span class="t">Q&amp;A</span></a></li>
+  </ol>
+</aside>
+
+<main>
+
+<header class="hero">
+  <p class="kicker">vueconf us 2026 | workshop block 3 | terminal companion</p>
+  <h1>Vibe Coding to <span class="grad">Agentic Engineering</span></h1>
+  <p class="sub">One section per slide, 1:1 with <code>deck/index.html</code>. Click any code block's <strong>copy</strong> button to grab the snippet. Bash blocks = shell. Text blocks = paste into the running <code>pi</code> session.</p>
+</header>
+
+<section class="slide" id="s1">
+  <div class="hd"><span class="num">01</span><h2>Cover</h2></div>
+  <p class="stage">Stand still. Wait for the room to settle in from lunch. Take a breath, then start with "Skills can lie."</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s2">
+  <div class="hd"><span class="num">02</span><h2>Altitudes</h2></div>
+  <p class="stage">Frame the four altitudes (Prompt → Skill → Workflow → Infra). You are here = Workflow. Same diagram Martin used.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s3">
+  <div class="hd"><span class="num">03</span><h2>Pi at a glance</h2></div>
+  <p class="stage">Quick hand-raise: who has Pi installed? Don't dwell. Verify your own install on the projector.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="pi --version">copy</button></div><pre>pi --version</pre></div>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cd ai-engineering-workshop &amp;&amp; pi">copy</button></div><pre>cd ai-engineering-workshop &amp;&amp; pi</pre></div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="hd"><span class="num">04</span><h2>Lab 1 | Port</h2></div>
+  <p class="stage">Project the prompt. Set a 15-min visible timer. Circulate during the lab.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cp skills/project-inspector/SKILL.md .pi/skills/project-inspector/SKILL.md">copy</button></div><pre>cp skills/project-inspector/SKILL.md .pi/skills/project-inspector/SKILL.md</pre></div>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cd ai-engineering-workshop &amp;&amp; pi">copy</button></div><pre>cd ai-engineering-workshop &amp;&amp; pi</pre></div>
+  <p class="then">Then, in <code>pi</code>:</p>
+  <div class="code lang-text"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">pi prompt</span><button class="copy" data-copy="Inspect the repository at fixtures/agentic-target-sample/ and produce a structural briefing.">copy</button></div><pre>Inspect the repository at fixtures/agentic-target-sample/ and produce a structural briefing.</pre></div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="hd"><span class="num">05</span><h2>Stuck-points</h2></div>
+  <p class="stage">Hold while circulating. These are the three checks for the ~95% of stuck attendees.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="pwd">copy</button></div><pre>pwd</pre></div>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="ls .pi/skills/project-inspector/">copy</button></div><pre>ls .pi/skills/project-inspector/</pre></div>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="env | grep OPENAI_API_KEY">copy</button></div><pre>env | grep OPENAI_API_KEY</pre></div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="hd"><span class="num">06</span><h2>The Output</h2></div>
+  <p class="stage">Read the JSON briefing aloud, briskly. End with: "So, what's the real problem here?" Hold the beat 5–10s.</p>
+  <p class="empty">(no terminal cue — your own inspector output should already be on screen from the lab)</p>
+</section>
+
+<section class="slide" id="s7">
+  <div class="hd"><span class="num">07</span><h2>The Lie</h2></div>
+  <p class="stage">Walk the four CVEs line by line. axios SSRF, lodash command injection, minimist proto pollution, serialize-javascript XSS.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s8">
+  <div class="hd"><span class="num">08</span><h2>Skills can lie</h2></div>
+  <p class="stage">Hold this slide for ten seconds in silence. Spine moment. Let the contrast sit.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s9">
+  <div class="hd"><span class="num">09</span><h2>Agentic engineering</h2></div>
+  <p class="stage">"Systems that catch themselves. Let's build that." Move.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s10">
+  <div class="hd"><span class="num">10</span><h2>Two lenses</h2></div>
+  <p class="stage">Inspector reads as architect. Verifier reads as security engineer. Same data, different question.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s11">
+  <div class="hd"><span class="num">11</span><h2>project-verifier</h2></div>
+  <p class="stage">Project the SKILL.md from your terminal so the room sees the real file, not the deck excerpt.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cat .pi/skills/project-verifier/SKILL.md">copy</button></div><pre>cat .pi/skills/project-verifier/SKILL.md</pre></div>
+  <p class="then">Then, in <code>pi</code>:</p>
+  <div class="code lang-text"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">pi prompt</span><button class="copy" data-copy="Use the project-verifier skill to audit fixtures/agentic-target-sample/. Output only the JSON audit.">copy</button></div><pre>Use the project-verifier skill to audit fixtures/agentic-target-sample/. Output only the JSON audit.</pre></div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="hd"><span class="num">12</span><h2>The Reveal</h2></div>
+  <p class="stage">Pull the verifier output up beside the inspector output. Side-by-side. Point to the missed_by_structural_briefing array.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="tmux split-window -h">copy</button></div><pre>tmux split-window -h</pre></div>
+  <p class="empty">(no other terminal cue — the two outputs are already on screen)</p>
+</section>
+
+<section class="slide" id="s13">
+  <div class="hd"><span class="num">13</span><h2>Pi events</h2></div>
+  <p class="stage">Walk the six lifecycle events. Flag that we'll use agent_end.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s14">
+  <div class="hd"><span class="num">14</span><h2>inspect-verify.ts</h2></div>
+  <p class="stage">Project the extension from your terminal. Highlight the two pieces: agent_end listener + registerCommand("audit").</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cat .pi/extensions/inspect-verify.ts">copy</button></div><pre>cat .pi/extensions/inspect-verify.ts</pre></div>
+  <p class="then">Restart Pi so the extension auto-loads:</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cd ai-engineering-workshop &amp;&amp; pi">copy</button></div><pre>cd ai-engineering-workshop &amp;&amp; pi</pre></div>
+  <p class="then">Then re-run the inspector prompt and watch the verifier auto-fire:</p>
+  <div class="code lang-text"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">pi prompt</span><button class="copy" data-copy="Inspect fixtures/agentic-target-sample/ and produce a structural briefing.">copy</button></div><pre>Inspect fixtures/agentic-target-sample/ and produce a structural briefing.</pre></div>
+</section>
+
+<section class="slide" id="s15">
+  <div class="hd"><span class="num">15</span><h2>Two paths</h2></div>
+  <p class="stage">Belt and suspenders. Ambient (agent_end) + explicit (/audit). Demo the explicit path now.</p>
+  <div class="code lang-text"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">pi slash command</span><button class="copy" data-copy="/audit fixtures/agentic-target-sample/">copy</button></div><pre>/audit fixtures/agentic-target-sample/</pre></div>
+</section>
+
+<section class="slide" id="s16">
+  <div class="hd"><span class="num">16</span><h2>Loading order</h2></div>
+  <p class="stage">Same model as .gitignore / .editorconfig / tsconfig. Walk up. Inherit. Override.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s17">
+  <div class="hd"><span class="num">17</span><h2>AGENTS.md</h2></div>
+  <p class="stage">Project the file. Read the five rules aloud.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cat AGENTS.md">copy</button></div><pre>cat AGENTS.md</pre></div>
+</section>
+
+<section class="slide" id="s18">
+  <div class="hd"><span class="num">18</span><h2>SYSTEM.md</h2></div>
+  <p class="stage">Project the file. Framing, not facts. Three layers: AGENTS = conventions, SYSTEM = framing, skills = reasoning.</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="cat SYSTEM.md">copy</button></div><pre>cat SYSTEM.md</pre></div>
+</section>
+
+<section class="slide" id="s19">
+  <div class="hd"><span class="num">19</span><h2>Three verifiers</h2></div>
+  <p class="stage">Narrated: same pattern you just built, more agents. Inspector + 3 lenses + deliberator.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s20">
+  <div class="hd"><span class="num">20</span><h2>Deliberator</h2></div>
+  <p class="stage">Run the multi-verifier audit live. Project the merged output. Point at "two of three lenses came back clean."</p>
+  <div class="code lang-text"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">pi prompt</span><button class="copy" data-copy="Audit the repository at fixtures/agentic-target-sample/ across three lenses. Run project-inspector first to produce the structural briefing. Then run project-verifier, architecture-verifier, and performance-verifier on the same target. Finally, merge the four outputs into a single deliberator JSON with fields: verified, verdict, lenses (security / architecture / performance with verified + findings count each), and required_before_merge.">copy</button></div><pre>Audit the repository at fixtures/agentic-target-sample/ across three lenses. Run project-inspector first to produce the structural briefing. Then run project-verifier, architecture-verifier, and performance-verifier on the same target. Finally, merge the four outputs into a single deliberator JSON with fields: verified, verdict, lenses (security / architecture / performance with verified + findings count each), and required_before_merge.</pre></div>
+</section>
+
+<section class="slide" id="s21">
+  <div class="hd"><span class="num">21</span><h2>Roundtable cameo</h2></div>
+  <p class="stage">Open the prepared roundtable artifact. Same composition pattern, non-technical domain. Skill + extension + dispatch + deliberation.</p>
+  <p class="empty">(no terminal cue — pre-rendered artifact)</p>
+</section>
+
+<section class="slide" id="s22">
+  <div class="hd"><span class="num">22</span><h2>Tomorrow</h2></div>
+  <p class="stage">Pick one. Build one. Ship both paths. Build the habit once, apply everywhere.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s23">
+  <div class="hd"><span class="num">23</span><h2>Handoff</h2></div>
+  <p class="stage">Block 4 next, after the break. Same composition thesis, one altitude up. Martin takes it from here.</p>
+  <p class="empty">(no terminal cue)</p>
+</section>
+
+<section class="slide" id="s24">
+  <div class="hd"><span class="num">24</span><h2>Q&amp;A</h2></div>
+  <p class="stage">Three minutes, more if you move fast. Pre-loaded answers below if relevant questions land.</p>
+  <p class="then">Provider-swap one-liners (if asked "what if I want a different model?"):</p>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="pi --provider anthropic">copy</button></div><pre>pi --provider anthropic</pre></div>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="pi --provider openai">copy</button></div><pre>pi --provider openai</pre></div>
+  <div class="code lang-bash"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lang">bash</span><button class="copy" data-copy="pi --provider gemini">copy</button></div><pre>pi --provider gemini</pre></div>
+</section>
+
+<footer>
+  block3/deck/companion.html · paired with companion.md · 24 slides · vueconf-us-2026
+</footer>
+
+</main>
+
+<script>
+  document.querySelectorAll('.copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy');
+      try {
+        await navigator.clipboard.writeText(text);
+        const orig = btn.textContent;
+        btn.textContent = 'copied';
+        btn.classList.add('done');
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.classList.remove('done');
+        }, 1200);
+      } catch (e) {
+        btn.textContent = 'select &amp; copy';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
