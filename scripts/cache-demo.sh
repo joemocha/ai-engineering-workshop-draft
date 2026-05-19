@@ -29,7 +29,7 @@ if [ -z "$WORKSHOP_VK" ]; then
 fi
 
 PROMPT="What are the benefits of strongly typed languages? Answer in one paragraph."
-MODEL="claude-sonnet-4-6"
+MODEL="anthropic/claude-sonnet-4-6"
 
 PAYLOAD=$(cat <<EOF
 {

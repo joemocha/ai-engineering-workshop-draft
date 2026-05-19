@@ -30,7 +30,7 @@ if [ -z "$WORKSHOP_VK" ]; then
 fi
 
 MAX_CALLS=50
-PAYLOAD='{"model":"claude-sonnet-4-6","messages":[{"role":"user","content":"Say something verbose about distributed systems. Aim for 400 tokens."}],"max_tokens":500}'
+PAYLOAD='{"model":"anthropic/claude-sonnet-4-6","messages":[{"role":"user","content":"Say something verbose about distributed systems. Aim for 400 tokens."}],"max_tokens":500}'
 
 echo "Hammering $BIFROST_URL until we hit a 402 (budget cap). Max calls: $MAX_CALLS"
 echo ""

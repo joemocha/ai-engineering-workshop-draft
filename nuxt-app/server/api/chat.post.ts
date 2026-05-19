@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const result = await callBifrost({
-      model: 'claude-sonnet-4-6',
+      model: 'anthropic/claude-sonnet-4-6',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 500,
     })
