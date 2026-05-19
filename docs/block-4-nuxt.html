@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.9 — Nuxt Integration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-paywall-tour.html"
+      data-next="block-4-recap.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">4:20 – 4:40 · 20 min · 5L / 15HO · Lab</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.9 / 10 · ★ LOAD-BEARING (VueConf payoff)</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Nuxt integration lab</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      The boundary in code. Vue knows <code>useFetch</code>. The server route knows Bifrost. Bifrost knows
+      everything else. Wire it. Watch a 402 fire when the budget caps out.
+    </p>
+    <p class="font-mono-tag text-mono-tag bg-primary text-on-primary px-3 py-1.5 border-2 border-border-primary mt-4 inline-block">★ LOAD-BEARING (VueConf audience payoff)</p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-9-1"><span class="toc-num">4.9.1</span>The boundary</a></li>
+          <li><a href="#beat-4-9-2"><span class="toc-num">4.9.2</span>Wire Nuxt to Bifrost</a></li>
+          <li><a href="#beat-4-9-3"><span class="toc-num">4.9.3</span>Watch the system work</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 4.9.1 — The boundary
+      ============================================================ -->
+      <section id="beat-4-9-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.9.1</span>
+          <h2>The boundary</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:20 – 4:25</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · What Vue knows</span>
+          <h3 class="slide-title">The boundary in one frame</h3>
+          <div class="code-block" data-label="TWO COLUMNS"><pre><code>VUE KNOWS                    │ GATEWAY KNOWS
+─────────────────────────────┼─────────────────────────────
+the gateway URL              │ providers
+the Virtual Key (Bearer)     │ models + aliases
+useFetch                     │ routing rules
+                              │ budgets
+                              │ semantic cache
+                              │ prompt repository
+                              │ guardrails (if enterprise)
+                              │ audit logs (if enterprise)</code></pre></div>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Vue doesn't know about providers. Vue doesn't hold API keys.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · The starter app</span>
+          <h3 class="slide-title">Four files</h3>
+          <div class="code-block" data-label="FILE TREE"><pre><code>nuxt-app/
+├── nuxt.config.ts          # runtimeConfig: bifrostUrl, workshopVk
+├── pages/index.vue         # chat UI — useFetch against /api/chat
+├── server/api/chat.post.ts # server route → POST to Bifrost
+└── .env                    # BIFROST_URL, WORKSHOP_VK</code></pre></div>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Why through a server route</span>
+          <h3 class="slide-title">Don't call Bifrost from the browser</h3>
+          <ul class="slide-bullets">
+            <li><strong>CORS</strong> — Bifrost doesn't ship browser-CORS by default</li>
+            <li><strong>VK secrecy</strong> — if you call Bifrost from the browser, the VK is in the bundle</li>
+            <li><strong>Server route</strong> is the right shape — <code>useFetch</code> → Nuxt server → Bifrost</li>
+            <li>The Nuxt server is your <em>application's</em> secret boundary</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — the boundary:</strong> <em>"Vue knows three things. The gateway URL. The Virtual Key as a Bearer token. And useFetch. That's it. The gateway knows everything else — providers, models, routing, budgets, cache, prompts, guardrails. Each layer concerned with its own thing. That's the gateway pattern in one slide."</em></p>
+          <p><strong>Slide 2:</strong> <em>"Four files in the starter Nuxt app. <code>nuxt.config.ts</code> exposes <code>bifrostUrl</code> and <code>workshopVk</code> via runtimeConfig. <code>pages/index.vue</code> is the chat UI — useFetch against <code>/api/chat</code>. <code>server/api/chat.post.ts</code> is the server route that POSTs to Bifrost with the Bearer token. <code>.env</code> holds both values."</em></p>
+          <p><strong>Slide 3 — why the server route:</strong> <em>"You might wonder why we go through a Nuxt server route instead of calling Bifrost directly from the browser. Two reasons. CORS — Bifrost doesn't ship browser-CORS by default. And VK secrecy — if you call Bifrost from the browser, the Virtual Key is in your JavaScript bundle, which means anyone with DevTools can copy it. The server route is the right shape. The Nuxt server is your application's secret boundary."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Lecture. Next beat starts the HO.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.9.2 — Wire Nuxt to Bifrost
+      ============================================================ -->
+      <section id="beat-4-9-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.9.2</span>
+          <h2>Wire Nuxt to Bifrost</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">10HO</span>
+            <span class="meta-chip">4:25 – 4:35</span>
+            <span class="meta-chip critical">★ LOAD-BEARING (VueConf payoff in code)</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Three steps to wired</span>
+          <h3 class="slide-title">HO #7 — Wire Nuxt to Bifrost (10 min)</h3>
+          <ol class="slide-bullets">
+            <li><strong>Confirm <code>.env</code></strong> — <code>BIFROST_URL=http://localhost:8080</code> + <code>WORKSHOP_VK=&lt;your VK&gt;</code></li>
+            <li><strong>Run</strong> <code>cd nuxt-app &amp;&amp; npm run dev</code> — Nuxt boots on <code>localhost:3000</code></li>
+            <li><strong>Send a message</strong> in the UI — confirm reply renders</li>
+            <li><strong>Check the gateway</strong> — Bifrost dashboard → <strong>Observability</strong> → <strong>LLM Logs</strong> → request attributed to your VK</li>
+          </ol>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Reading <code>chat.post.ts</code></span>
+          <h3 class="slide-title">What the server route does</h3>
+          <div class="code-block" data-label="server/api/chat.post.ts"><pre><code>// the workshop's actual shape
+export default defineEventHandler(async (event) =&gt; {
+  const { prompt } = await readBody&lt;{ prompt: string }&gt;(event)
+
+  const result = await callBifrost({
+    model: 'anthropic/claude-sonnet-4-6',
+    messages: [{ role: 'user', content: prompt }],
+    max_tokens: 500,
+  })
+
+  return { reply: result.choices[0]?.message?.content ?? '' }
+})</code></pre></div>
+          <div class="code-block" data-label="server/utils/bifrost.ts — the boundary"><pre><code>export async function callBifrost(body: ChatRequest) {
+  const { bifrostUrl, workshopVk } = useRuntimeConfig()
+  return await $fetch(`${bifrostUrl}/v1/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${workshopVk}`,
+    },
+    body,
+  })
+}</code></pre></div>
+          <p class="font-body-lg text-body-lg text-on-background mt-4 border-l-4 border-primary pl-6 py-2"><em>Two files. <code>chat.post.ts</code> shapes the request; <code>bifrost.ts</code> hides the gateway. Vue never sees either.</em></p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4"><strong>Also lives in <code>chat.post.ts</code> (not shown above for slide brevity):</strong> the 402 → 403 translation — when Bifrost returns 402 Payment Required for a tripped budget, the server route surfaces it as a 403 with a <code>reason: 'Budget cap exceeded...'</code> so the UI's policy-warning branch lights up. (Beat 4.9.3 leans on this.)</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · What success looks like</span>
+          <h3 class="slide-title">Success criteria</h3>
+          <ul class="slide-bullets">
+            <li>Nuxt UI shows a chat box · message types render</li>
+            <li>Bifrost dashboard → <strong>Observability</strong> → <strong>LLM Logs</strong> → new request appears</li>
+            <li>Request is <strong>attributed to <code>workshop-vk-1</code></strong></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — set the HO:</strong> <em>"Ten minutes to wire it up. Confirm your .env has BIFROST_URL and WORKSHOP_VK. Run npm run dev in the nuxt-app directory. Nuxt boots on localhost:3000. Send a message in the UI. Check the Bifrost dashboard — your request appears in LLM Logs, attributed to your VK."</em></p>
+          <p><strong>Slide 2 — walk the code:</strong> <em>"Two files do the work. <code>chat.post.ts</code> reads the prompt from the request, calls <code>callBifrost</code>, returns the reply. <code>bifrost.ts</code> is the boundary — it reads bifrostUrl and workshopVk from runtimeConfig, hits the chat completions endpoint with Bearer auth. The boundary is in code: no provider keys in this file. No model logic. No routing logic. Just the gateway URL, the VK, and the message."</em></p>
+          <p><strong>Slide 3 — success criteria:</strong> <em>"Three things tell you it's working. The Nuxt UI renders a response. The Bifrost dashboard shows a new request in LLM Logs. The request is attributed to your VK — not to a generic key."</em></p>
+          <p><strong>During HO:</strong> loop the room. Common stumbles below.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Sequence:</p>
+          <div class="code-block" data-label="ATTENDEE TERMINAL"><pre><code># 1. confirm .env
+cat nuxt-app/.env
+# should show BIFROST_URL and WORKSHOP_VK
+
+# 2. start Nuxt
+cd nuxt-app
+npm run dev
+# Nuxt boots on localhost:3000
+
+# 3. browser to localhost:3000, type a message, hit send</code></pre></div>
+          <p>Then back to the Bifrost dashboard:</p>
+          <ul class="slide-bullets">
+            <li><strong>Observability</strong> → <strong>LLM Logs</strong> → confirm new request appears</li>
+            <li>Click the request → confirm <code>Authorization</code> attributes to <code>workshop-vk-1</code></li>
+          </ul>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant">📸 Dry-run capture target: screenshot of LLM Logs showing the Nuxt request attributed to VK. Lives at <code>assets/block4-llm-logs.png</code>.</p>
+          <p><strong>Common gotchas (in priority order):</strong></p>
+          <ul class="slide-bullets">
+            <li><strong>401 from Bifrost</strong> → VK mis-copied. Re-check <code>.env</code>. Most common failure.</li>
+            <li><strong>CORS error</strong> → attendee bypassed the server route. They're hitting Bifrost from the browser. Redirect them through <code>/api/chat</code>.</li>
+            <li><strong>Port collision</strong> → Nuxt wants <code>3000</code>, Bifrost wants <code>8080</code>. Both should be free.</li>
+            <li><strong><code>npm install</code> not run</strong> → starter repo's <code>package.json</code> deps not installed. Run <code>npm install</code> once in <code>nuxt-app/</code>.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.9.3 — Watch the system work
+      ============================================================ -->
+      <section id="beat-4-9-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.9.3</span>
+          <h2>Watch the system work</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">5HO</span>
+            <span class="meta-chip">4:35 – 4:40</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Trip the budget</span>
+          <h3 class="slide-title">Make a 402 happen</h3>
+          <ul class="slide-bullets">
+            <li>Send messages rapidly until the <code>$0.50</code> budget caps out</li>
+            <li>Bifrost returns <strong>402 Payment Required</strong></li>
+            <li>Your server route sees the 402, surfaces it as a 4xx to the UI</li>
+            <li><strong>Vue UI doesn't have to know whether it's a budget cap, a guardrail, or a downstream outage</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Reset</span>
+          <h3 class="slide-title">Recovery</h3>
+          <ul class="slide-bullets">
+            <li>Wait for the 1h reset (workshop budget is small on purpose)</li>
+            <li>Or delete + recreate the budget in the dashboard</li>
+            <li>In production: alert on 402, auto-page, audit, dashboard</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — provoke the failure:</strong> <em>"Now we trip the budget. Send messages rapidly until the gateway returns 402. You'll see Bifrost return 402 Payment Required. Your Nuxt server route catches the 4xx and surfaces it as a policy-blocked message in the UI. Your Vue UI doesn't have to know whether it was a budget cap, a guardrail block, or a downstream outage — it just gets a 4xx from the server route. That's the boundary doing its job."</em></p>
+          <p><strong>Slide 2 — reset:</strong> <em>"To recover, wait for the 1-hour reset or delete and recreate the budget. In production, you'd alert on 402, page oncall, audit the spike, and look at the dashboard. The 402 is signal, not failure."</em></p>
+          <p><strong>Close of HO:</strong> <em>"This is the boundary in code. Vue knows useFetch. The server route knows Bifrost. Bifrost knows providers, models, routing, caching, budgets, prompts. Each layer concerned with its own thing. That's the gateway pattern, top to bottom."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Send messages rapidly in the UI (10–20 short prompts) until 402 surfaces.</p>
+          <p><strong>Capture script</strong> (in workshop repo at <code>scripts/capture-budget-cap-shape.sh</code>) — for instructor projector if attendees can't trip it fast enough:</p>
+          <div class="code-block" data-label="INSTRUCTOR PROJECTOR"><pre><code>for i in {1..50}; do
+  curl -s -X POST "$BIFROST_URL/v1/chat/completions" \
+    -H "Authorization: Bearer $WORKSHOP_VK" \
+    -H "Content-Type: application/json" \
+    -d '{"model":"anthropic/claude-sonnet-4-6","messages":[{"role":"user","content":"Say something verbose."}],"max_tokens":500}' \
+    -o "/tmp/bifrost-call-$i.json" -w "%{http_code}\n"
+done | tail -10</code></pre></div>
+          <p>When <code>402</code> appears in the output, <code>cat /tmp/bifrost-call-N.json</code> for the matching N has the exact 402 JSON.</p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant">📸 Dry-run capture target: screenshot of Nuxt UI showing the policy-blocked warning. Lives at <code>assets/block4-policy-blocked-ui.png</code>.</p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant">📋 Dry-run text capture: exact 402 JSON shape. Save to <code>Block 4 - 402 response sample.md</code> and use in this beat's slide.</p>
+          <p><strong>Triage note:</strong> Tier 1 cut drops the 402 trip (saves ~4 min). Lose the visceral budget-cap moment, but keep the wire-up.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-paywall-tour.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.8 — Paywall Tour</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.9 of 10</span>
+    <a href="block-4-recap.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.10 — Recap + Q&amp;A →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

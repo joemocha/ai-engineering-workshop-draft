@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.2 — HO #1: Providers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-landscape.html"
+      data-next="block-4-models.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">2:55 – 3:10 · 15 min · 5L / 10HO · Lab</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.2 / 10 · HO #1</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Set up providers</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Bifrost holds your provider keys. Your app holds the Bifrost URL. The gateway is the
+      <strong>secret boundary</strong> — provider credentials never leave it.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-2"><span class="toc-num">4.2</span>Providers (HO)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <section id="beat-4-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.2</span>
+          <h2>Providers — secret boundary</h2>
+          <div class="meta-row">
+            <span class="meta-chip">15 min</span>
+            <span class="meta-chip">5L / 10HO</span>
+            <span class="meta-chip">2:55 – 3:10</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · The setup pattern</span>
+          <h3 class="slide-title">Where provider keys live in production</h3>
+          <ul class="slide-bullets">
+            <li>Bifrost holds your provider keys</li>
+            <li>Your app holds the <em>Bifrost</em> URL</li>
+            <li>Provider keys never leave the gateway</li>
+            <li><strong>Compliance reviewers love this</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Anti-patterns</span>
+          <h3 class="slide-title">Where keys do NOT live</h3>
+          <ul class="slide-bullets">
+            <li><s>Your Vue runtime</s></li>
+            <li><s>Your server <code>.env</code> that ships with deploys</s></li>
+            <li><s>Your CI secrets bundle</s></li>
+            <li><s>Sticky note on the monitor</s></li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>The gateway is the secret boundary.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Five clicks to provider configured</span>
+          <h3 class="slide-title">HO #1 — Set up providers (10 min)</h3>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Models</strong> → <strong>Model Providers</strong></li>
+            <li>Click <strong>Add Provider</strong></li>
+            <li>Select <strong>Anthropic</strong> → paste API key → save</li>
+            <li>Repeat for <strong>OpenAI</strong></li>
+            <li><em>(Optional, AWS-equipped)</em> Add <strong>Bedrock</strong> with AWS creds</li>
+          </ol>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — the pattern:</strong> <em>"Bifrost holds your provider keys. Your app holds the Bifrost URL. The provider keys — Anthropic, OpenAI, Bedrock — never leave the gateway. If you're audited tomorrow and asked 'where do your AI credentials live?', the answer is 'in the gateway, behind RBAC.' That's a defensible answer. 'They're in our Vue server's .env' is not."</em></p>
+          <p><strong>Slide 2 — kill the anti-patterns:</strong> <em>"Provider keys do not belong in your Vue runtime. They do not belong in your server .env that ships with deploys. They do not belong in your CI secrets bundle. The gateway is the secret boundary."</em></p>
+          <p><strong>Slide 3 — set the HO:</strong> <em>"Five clicks. Sidebar to Model Providers. Add provider, select Anthropic, paste your key. Save. Repeat for OpenAI. If you have AWS credentials and you've requested Bedrock model access, add Bedrock as a third. Ten minutes. I'll loop the room."</em></p>
+          <p><strong>During HO:</strong> loop the room. Watch for red provider status — usually billing not enabled on the API key. Send those attendees to back-of-room helper.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Bifrost dashboard is already open from Beat 4.1.3's boot. If your tab 404s, refresh — give it 5s. Click sequence:</p>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Models</strong> → <strong>Model Providers</strong></li>
+            <li><strong>Add Provider</strong> → <strong>Anthropic</strong> → paste <code>ANTHROPIC_API_KEY</code> from <code>.env</code> → Save</li>
+            <li><strong>Add Provider</strong> → <strong>OpenAI</strong> → paste <code>OPENAI_API_KEY</code> from <code>.env</code> → Save</li>
+            <li><em>(Optional)</em> <strong>Add Provider</strong> → <strong>Bedrock</strong> → AWS access key + secret → Save</li>
+          </ol>
+          <p><strong>Instructor mirror:</strong> project the same flow once on the screen. Wait for <strong>green status</strong> on each provider before moving on.</p>
+          <p><strong>Common gotchas:</strong></p>
+          <ul class="slide-bullets">
+            <li>Provider key validation may take a moment — green status appears in 5–15s</li>
+            <li>Red status → check billing is enabled on the provider account</li>
+            <li>Corporate VPN blocking <code>api.anthropic.com</code> or <code>api.openai.com</code> → hop to a hotspot</li>
+          </ul>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-landscape.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.1 — Landscape</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.2 of 10</span>
+    <a href="block-4-models.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.3 — Models →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

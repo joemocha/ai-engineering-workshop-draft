@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.10 — Recap + Q&amp;A</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-nuxt.html"
+      data-next="index.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">4:40 – 5:00 · 20 min · 5L / 15Q · Closing</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.10 / 10 · CLOSING + Q&amp;A FLOOR</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Recap + Q&amp;A</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Close the altitude arc. Name two concrete moves attendees can make this week. Then open the floor —
+      <strong>15 minutes minimum, absolute floor.</strong>
+    </p>
+    <p class="font-mono-tag text-mono-tag bg-primary text-on-primary px-3 py-1.5 border-2 border-border-primary mt-4 inline-block">★ Q&amp;A FLOOR (15 min) — DO NOT BREACH</p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-10-1"><span class="toc-num">4.10.1</span>Recap</a></li>
+          <li><a href="#beat-4-10-2"><span class="toc-num">4.10.2</span>Take-home actions</a></li>
+          <li><a href="#beat-4-10-3"><span class="toc-num">4.10.3</span>Q&amp;A floor</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 4.10.1 — Recap
+      ============================================================ -->
+      <section id="beat-4-10-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.10.1</span>
+          <h2>Recap</h2>
+          <div class="meta-row">
+            <span class="meta-chip">4 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:40 – 4:44</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · What you configured today</span>
+          <h3 class="slide-title">In Block 4 you…</h3>
+          <ul class="slide-bullets">
+            <li>Set up two providers (Anthropic + OpenAI) inside one gateway</li>
+            <li>Configured models with an alias</li>
+            <li>Created a Virtual Key as your app's identity</li>
+            <li>Attached a budget — policy-layer cost control</li>
+            <li>Built a weighted routing rule with fallback</li>
+            <li>Versioned a prompt — decoupled from app deploys</li>
+            <li>Toured the enterprise-tier concerns and named <em>why each matters</em></li>
+            <li>Walked semantic cache: OSS mechanism + your-choice storage layer</li>
+            <li>Wired the gateway into a Vue/Nuxt app — Vue knows nothing about providers</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Four altitudes</span>
+          <h3 class="slide-title">Four altitudes, one discipline</h3>
+          <ul class="slide-bullets">
+            <li><strong>Morning:</strong> PROMPT — engineer it</li>
+            <li><strong>Morning:</strong> SKILL — promote + benchmark it</li>
+            <li><strong>Afternoon (Sam):</strong> WORKFLOW — compose them daily</li>
+            <li><strong>This block:</strong> INFRASTRUCTURE — the gateway</li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Same discipline at every altitude. Different tools.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · The closing principle</span>
+          <h3 class="slide-title">Don't put concerns in the wrong place</h3>
+          <blockquote class="border-l-4 border-primary pl-6 py-2 my-4" style="font-size:22px;font-weight:700;line-height:1.4">
+            "Vue doesn't hold API keys. Prompts don't hold deploy cycles. Skills don't hold provider state. The gateway is where the infrastructure concerns live."
+          </blockquote>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — name the wins:</strong> <em>"In Block 4 you configured a real production AI gateway. Two providers in one gateway. Model alias for swap-without-deploy. A Virtual Key as your app's identity. A budget that enforces at the policy layer. A weighted routing rule with fallback — that 3+3 split landing in your terminal was the OSS-earning-its-keep moment. A versioned prompt in the repository. A tour of the enterprise concerns with their production importance named. We walked semantic cache as an OSS mechanism that needs your team's storage choice. And you wired the whole thing into a Vue/Nuxt app where Vue knows nothing about providers."</em></p>
+          <p><strong>Slide 2 — close the altitude arc:</strong> <em>"This morning, Martin gave you prompts and skills. After lunch, Sam gave you the developer workflow altitude. This block was infrastructure. Same discipline — constraint engineering — at every altitude. Different tools. Same principle: don't put concerns in the wrong place."</em></p>
+          <p><strong>Slide 3 — the closing line:</strong> <em>"Vue doesn't hold API keys. Prompts don't hold deploy cycles. Skills don't hold provider state. The gateway is where the infrastructure concerns live."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure recap.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.10.2 — Take-home actions
+      ============================================================ -->
+      <section id="beat-4-10-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.10.2</span>
+          <h2>Take-home actions</h2>
+          <div class="meta-row">
+            <span class="meta-chip">1 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:44 – 4:45</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 1 · Two moves this week</span>
+          <h3 class="slide-title">Two concrete moves</h3>
+          <ol class="slide-bullets">
+            <li><strong>Stand up a gateway in front of one production AI call.</strong> Move <em>one</em> provider key out of your app and into the gateway. Even one. That's the wedge.</li>
+            <li><strong>Version one prompt in the Prompt Repository.</strong> Pick a system prompt that changes more than monthly. Make it a versioned asset.</li>
+          </ol>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Two moves. Five hours each, max. Compounding from there.</em></p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Two concrete moves you can make this week. First: stand up Bifrost — or any gateway of choice — in front of one production AI call. Move one provider key out of your app and into the gateway. Even one. That's the wedge. The rest follows once the boundary is in place."</em></p>
+          <p><em>"Second: version one prompt in the Prompt Repository. Pick a system prompt that changes more than monthly. Make it a versioned asset, called by header. You'll feel the value the first time someone rewords a tone and you don't have to redeploy."</em></p>
+          <p><strong>Hard transition:</strong> <em>"Q&amp;A. Fifteen minutes. Floor."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em></p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.10.3 — Q&A floor
+      ============================================================ -->
+      <section id="beat-4-10-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.10.3</span>
+          <h2>Q&amp;A floor</h2>
+          <div class="meta-row">
+            <span class="meta-chip">15 min</span>
+            <span class="meta-chip">Q</span>
+            <span class="meta-chip">4:45 – 5:00</span>
+            <span class="meta-chip critical">★ ABSOLUTE FLOOR — DO NOT BREACH</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 1 · Q&amp;A</span>
+          <h3 class="slide-title">Questions?</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant"><em>15 min · the floor</em></p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-8">Martin Rojas + Samuel Obukwelu · workshop materials at <code>github.com/&lt;repo-url&gt;</code> · feedback welcome</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p>Open the floor. <em>"Fifteen minutes. Any question — Block 1, 2, 3, or 4. Bring your own use case if you want to apply this to something specific."</em></p>
+          <p><strong>Field questions in priority order:</strong></p>
+          <ol class="slide-bullets">
+            <li>Tactical "how do I do X with our stack?" — most actionable, most useful to room</li>
+            <li>Strategic "should we adopt this pattern?" — invite the room into the discussion</li>
+            <li>Conceptual "why this design over that?" — give your real opinion, with the trade-off</li>
+          </ol>
+          <p><strong>If the room is quiet — seed a question:</strong> <em>"Common one: how do you decide between Bifrost OSS plus app-layer guardrails versus Bifrost enterprise tier with built-in guardrails? Answer is — if you're small, OSS plus app-layer. If you're regulated, enterprise. If you're somewhere in between, run OSS until the audit pressure forces enterprise. Don't over-buy on day one."</em></p>
+          <p><strong>Final 30 seconds:</strong> thank the room. Point at the workshop repo. Invite follow-up over LinkedIn / Twitter / however you prefer.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Open the floor.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-nuxt.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.9 — Nuxt</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.10 of 10 · Block 4 complete</span>
+    <a href="index.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Workshop home →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

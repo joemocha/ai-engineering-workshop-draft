@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.7 — HO #6: Prompt Repository</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-routing.html"
+      data-next="block-4-paywall-tour.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">3:58 – 4:08 · 10 min · 3L / 7HO · Lab</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.7 / 10 · HO #6 · VERIFIED OSS</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Prompts as gateway assets</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Named, versioned, callable by header. Same shape as Git for code — but for prompts.
+      Decouples prompt iteration from app deploy cycles.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-7"><span class="toc-num">4.7</span>Prompts (HO)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <section id="beat-4-7" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.7</span>
+          <h2>Prompt Repository — versioned assets</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">3L / 7HO</span>
+            <span class="meta-chip">3:58 – 4:08</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Versioned assets</span>
+          <h3 class="slide-title">Prompts should be assets, not constants</h3>
+          <ul class="slide-bullets">
+            <li>Named prompts (<code>customer-support-greeting</code>, <code>repo-briefing-system</code>) — each gets a UUID</li>
+            <li>Versioned — every edit creates a new version with a commit message</li>
+            <li>Called by header (<code>x-bf-prompt-id: &lt;prompt-UUID&gt;</code>) — gateway injects the latest committed version</li>
+            <li>Optional <code>x-bf-prompt-version: &lt;N&gt;</code> — pin a specific version (rollback / canary)</li>
+            <li>Invalid IDs are logged as warnings, request still runs</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Why this separation matters</span>
+          <h3 class="slide-title">Decouple prompt iteration from deploy cycles</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-2"><strong>Before:</strong></p>
+          <ul class="slide-bullets">
+            <li>Marketing rewords the greeting → engineer redeploys the app</li>
+          </ul>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-2 mt-4"><strong>After:</strong></p>
+          <ul class="slide-bullets">
+            <li>Marketing rewords the greeting → new prompt version in the repo</li>
+            <li>App still calls <code>x-bf-prompt-id: &lt;UUID&gt;</code></li>
+            <li><strong>No redeploy. No release window.</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Eight steps to prompt versioned</span>
+          <h3 class="slide-title">HO #6 — Prompt Repository (7 min)</h3>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Prompt Repository</strong></li>
+            <li><strong>Create Prompt</strong> → name <code>workshop-greeting</code></li>
+            <li>Add a version → system message: <em>"You are a friendly Vue.js workshop assistant. Greet the user."</em></li>
+            <li>Commit message: <code>v1: initial draft</code> → save</li>
+            <li>Add another version with a tone change → commit <code>v2: more casual</code> → save</li>
+            <li><strong>Copy the prompt UUID</strong> from the dashboard (you'll need it for the header — name ≠ UUID)</li>
+            <li><em>(Optional)</em> <code>curl ... -H "x-bf-prompt-id: &lt;UUID-you-just-copied&gt;"</code> — see the stored prompt injected</li>
+            <li>Confirm both versions visible in the repo view</li>
+          </ol>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Verified OSS (2026-05-19):</strong> Prompt Repository is part of <strong>OSS Bifrost</strong> — confirmed against the installed instance. Create, version, and invoke prompts via header are all OSS features. The richer capabilities in the <code>ent-v1.3.9</code> changelog (Jinja2 variables, sessions, playground, deployment, folders) sit on top of the OSS workflow this beat teaches. The HO stays in.</p>
+          <p><strong>Slide 1:</strong> <em>"Prompts as versioned gateway assets. Named — every prompt has a human-readable name AND a UUID. Versioned — every edit creates a new version with a commit message. Called by header — your app sends <code>x-bf-prompt-id: &lt;UUID&gt;</code> and the gateway injects the latest committed version of that prompt into the request. Want to pin to an older version? <code>x-bf-prompt-version: 3</code>. Same shape as Git for code — the prompt has tags and history, and you call the one you want by id."</em></p>
+          <p><strong>Slide 2 — why decouple:</strong> <em>"Imagine your marketing team rewords the customer-support greeting. Without a Prompt Repository: they email engineering, engineering edits the constant in the app, engineering deploys, marketing sees the change in production three days later. With the repo: marketing's request becomes a new prompt version. The app still calls the same prompt id. No redeploy. No release window. Prompts iterate on their own cadence."</em></p>
+          <p><strong>Slide 3 — HO:</strong> <em>"Seven minutes. Prompt Repository → Create Prompt → name it <code>workshop-greeting</code>. Add a version with a system message — pick anything friendly. Commit it as v1. Then add a v2 with a slight tone change. Both versions stay accessible. Copy the prompt's UUID from the dashboard. Optionally curl the gateway with the prompt header to see the stored prompt injected — but that's gravy."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Click sequence:</p>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Prompt Repository</strong></li>
+            <li><strong>Create Prompt</strong> → form: name <code>workshop-greeting</code></li>
+            <li><strong>Add Version</strong>: messages array with one system message: <em>"You are a friendly Vue.js workshop assistant. Greet the user warmly."</em> Commit message: <code>v1: initial draft</code>. Save.</li>
+            <li><strong>Add Version</strong> (again): same prompt with tone change: <em>"yo! welcome to the workshop. let's go."</em> Commit: <code>v2: more casual</code>. Save.</li>
+            <li>Confirm both versions appear in the version history.</li>
+          </ol>
+          <p><strong>Optional curl</strong> (instructor projector if time — replace <code>&lt;UUID&gt;</code> with the prompt's actual UUID from the dashboard):</p>
+          <div class="code-block" data-label="OPTIONAL — INSTRUCTOR PROJECTOR"><pre><code>curl -X POST localhost:8080/v1/chat/completions \
+  -H "Authorization: Bearer $WORKSHOP_VK" \
+  -H "x-bf-prompt-id: &lt;UUID&gt;" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"anthropic/claude-sonnet-4-6","messages":[{"role":"user","content":"hi"}]}'</code></pre></div>
+          <p>Response uses the stored prompt as the system message — no prompt text in the request body. To pin a specific version: add <code>-H "x-bf-prompt-version: 1"</code>.</p>
+          <p><strong>Triage note:</strong> Tier 2 cut drops the "use via header" step (saves ~3 min). Concept lands in the lecture without the live demo.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-routing.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.6 — Routing Rule</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.7 of 10</span>
+    <a href="block-4-paywall-tour.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.8 — Paywall Tour →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

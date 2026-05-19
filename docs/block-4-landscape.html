@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.1 — Gateway landscape + Boot Bifrost</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="index.html"
+      data-next="block-4-providers.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">2:45 – 2:55 · 10 min · Lecture + boot</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.1 / 10</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Gateway landscape + why a gateway</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Set the scene: this morning you wrote a prompt; this block you ship infrastructure.
+      Walk five gateways briefly, name the five concerns Vue shouldn't carry, then <strong>boot Bifrost</strong> together.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-1-1"><span class="toc-num">4.1.1</span>Opening hook</a></li>
+          <li><a href="#beat-4-1-2"><span class="toc-num">4.1.2</span>Gateway landscape</a></li>
+          <li><a href="#beat-4-1-3"><span class="toc-num">4.1.3</span>Why a gateway + boot</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 4.1.1 — Opening hook
+      ============================================================ -->
+      <section id="beat-4-1-1" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.1.1</span>
+          <h2>Opening hook</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">2:45 – 2:47</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Title</span>
+          <h3 class="slide-title">Block 4 — AI Gateway (Production)</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant"><em>The infrastructure altitude.</em></p>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">135 min · 50% hands-on · Q&amp;A floor at 4:45 PM</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · From skill to fleet</span>
+          <h3 class="slide-title">From "your skill works" to "your fleet works"</h3>
+          <ul class="slide-bullets">
+            <li>This morning: one skill, benchmarked and optimized</li>
+            <li>After lunch: how engineers compose skills daily (Sam)</li>
+            <li>Now: how <em>fleets</em> of skills survive production</li>
+            <li><strong>The gateway is where infrastructure concerns live</strong></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p>Open hard: <em>"Your skill works. Your team's skills work. Now you ship them to ten thousand users. The Vue side calls one endpoint. Behind that endpoint is the gateway — the layer that handles routing, failover, budgets, caching, governance, and observability. We're going to spend the next 135 minutes setting up a real one and walking what production teams configure inside it."</em></p>
+          <p>Slide 2 — close the altitude loop: <em>"This morning Martin gave you the prompt and the skill altitudes. After lunch Sam gave you the developer-workflow altitude. This block is infrastructure. Same discipline — constraint engineering — applied to where concerns live. Vue should not hold provider keys. Prompts should not be tied to deploy cycles. Skills should not hold provider state. The gateway is the answer."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Pure framing — set the room, then move into landscape.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.1.2 — The gateway landscape
+      ============================================================ -->
+      <section id="beat-4-1-2" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.1.2</span>
+          <h2>The gateway landscape</h2>
+          <div class="meta-row">
+            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">2:47 – 2:52</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Pre-emptive framing</span>
+          <h3 class="slide-title">Bifrost is not the answer</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            <em>"Bifrost is the concrete instantiation. The pattern transfers."</em>
+          </p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4">
+            Workshop teaches the pattern. Pick the gateway that fits your stack.
+          </p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · The landscape</span>
+          <h3 class="slide-title">Where you might land</h3>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Gateway</th>
+                <th>Shape</th>
+                <th>When to reach for it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Bifrost</strong></td>
+                <td>Self-hosted · Go · <strong>Open-core</strong> (Apache 2.0 → Enterprise)</td>
+                <td>Today's tool. OSS teaches the model; production teams run <strong>Enterprise</strong> (clustering, SSO, Vault, RBAC, in-VPC).</td>
+              </tr>
+              <tr>
+                <td><strong>PortKey</strong></td>
+                <td>Self-hosted or SaaS · Open-core</td>
+                <td>Strong A/B + conditional routing; lots of plugins.</td>
+              </tr>
+              <tr>
+                <td><strong>LiteLLM</strong></td>
+                <td>Self-hosted · Python · OSS</td>
+                <td>Python-shop default; provider-shape unification.</td>
+              </tr>
+              <tr>
+                <td><strong>OpenRouter</strong></td>
+                <td>SaaS</td>
+                <td>Cheap multi-provider access; less governance focus.</td>
+              </tr>
+              <tr>
+                <td><strong>AWS Bedrock</strong></td>
+                <td>Managed cloud, multi-model</td>
+                <td>One AWS config → Claude, Llama, Mistral, Cohere, Nova. Enterprise AWS shops land here.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · How to choose</span>
+          <h3 class="slide-title">Decision questions</h3>
+          <ol class="slide-bullets">
+            <li>Is your stack Python? → <strong>LiteLLM</strong> is the path of least resistance</li>
+            <li>Already AWS-heavy? → <strong>Bedrock</strong> fits without new infra</li>
+            <li>Need rich governance + SaaS option? → <strong>PortKey</strong></li>
+            <li>Cost-driven, low-governance? → <strong>OpenRouter</strong></li>
+            <li>Self-host + open-core + want OSS depth? → <strong>Bifrost</strong> (today)</li>
+          </ol>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — pre-emptive framing:</strong> <em>"Before we touch Bifrost — Bifrost is not 'the answer.' It's the gateway we're using today because its OSS feature set lets us teach the most without paywalls. The pattern transfers to every alternative. Workshop teaches the pattern. Pick the gateway that fits your stack."</em></p>
+          <p><strong>Slide 2 — walk the five briefly:</strong> <em>"Five names you'll see in any RFC about gateway choice. Bifrost — what we're using. Open-core: Apache 2.0 OSS is what we'll touch today; Enterprise tier is what real production deployments run on. Hold that distinction — we'll come back to it in a few beats. PortKey — strong A/B and conditional routing; lots of plugins; also open-core. LiteLLM — Python default. OpenRouter — cheap multi-provider, less governance. AWS Bedrock — the managed-multi-model entry point. One AWS config gives you Claude, Llama, Mistral, Cohere, Nova. Most enterprise AWS shops just use Bedrock and call it a gateway."</em></p>
+          <p><strong>Slide 3 — decision tree:</strong> <em>"Five questions. Python shop, AWS shop, governance-heavy, cost-driven, self-host. Different paths. None of these are wrong — they're optimized for different concerns. We chose Bifrost for the workshop because its OSS surface is the broadest, so we can show the most without paywall hand-waving. The Enterprise tier is where you actually deploy — but every concept you'll learn today applies to both layers."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Lecture only.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.1.3 — Why a gateway? + Boot Bifrost
+      ============================================================ -->
+      <section id="beat-4-1-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.1.3</span>
+          <h2>Why a gateway? + Boot Bifrost</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">2L / 1HO</span>
+            <span class="meta-chip">2:52 – 2:55</span>
+            <span class="meta-chip critical">★ LOAD-BEARING (boot moment)</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Five concerns</span>
+          <h3 class="slide-title">What the gateway handles</h3>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Concern</th>
+                <th>Why it doesn't belong in Vue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Multi-LLM routing</strong></td><td>Your app shouldn't know whether it's Anthropic or OpenAI</td></tr>
+              <tr><td><strong>Failover + retries</strong></td><td>Providers go down; the gateway routes around</td></tr>
+              <tr><td><strong>Cost control</strong></td><td>Budgets enforced at the policy layer, not in app code</td></tr>
+              <tr><td><strong>Observability</strong></td><td>Logs, dashboards, attribution — once, in one place</td></tr>
+              <tr><td><strong>Safety (guardrails, RBAC, audit)</strong></td><td>Production hardening, not sprinkled through your app</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Boot the gateway</span>
+          <h3 class="slide-title">One command. Two open tabs.</h3>
+          <p class="font-body-lg text-body-lg text-on-background mb-4"><em>"Let's set one up."</em></p>
+          <div class="code-block" data-label="WORKSHOP REPO ROOT"><pre><code># from the workshop repo root
+npm run bifrost</code></pre></div>
+          <ul class="slide-bullets mt-4">
+            <li>Wraps <code>npx -y @maximhq/bifrost --app-dir ./bifrost</code></li>
+            <li><code>--app-dir</code> tells Bifrost to store all state (config.json, config.db, logs.db) in <code>./bifrost/</code> — <strong>workshop-local</strong>, not in <code>~/.config/bifrost/</code></li>
+            <li>Bifrost boots on <code>http://localhost:8080</code> — <strong>API + dashboard, same URL</strong></li>
+            <li>Leave the terminal running · open a browser tab on <code>localhost:8080</code></li>
+            <li><em>Eighty minutes of HO from here. You leave with a configured Bifrost and a Vue app calling it.</em></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — walk the five concerns fast (~25s each):</strong> <em>"Routing — your Vue app shouldn't know whether the request goes to Anthropic or OpenAI. Failover — providers go down; the gateway routes around. Cost control — budgets enforced at the policy layer, not in your application code. Observability — logs and dashboards in one place, attributed by team or customer. Safety — guardrails, access control, audit. Production hardening lives at the gateway, not sprinkled through every endpoint."</em></p>
+          <p><strong>Slide 2 — boot it together:</strong> <em>"Let's set one up. From the workshop repo root, run <code>npm run bifrost</code>. This wraps <code>npx -y @maximhq/bifrost --app-dir ./bifrost</code>. The <code>--app-dir</code> flag is doing real work — it tells Bifrost to store everything it persists (config.json, the SQLite database, the logs) inside the <code>./bifrost/</code> folder of the workshop repo. <strong>Workshop-local state.</strong> That means no conflicts with any Bifrost you might already have installed, and we can wipe and restart cleanly with <code>npm run bifrost:fresh</code>. The gateway starts on <code>localhost:8080</code> — API and dashboard, same URL. Curl it for inference, browser it for the UI. While it's booting, open a browser tab on <code>localhost:8080</code> — give the dashboard a few seconds to come up. We'll click through the sidebar for the next eighty minutes. Hard transition: dashboard tab open, terminal in the corner, here we go."</em></p>
+          <p><strong>Stage direction:</strong> boot Bifrost on the projector terminal alongside your speaker-note narration. The terminal output landing — <em>"Bifrost gateway started on http://localhost:8080"</em> — is the visual cue that we've left lecture mode and entered HO mode. Don't wait for every attendee's terminal to land; just announce <em>"if yours isn't up in 10 seconds, raise a hand."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Boot the gateway</span>
+          <p>Instructor runs on stage, attendees follow in parallel.</p>
+          <div class="code-block" data-label="ATTENDEE TERMINAL"><pre><code># from the workshop repo root
+npm run bifrost</code></pre></div>
+          <p>Wraps:</p>
+          <div class="code-block" data-label="UNDER THE HOOD"><pre><code>npx -y @maximhq/bifrost --app-dir ./bifrost</code></pre></div>
+          <p>Bifrost boots on <code>http://localhost:8080</code>. Dashboard is at the same URL — open a browser tab and leave it there for the rest of the block. The <code>--app-dir ./bifrost</code> flag is load-bearing: it tells Bifrost to persist its state (config.json, config.db, logs.db) inside the workshop repo at <code>./bifrost/</code>, not in the default global location. Workshop-local state = clean reset via <code>npm run bifrost:fresh</code>.</p>
+          <p><strong>Instructor mirror:</strong></p>
+          <ol class="slide-bullets">
+            <li>Project the terminal output until <em>"Bifrost gateway started on http://localhost:8080"</em> lands.</li>
+            <li>Project the dashboard tab — sidebar visible — and hold for ~5s. <em>"This is the gateway we're about to configure."</em></li>
+            <li>Hard transition into Beat 4.2.</li>
+          </ol>
+          <p><strong>Common gotchas:</strong></p>
+          <ul class="slide-bullets">
+            <li><strong>Port 8080 in use</strong> → <code>lsof -i :8080</code> finds the process; kill it; re-run. Or start Bifrost on a different port via CLI flag and update <code>BIFROST_URL</code> in <code>.env</code>.</li>
+            <li><strong><code>npx</code> download stalls</strong> → corporate proxy / VPN. Hop to a hotspot. If the binary was pre-cached during Prerequisites, this should be instant.</li>
+            <li><strong>Dashboard tab 404s for a few seconds</strong> → give it 5–10s after the terminal says "started" for the static assets to load. Don't refresh frantically.</li>
+            <li><strong>No <code>npm run bifrost</code> script</strong> → attendee skipped Prerequisites step that installs the workshop repo. Fall back: <code>cd &lt;workshop-repo&gt;; npx -y @maximhq/bifrost --app-dir ./bifrost</code> directly.</li>
+          </ul>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="index.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Workshop home</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.1 of 10</span>
+    <a href="block-4-providers.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.2 — Providers →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

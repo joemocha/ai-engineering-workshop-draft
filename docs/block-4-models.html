@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.3 — HO #2: Models + aliases</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-providers.html"
+      data-next="block-4-virtual-key.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">3:10 – 3:20 · 10 min · 3L / 7HO · Lab</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.3 / 10 · HO #2</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Configure models + aliases</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Three concepts in the catalog: <strong>available</strong>, <strong>enabled</strong>, <strong>aliased</strong>.
+      Aliases let production teams swap models without touching app code.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-3"><span class="toc-num">4.3</span>Models + aliases (HO)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <section id="beat-4-3" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.3</span>
+          <h2>Models + aliases</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">3L / 7HO</span>
+            <span class="meta-chip">3:10 – 3:20</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · The catalog</span>
+          <h3 class="slide-title">Which models are available, default, aliased</h3>
+          <ul class="slide-bullets">
+            <li><strong>Available</strong> — what your providers expose</li>
+            <li><strong>Enabled</strong> — what your gateway accepts requests for</li>
+            <li><strong>Aliased</strong> — internal name → real <code>provider/model</code> id</li>
+            <li>Aliases are how production teams <em>swap models without code changes</em></li>
+            <li><strong>Two levers, two layers:</strong> aliases swap a model id; routing rules (coming in 4.6) swap a provider. Same goal — change behavior without touching the app.</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · The alias trick</span>
+          <h3 class="slide-title">Why aliases matter</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-2"><strong>Before (no alias):</strong></p>
+          <div class="code-block" data-label="47 PLACES IN YOUR CODE"><pre><code>model: "openai/gpt-4o-mini"</code></pre></div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-2 mt-4"><strong>After (alias):</strong></p>
+          <div class="code-block" data-label="47 PLACES — UNTOUCHED"><pre><code>model: "small-fast"</code></pre></div>
+          <div class="code-block" data-label="1 PLACE — GATEWAY"><pre><code>alias: "small-fast" → "openai/gpt-4o-mini"</code></pre></div>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Model swap = config change. Not deploy.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Five clicks</span>
+          <h3 class="slide-title">HO #2 — Configure models (7 min)</h3>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Models</strong> → <strong>Model Catalog</strong></li>
+            <li>Enable <strong>Claude Sonnet 4.6</strong> (Anthropic)</li>
+            <li>Enable <strong>gpt-4o-mini</strong> (OpenAI)</li>
+            <li><em>(Optional)</em> <strong>Models → Model Providers → OpenAI → Edit key → Aliases (Optional)</strong> → Name <code>small-fast</code> · Value <code>gpt-4o-mini</code></li>
+            <li>Confirm both models show as enabled</li>
+          </ol>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4 italic">Per-provider note: aliases live on the provider key, not gateway-wide. The mapping you add to OpenAI's key only resolves when the request is routed to OpenAI. Edit other providers' keys to alias the same name across providers, or use a routing rule + alias combo.</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Three concepts in the catalog. Available is what your providers expose — could be 30 models. Enabled is what your gateway accepts requests for — should be a curated subset. Aliased is an internal name that points to a real model id. Aliases are how production teams swap models without changing code."</em></p>
+          <p><strong>Slide 2 — the alias trick:</strong> <em>"Imagine you have 47 places in your code that say <code>model: openai/gpt-4o-mini</code>. OpenAI deprecates that model. You're doing a 47-file search-and-replace. With an alias: your code says <code>model: small-fast</code>. The gateway config says <code>small-fast → openai/gpt-4o-mini</code>. When OpenAI deprecates, you update the gateway. One change. Production stays up. (Note the <code>provider/model</code> format — Bifrost's chat-completions endpoint expects it. Aliases let you hide that prefix from app code, which is half the point.)"</em></p>
+          <p><strong>Slide 3 — HO:</strong> <em>"Seven minutes. Model Catalog. Enable one Anthropic model — Claude Sonnet 4.6. Enable one OpenAI model — gpt-4o-mini. Optionally add the <code>small-fast</code> alias — and here's where Bifrost surprised me: aliases don't live at the gateway level, they live on the <strong>provider key</strong> itself. So you go to Model Providers, click into OpenAI, hit Edit key, and you'll see an Aliases section at the bottom of that form. Add <code>small-fast</code> as the Name, <code>gpt-4o-mini</code> as the Value. That alias only resolves when traffic is routed to OpenAI — which makes sense once you think about it: the alias is mapping a custom name to OpenAI's specific deployment/profile id. Loop the room. While you're in that form, also note the <strong>Allowed Models</strong> and <strong>Blocked Models</strong> fields — that's a per-provider-key allowlist, distinct from the VK-level allowlist we'll see in 4.4. And the info banner at the bottom — 'synced from config.json' — that's the precedence rule from 4.5.5 spelled out at the point of edit."</em></p>
+          <p><strong>Triage note:</strong> Tier 1 cut drops the alias step (saves ~2 min). Alias concept lands in the lecture; the live add is optional. If room is on time, do the alias — it's memorable.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Click sequence:</p>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Models</strong> → <strong>Model Catalog</strong></li>
+            <li>Find <strong>Claude Sonnet 4.6</strong> → toggle <strong>Enable</strong></li>
+            <li>Find <strong>gpt-4o-mini</strong> → toggle <strong>Enable</strong></li>
+            <li><em>(Optional)</em> Sidebar → <strong>Models → Model Providers → OpenAI → Edit key</strong>. Scroll to the <strong>Aliases (Optional)</strong> section. In the Name column type <code>small-fast</code>; in the Value column type <code>gpt-4o-mini</code> (the provider's identifier; can also use deployment names, inference profile IDs, fine-tuned endpoint IDs). Save.</li>
+          </ol>
+          <p><strong>Per-provider note:</strong> Bifrost shows you the alias help text: <em>"Map each request model name to the provider's identifier (deployment name, inference profile ID, fine-tuned endpoint ID, etc.) or just a custom name, e.g. <code>claude-sonnet-4-5</code> → <code>custom-claude-4.5-sonnet</code>."</em> The alias is <strong>per provider key</strong> — if you want <code>small-fast</code> to also resolve when Bifrost routes to Anthropic, you'd add the alias on Anthropic's key too (mapped to <code>claude-haiku-4-5</code> or similar).</p>
+          <p><strong>Sync banner to point at on the form:</strong> <em>"This config is synced from <code>config.json</code>. Any future updates to config.json will overwrite UI changes."</em> That's the exact precedence rule from Beat 4.5.5 — Bifrost makes it visible at the point of edit.</p>
+          <p><strong>Instructor mirror</strong> on projector.</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-providers.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.2 — Providers</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.3 of 10</span>
+    <a href="block-4-virtual-key.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.4 — Virtual Key →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

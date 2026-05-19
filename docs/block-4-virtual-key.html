@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.4 — HO #3: Virtual Key</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-models.html"
+      data-next="block-4-budget-storage.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">3:20 – 3:30 · 10 min · 3L / 7HO · Lab</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.4 / 10 · HO #3</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Create a Virtual Key</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      A Virtual Key is your gateway's representation of <em>who is asking</em>. Per-team, per-tenant,
+      per-environment. <strong>The only secret your Vue app sees.</strong>
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-4"><span class="toc-num">4.4</span>Virtual Key (HO)</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <section id="beat-4-4" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.4</span>
+          <h2>Virtual Key — identity, not just budget</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">3L / 7HO</span>
+            <span class="meta-chip">3:20 – 3:30</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · VK as identity</span>
+          <h3 class="slide-title">A Virtual Key is <em>who is asking</em></h3>
+          <ul class="slide-bullets">
+            <li>Per-team, per-customer, per-tenant, per-environment</li>
+            <li>Budget attaches to it (one VK, multiple budgets — see 4.5)</li>
+            <li>Routing rules can target it</li>
+            <li>Logs attribute to it</li>
+            <li><strong>Provider/model allowlist</strong> lives on the VK — one key can express its own mini-routing policy (<code>provider_configs</code> with allowed_models + weights)</li>
+            <li><strong>The only secret your Vue app sees</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Granularity choices</span>
+          <h3 class="slide-title">Pick the granularity that matches your spend view</h3>
+          <ul class="slide-bullets">
+            <li><strong>Environment:</strong> <code>prod-vk</code>, <code>staging-vk</code>, <code>dev-vk</code></li>
+            <li><strong>Surface:</strong> <code>web-app-vk</code>, <code>mobile-app-vk</code>, <code>admin-tools-vk</code></li>
+            <li><strong>Tenant:</strong> <code>customer-acme-vk</code>, <code>customer-globex-vk</code></li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Pick how you'd want to see the spend in a dashboard.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Five clicks to VK created</span>
+          <h3 class="slide-title">HO #3 — Create a VK (7 min)</h3>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Governance</strong> → <strong>Virtual Keys</strong></li>
+            <li>Click <strong>Create Virtual Key</strong></li>
+            <li>Name: <code>workshop-vk-1</code> · description: <code>My workshop key</code></li>
+            <li>Save → <strong>use the copy button on the row</strong> (key is masked; eye icon reveals if needed)</li>
+            <li>Paste into <code>.env</code> as <code>WORKSHOP_VK=...</code> for Block 4.9</li>
+          </ol>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — name the concept:</strong> <em>"A Virtual Key is your gateway's representation of who is asking. Per-team, per-customer, per-tenant, per-environment. Budget attaches to it — and a VK can carry multiple budgets with different reset windows; we'll see that in 4.5. Routing rules can target it. Logs attribute to it. And the VK itself carries a provider/model allowlist and per-provider weights — one VK can express its own mini-routing policy. The big routing rules from 4.6 operate at the gateway layer; the VK's allowlist constrains what any single key is allowed to ask for. Two layers, both useful. This VK is the only secret your Vue app will see — in Block 4.9 when we wire the Nuxt app to the gateway, it'll send this VK as a Bearer token. That's it. No provider keys."</em></p>
+          <p><strong>Auth header note (S1):</strong> <em>"One footnote for production. Today we're using <code>Authorization: Bearer &lt;VK&gt;</code> — this works when Bifrost has admin auth disabled, which is our workshop setup. In production with admin auth enabled, <code>Authorization</code> is reserved for admin Basic credentials and the VK moves to the <code>x-bf-vk</code> header. Both shapes work; pick based on whether you've turned on <code>enforce_auth_on_inference</code>. If someone in your team asks 'why are you using Bearer?' — it's the OpenAI-compatible shape; switch to <code>x-bf-vk</code> when you turn auth on."</em></p>
+          <p><strong>Slide 2 — granularity:</strong> <em>"Production teams pick the granularity that matches how they want to see spend. Per environment? Per surface? Per customer? The answer is whatever you'd want to see in your billing dashboard. Mixed is fine too."</em></p>
+          <p><strong>Slide 3 — HO:</strong> <em>"Seven minutes. Governance → Virtual Keys → Create. Name it <code>workshop-vk-1</code>. The key string is masked by default in the dashboard — but the row has a show button (eye icon) and a copy button. Hit copy. You don't have to reveal it. Paste it into your .env as WORKSHOP_VK=... — you'll use it in Block 4.9 to authorize your Nuxt app against Bifrost."</em></p>
+          <p><strong>During HO:</strong> loop the room. If anyone says "I lost the key" — delete the VK and recreate. Cheap operation.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Click sequence:</p>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Governance</strong> → <strong>Virtual Keys</strong></li>
+            <li><strong>Create Virtual Key</strong></li>
+            <li>Form: Name <code>workshop-vk-1</code>, Description <code>My workshop key</code></li>
+            <li><strong>Save</strong></li>
+            <li><strong>Click the copy button</strong> on the row (key string is masked; eye icon shows if needed)</li>
+            <li>Open <code>.env</code> in editor → <code>WORKSHOP_VK=&lt;paste&gt;</code> → save</li>
+          </ol>
+          <p><strong>Instructor mirror</strong> on projector. <strong>Make a show of clicking the copy button</strong> — it primes attendees to actually do it.</p>
+          <p><strong>Common gotchas:</strong></p>
+          <ul class="slide-bullets">
+            <li>Key string is masked by default — use the <strong>copy button</strong> on the row to get it onto your clipboard. The <strong>show</strong> button (eye icon) reveals it inline if you really want to see the characters; you don't need to.</li>
+            <li><code>.env</code> not auto-reloaded by Nuxt → only matters in Block 4.9; not now</li>
+          </ul>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-models.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.3 — Models</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.4 of 10</span>
+    <a href="block-4-budget-storage.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.5 — Budget + Storage →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

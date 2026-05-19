@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.8 — Paywall Tour + Cache aside</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-prompts.html"
+      data-next="block-4-nuxt.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">4:08 – 4:20 · 12 min · Lecture (paywalled tour + cache aside)</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.8 / 10 · PAYWALL TOUR + CACHE ASIDE</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Why these matter at enterprise scale</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      <em>"Here's what you can configure today in OSS. Here's what the enterprise tier unlocks. Either way,
+      here's why this concern matters at production scale."</em> Plus a lecture-only Semantic Cache aside
+      — OSS gives you the mechanism; you bring the storage layer.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-8-a"><span class="toc-num">4.8.A</span>Guardrails</a></li>
+          <li><a href="#beat-4-8-b"><span class="toc-num">4.8.B</span>Audit Logs</a></li>
+          <li><a href="#beat-4-8-c"><span class="toc-num">4.8.C</span>Advanced Governance</a></li>
+          <li><a href="#beat-4-8-d"><span class="toc-num">4.8.D</span>Adaptive Routing</a></li>
+          <li><a href="#beat-4-8-e"><span class="toc-num">4.8.E</span>Cluster Config</a></li>
+          <li><a href="#beat-4-8-f"><span class="toc-num">4.8.F</span>Semantic Cache</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 4.8.A — Guardrails
+      ============================================================ -->
+      <section id="beat-4-8-a" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.8.A</span>
+          <h2>Guardrails (locked)</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:08 – 4:10</span>
+            <span class="meta-chip critical">★ LOAD-BEARING (OSS-vs-Enterprise honesty)</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Guardrails (locked screen)</span>
+          <h3 class="slide-title">Guardrails — Rules + Providers</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-2 font-bold">What attendees see (verbatim, verified 2026-05-19):</p>
+          <blockquote class="border-l-4 border-primary pl-6 py-2 my-4" style="font-size:18px;line-height:1.4">
+            <strong>Unlock guardrails for better security</strong><br/>
+            This feature is a part of the Bifrost enterprise license. We would love to know more about your use case and how we can help you.
+          </blockquote>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4 font-bold">Two sub-sections under <code>Guardrails</code>:</p>
+          <ul class="slide-bullets">
+            <li><strong>Rules</strong> — the policies themselves: CEL expressions over messages, block-or-redact actions, sampling rates, PII patterns</li>
+            <li><strong>Providers</strong> — the engines that <em>execute</em> those rules: Bedrock Guardrails · Azure Content Safety · GraySwan · Patronus · regex scanners · secrets scanners</li>
+          </ul>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4 font-bold">Bullets (what makes a Rule):</p>
+          <ul class="slide-bullets">
+            <li>CEL expressions over messages — <code>m.role == 'user' &amp;&amp; contains(m.content, 'SSN')</code></li>
+            <li>Block-or-redact actions</li>
+            <li>Sampling rates</li>
+            <li>PII patterns</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Why this lives at the gateway</span>
+          <h3 class="slide-title">Guardrails belong at the gateway layer</h3>
+          <ul class="slide-bullets">
+            <li><strong>Wire once, govern everywhere</strong> — applies to every call from every app</li>
+            <li>Without gateway guardrails: every app re-implements (and forgets some checks)</li>
+            <li><strong>Same pattern in PortKey, AWS Bedrock Guardrails, NeMo, Lakera, Guardrails AI</strong></li>
+            <li>The mechanism is portable; the implementation is paywalled</li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Wire once, govern everywhere.</em></p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Sidebar → Guardrails → Rules. Locked screen. The CTA says 'Unlock guardrails for better security. This feature is a part of the Bifrost enterprise license. We would love to know more about your use case and how we can help you.' Notice the second sentence — that's how Enterprise conversations actually start. Not 'pay us first'; 'tell us your use case.' Don't apologize for the paywall — narrate what would be there. Production teams write CEL expressions like 'if message contains SSN, block.' Block-or-redact actions. Sampling rates so you don't pay to scan every message. PII patterns. And the Providers sub-section is the engines that execute those rules — integrations with Bedrock Guardrails, Azure Content Safety, GraySwan, Patronus, regex scanners, secrets scanners."</em></p>
+          <p><em>"Why does this live at the gateway? Wire once, govern everywhere. Every app, every endpoint. Without gateway guardrails, every app team re-implements them — and forgets some. Same pattern in PortKey, AWS Bedrock Guardrails, NeMo, Lakera, Guardrails AI. The mechanism is portable. The implementation in Bifrost is paywalled. Either path — OSS Bifrost plus app-layer guardrails, or enterprise tier — this concern doesn't go away."</em></p>
+        </aside>
+
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.8.B — Audit Logs
+      ============================================================ -->
+      <section id="beat-4-8-b" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.8.B</span>
+          <h2>Audit Logs (locked)</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:10 – 4:12</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Audit Logs (locked screen)</span>
+          <h3 class="slide-title">Governance — Audit Logs</h3>
+          <ul class="slide-bullets">
+            <li>Who called what, when, with what cost, against what VK</li>
+            <li>Filterable by user, team, customer</li>
+            <li><strong>Mandatory for SOC 2 / HIPAA / GDPR</strong> if your AI touches regulated data</li>
+            <li>Tamper-resistant, long retention, security-tool integrations</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · OSS vs Enterprise</span>
+          <h3 class="slide-title">OSS gives you logs. Enterprise gives you audit.</h3>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>OSS Bifrost (you have this)</th>
+                <th>Enterprise Bifrost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>LLM Logs</strong></td><td>✓ Recent requests, basic filtering</td><td>✓ same</td></tr>
+              <tr><td><strong>Audit Trail</strong></td><td>✗</td><td>✓ Full, filterable, tamper-resistant</td></tr>
+              <tr><td><strong>Retention</strong></td><td>Local / short</td><td>Long, compliance-grade</td></tr>
+              <tr><td><strong>SIEM integration</strong></td><td>✗</td><td>✓</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Sidebar → Governance → Audit Logs. Locked. Audit Logs gives you the compliance-grade trail — who called what, when, with what cost, against what Virtual Key. Filterable by user, team, customer. Mandatory for SOC 2, HIPAA, GDPR if your AI touches regulated data."</em></p>
+          <p><em>"OSS Bifrost has basic LLM Logs — you saw those in Block 4.6 when we hit the routing rule. Enterprise has the audit trail. The difference is retention, filtering, tamper-resistance, and integration with your security tooling. Same gap exists in every gateway — PortKey, LiteLLM, Bedrock. The compliance-grade tier is paywalled across the board."</em></p>
+        </aside>
+
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.8.C — Advanced Governance
+      ============================================================ -->
+      <section id="beat-4-8-c" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.8.C</span>
+          <h2>Advanced Governance (locked)</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:12 – 4:14</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Multi-tenancy (locked)</span>
+          <h3 class="slide-title">Teams · Business Units · Customers · RBAC</h3>
+          <ul class="slide-bullets">
+            <li>Tenant isolation — separate VKs, budgets, audit views per customer</li>
+            <li><strong>Required the moment you ship AI to external customers</strong></li>
+            <li>User provisioning syncs with your identity provider (Okta, Azure AD)</li>
+            <li>Roles &amp; Permissions, Access Profiles</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · When you need this</span>
+          <h3 class="slide-title">Internal AI? Maybe. External AI? Yes.</h3>
+          <ul class="slide-bullets">
+            <li><strong>Internal-only AI tools</strong> — you can get away without multi-tenancy</li>
+            <li><strong>External AI features</strong> (sold to your customers) — you need this</li>
+            <li>Either Bifrost enterprise, or roll multi-tenancy at the app layer</li>
+            <li>The concern doesn't go away</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Sidebar → Governance → Teams / Business Units / Customers. Locked. Multi-tenancy. If you sell AI features to your customers, you need tenant isolation — separate VKs per customer, separate budgets, separate audit views. RBAC controls who can see and edit what. User provisioning syncs with your identity provider."</em></p>
+          <p><em>"For internal-only AI tools, you can get away without multi-tenancy — one VK per team is fine. The moment you ship AI features to external customers, you need this. Bifrost enterprise. Or roll it at the app layer. Either way, this concern doesn't disappear."</em></p>
+        </aside>
+
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.8.D — Adaptive Routing
+      ============================================================ -->
+      <section id="beat-4-8-d" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.8.D</span>
+          <h2>Adaptive Routing (locked)</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:14 – 4:16</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Adaptive Routing (locked)</span>
+          <h3 class="slide-title">Beyond static rules</h3>
+          <ul class="slide-bullets">
+            <li>Watches provider health, latency, error rates in real time</li>
+            <li>Shifts traffic dynamically based on observed signals</li>
+            <li>Closed-loop control on top of the routing layer</li>
+            <li>Static weighted rules (which you configured in 4.6) are the floor</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Static vs adaptive</span>
+          <h3 class="slide-title">When to graduate</h3>
+          <ul class="slide-bullets">
+            <li>Static routing — predictable, debuggable, fine for most teams</li>
+            <li>Adaptive routing — earns its keep at high traffic</li>
+            <li>Most teams start static and adopt adaptive when their traffic warrants it</li>
+            <li><strong>Don't reach for adaptive on day one</strong></li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Sidebar → Adaptive Routing. Locked. Adaptive routing watches provider health, latency, error rates in real time and shifts traffic dynamically. Closed-loop control on top of the routing layer."</em></p>
+          <p><em>"The static routing rules you configured in 4.6 are the floor. Adaptive routing is the ceiling. Don't reach for adaptive on day one — static is predictable and debuggable. Most production teams start static and graduate to adaptive when their traffic warrants the complexity."</em></p>
+        </aside>
+
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.8.E — Cluster Config
+      ============================================================ -->
+      <section id="beat-4-8-e" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.8.E</span>
+          <h2>Cluster Config (locked)</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:16 – 4:18</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Cluster Config (locked)</span>
+          <h3 class="slide-title">Multi-node Bifrost</h3>
+          <ul class="slide-bullets">
+            <li>HA mode — multiple gateway nodes with shared state</li>
+            <li>Leader election, rolling deploys</li>
+            <li>For production scale: never run one gateway instance</li>
+            <li>Cluster Config is the control plane</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · Where Apache 2.0 ends</span>
+          <h3 class="slide-title">Single-instance OSS → cluster Enterprise</h3>
+          <ul class="slide-bullets">
+            <li>Single-instance OSS Bifrost: fine for dev, staging, small prod</li>
+            <li><strong>When you can't tolerate a gateway restart → cluster</strong></li>
+            <li><strong>Storage scales with it:</strong> SQLite (single-node) → PostgreSQL (shared) — same swap you saw in Beat 4.5.5</li>
+            <li>Apache 2.0 ends at the cluster boundary</li>
+            <li>Same scaling shape in every gateway — PortKey, LiteLLM, etc.</li>
+          </ul>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><em>"Sidebar → Cluster Config. Locked. Multi-node Bifrost. HA mode. Shared state, leader election, rolling deploys. For production scale, you don't run one gateway instance — you run a cluster. Cluster Config is the control plane."</em></p>
+          <p><strong>Callback to Beat 4.5.5:</strong> <em>"Remember the storage layer we looked at — SQLite by default, swap to PostgreSQL in config.json? That swap is what makes the cluster work. Cluster Config orchestrates the nodes; PostgreSQL is the shared state they all read from. Same Bifrost binary, same UI, different backend. The cluster doesn't change your app code. Your app keeps calling <code>localhost:8080</code> — load-balanced to whichever node answers."</em></p>
+          <p><em>"Single-instance OSS Bifrost is fine for dev, staging, and small prod. The moment you can't tolerate a gateway restart — meaning your AI traffic is critical-path — you go cluster. That's where Apache 2.0 ends. Same scaling shape in every gateway alternative."</em></p>
+          <p><strong>Closing bridge:</strong> <em>"That's the tour of the locked features. One more concern before we wire Nuxt — semantic cache. This one's actually OSS, but it needs a little more than a config flag, so we'll walk it instead of wiring it."</em></p>
+        </aside>
+
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.8.F — Semantic Cache (relocated from 4.6.B)
+      ============================================================ -->
+      <section id="beat-4-8-f" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.8.F</span>
+          <h2>Semantic Cache (OSS but needs assembly)</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">4:18 – 4:20</span>
+            <span class="meta-chip">Relocated from 4.6.B (2026-05-19)</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 2 · Two cache modes</span>
+          <h3 class="slide-title">Semantic Cache: hash vs semantic</h3>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th>What it matches</th>
+                <th>What it needs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hash (direct)</strong></td>
+                <td>Exact string match — <code>dimension: 1</code> in plugin config</td>
+                <td>Vector store + <code>x-bf-cache-key</code> header per request</td>
+              </tr>
+              <tr>
+                <td><strong>Semantic</strong></td>
+                <td>Similarity by embedding</td>
+                <td>Vector store + embedding model + <code>x-bf-cache-key</code> header</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Bifrost gives you the mechanism. You bring the storage layer.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 2 · What production looks like</span>
+          <h3 class="slide-title">Three pieces, all in OSS</h3>
+          <ul class="slide-bullets">
+            <li><strong>Plugin config in <code>config.json</code></strong> — <code>semantic_cache</code> entry under <code>plugins[]</code>, <code>enabled: true</code>, <code>dimension: 1</code> (hash) or higher (semantic)</li>
+            <li><strong>Vector store config in <code>config.json</code></strong> — Weaviate / Redis / etc. via <code>vector_store</code> block (Bifrost's storage layer; not bundled, you supply it)</li>
+            <li><strong><code>x-bf-cache-key</code> header on each request</strong> — per-session or per-tenant cache namespacing; without it the plugin doesn't fire</li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>"OSS gives you the mechanism. Vector store + cache-key strategy is the assembly your team owns."</em></p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — name the two modes:</strong> <em>"Bifrost's semantic_cache plugin has two modes. Hash mode — exact string match — sets dimension to 1 and skips embedding computation. Use this for chatbots, deterministic templates, common queries. Semantic mode — similarity matching — needs an embedding model on top, catches paraphrases and re-asks. Both modes share the same plumbing: vector store as the underlying KV, and an <code>x-bf-cache-key</code> header on every request to namespace cache entries by session or tenant."</em></p>
+          <p><strong>Slide 2 — the honest production picture:</strong> <em>"Three pieces. Plugin config in config.json — the <code>semantic_cache</code> entry under <code>plugins[]</code>. Vector store — Bifrost doesn't bundle one; you wire Weaviate or Redis or whatever your stack runs. That's a <code>vector_store</code> block in config.json. And the cache-key header — <code>x-bf-cache-key: &lt;session-id&gt;</code> on every request, otherwise the plugin doesn't fire. <strong>All three pieces live in OSS.</strong> The Apache 2.0 license includes the cache mechanism. The vector store is your team's storage choice — same shape as choosing Redis vs Memcached for HTTP caching. We didn't wire this live in the workshop because vector-store setup is a workshop's worth of work on its own. But the mechanism is there, free, ready when you are."</em></p>
+          <p><strong>Closing bridge to 4.9:</strong> <em>"That's the tour. The OSS gateway you configured today has the foundation. The enterprise tier adds the production-scale concerns we just walked — guardrails, audit, multi-tenancy, adaptive routing, clustering. Cache is OSS, just needs your storage choice. Either way — the concerns themselves don't change. They live at the gateway, not in your app. Let's prove that by wiring the gateway into a real Vue app."</em></p>
+        </aside>
+
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-prompts.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.7 — Prompts</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.8 of 10</span>
+    <a href="block-4-nuxt.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.9 — Nuxt Integration →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

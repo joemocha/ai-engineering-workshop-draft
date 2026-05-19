@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Block 4 / Topic 4.5 — HO #4: Budget + Storage Check</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-sm relative z-0"
+      data-prev="block-4-virtual-key.html"
+      data-next="block-4-routing.html">
+
+<div class="fixed inset-0 pointer-events-none bg-grid z-[-1]"></div>
+
+<div class="small-viewport-notice">
+  <strong>Designed for tablet+.</strong> View on a tablet or larger screen for the intended layout.
+</div>
+
+<header class="top-nav flex justify-between items-center w-full px-edge-margin-mobile md:px-edge-margin-desktop h-16 bg-background border-b-4 border-border-primary z-10 relative">
+  <a href="index.html" class="font-mono-tag text-mono-tag font-black bg-primary px-2 py-1 text-on-primary">CORE_WORKSHOP_v1.0</a>
+  <nav class="hidden md:flex gap-gutter h-full">
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-primary border-b-4 border-primary pb-1 px-2" href="index.html">Workshop</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#reference">Reference</a>
+    <a class="h-full flex items-center font-headline-md text-headline-md uppercase tracking-tight text-on-surface-variant hover:bg-primary/10 transition-colors px-2" href="index.html#about">About</a>
+  </nav>
+  <div class="flex gap-4 items-center"></div>
+</header>
+
+<div class="notes-mode-banner">SPEAKER NOTES MODE — press <kbd>s</kbd> to hide</div>
+
+<main class="flex-grow flex flex-col items-center py-10 px-edge-margin-mobile md:px-edge-margin-desktop z-10">
+<div class="w-full max-w-container-max">
+
+  <div class="mb-6">
+    <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 4 · AI GATEWAY (PRODUCTION)</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">3:30 – 3:43 · 13 min · 5L / 8HO · Lab</span>
+  </div>
+
+  <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
+    <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 4.5 / 10 · HO #4 + STORAGE CHECK</p>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Budget + storage check</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
+      Attach a budget — your circuit breaker. Then take three minutes to look at where the workshop's
+      Bifrost <em>actually lives on disk</em> — the production-grade persistence behind everything
+      you've built so far.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-12 gap-gutter">
+
+    <aside class="col-span-12 md:col-span-4 lg:col-span-3">
+      <nav class="beat-toc">
+        <span class="toc-label">Beats in this topic</span>
+        <ol>
+          <li><a href="#beat-4-5"><span class="toc-num">4.5</span>Budget (HO)</a></li>
+          <li><a href="#beat-4-5-5"><span class="toc-num">4.5.5</span>Where it all lives</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="col-span-12 md:col-span-8 lg:col-span-9">
+
+      <!-- ============================================================
+           BEAT 4.5 — Budget
+      ============================================================ -->
+      <section id="beat-4-5" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.5</span>
+          <h2>Budget — the circuit breaker</h2>
+          <div class="meta-row">
+            <span class="meta-chip">10 min</span>
+            <span class="meta-chip">3L / 7HO</span>
+            <span class="meta-chip">3:30 – 3:40</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Budgets compose three ways</span>
+          <h3 class="slide-title">Where budgets attach</h3>
+          <div class="code-block" data-label="SCOPE DIAGRAM"><pre><code>TEAM SCOPING               (a VK can belong to a team — inherits team-level caps)
+   └── VIRTUAL KEY         (each VK carries its own budgets[] — multiple caps, different reset windows)
+        └── PROVIDER CONFIG  (a VK can also cap per-provider — e.g., $50/h OpenAI, $200/h Anthropic)</code></pre></div>
+          <ul class="slide-bullets mt-4">
+            <li><strong>Multi-budget per VK</strong> — one VK can have <code>$50/day</code> AND <code>$1000/month</code> simultaneously (v1.5.0+ — budgets are an array)</li>
+            <li><strong>Per-provider caps inside a VK</strong> — useful when one VK fans across providers with different cost profiles</li>
+            <li><strong>Team scoping</strong> — VKs that share a <code>team_id</code> inherit team budgets</li>
+          </ul>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Bifrost evaluates every cap that touches the request; first one hit wins.</em></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · 402 Payment Required</span>
+          <h3 class="slide-title">When a cap trips</h3>
+          <ul class="slide-bullets">
+            <li>Bifrost returns HTTP <strong>402</strong></li>
+            <li>Body includes which cap tripped and which scope</li>
+            <li><strong>The gateway is your circuit breaker</strong></li>
+            <li>Runaway loop hits one VK's cap, not your whole infra</li>
+          </ul>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-4">📋 Dry-run capture target: exact 402 JSON shape → <code>Block 4 - 402 response sample.md</code></p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Five clicks to budget attached</span>
+          <h3 class="slide-title">HO #4 — Attach a budget (7 min)</h3>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Models</strong> → <strong>Budgets &amp; Limits</strong></li>
+            <li><strong>Create Budget</strong></li>
+            <li>Name: <code>workshop-vk-budget</code> · limit: <code>$0.50</code> · reset: <code>1h</code></li>
+            <li>Scope: attach to <code>workshop-vk-1</code> (the VK from 4.4)</li>
+            <li><strong>Save</strong> → confirm budget appears active</li>
+          </ol>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — budgets compose three ways:</strong> <em>"Bifrost budgets attach in three places, and they all compose. First — the VK itself. Each VK carries a <code>budgets</code> array — that's plural. You can stack <code>$50 a day</code> and <code>$1,000 a month</code> on the same key, and Bifrost evaluates both. First one to trip wins. Second — provider configs inside a VK. If one VK fans across OpenAI and Anthropic with very different cost profiles, you can cap them separately. Third — team scoping. If a VK has a <code>team_id</code>, it inherits team-level budgets too. The strictest cap closest to the work is the right pattern — runaway loops trip a small cap, not your whole infrastructure."</em></p>
+          <p><strong>Slide 2 — the 402:</strong> <em>"When a cap trips, Bifrost returns HTTP 402 Payment Required. The body tells you which cap tripped. This is your circuit breaker. We'll see this surface in Block 4.9 when we send rapid messages from Nuxt until the cap is hit."</em></p>
+          <p><strong>Slide 3 — HO:</strong> <em>"Seven minutes. Budgets &amp; Limits → Create. Fifty cents, one-hour reset, attached to <code>workshop-vk-1</code>. We're going small because we want to hit it later in 4.9 — production caps are larger, but the mechanism is identical."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece — Attendees</span>
+          <p>Click sequence:</p>
+          <ol class="slide-bullets">
+            <li>Sidebar → <strong>Models</strong> → <strong>Budgets &amp; Limits</strong></li>
+            <li><strong>Create Budget</strong></li>
+            <li>Form: Name <code>workshop-vk-budget</code>, Limit <code>$0.50</code>, Reset interval <code>1h</code></li>
+            <li>Scope: <strong>Attach to VK</strong> → <code>workshop-vk-1</code></li>
+            <li><strong>Save</strong></li>
+          </ol>
+          <p><strong>Optional micro-demo (~60s if time):</strong> instructor hits the gateway via curl with the VK; watches the budget tick up in real time in the dashboard.</p>
+          <div class="code-block" data-label="INSTRUCTOR PROJECTOR"><pre><code>curl -s -X POST localhost:8080/v1/chat/completions \
+  -H "Authorization: Bearer $WORKSHOP_VK" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"anthropic/claude-sonnet-4-6","messages":[{"role":"user","content":"hello"}]}' \
+  | jq '.usage'</code></pre></div>
+          <p>Then refresh the Budgets view — usage incremented.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 4.5.5 — Where it all lives
+      ============================================================ -->
+      <section id="beat-4-5-5" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">4.5.5</span>
+          <h2>Where it all lives</h2>
+          <div class="meta-row">
+            <span class="meta-chip">3 min</span>
+            <span class="meta-chip">2L / 1HO</span>
+            <span class="meta-chip">3:40 – 3:43</span>
+            <span class="meta-chip critical">★ LOAD-BEARING (storage model)</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Two layers, three modes</span>
+          <h3 class="slide-title">Bifrost's two config layers</h3>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>What it holds</th>
+                <th>Behavior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><code>config.json</code></strong> (file)</td>
+                <td>Storage backends, encryption key, <strong>plugins</strong> (e.g. semantic_cache), <code>$schema</code> header, and <em>optionally</em> providers + governance for bootstrap</td>
+                <td>File-based. Edit → restart to load.</td>
+              </tr>
+              <tr>
+                <td><strong><code>config_store</code></strong> (SQLite default)</td>
+                <td>Providers, Virtual Keys, governance rules, prompts — runtime mutable</td>
+                <td>UI-driven. Writes go to SQLite. <strong>Survives restarts.</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>Everything you did in Beats 4.2–4.5 is in <code>config_store</code>. It's already persisted.</em></p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-6 font-bold">Three operating modes:</p>
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th><code>config_store.enabled</code></th>
+                <th>What goes where</th>
+                <th>When to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Pure UI</strong> <em>(workshop default)</em></td>
+                <td><code>true</code>, file is minimal</td>
+                <td>All providers + governance via dashboard</td>
+                <td>Fastest start; the UI is the source of truth</td>
+              </tr>
+              <tr>
+                <td><strong>Bootstrap + UI</strong></td>
+                <td><code>true</code>, file has providers + governance</td>
+                <td>File seeds an empty <code>config_store</code> on first run; UI takes over after</td>
+                <td>Reproducible bring-up; infra-as-code feel for the bootstrap, UI for daily edits</td>
+              </tr>
+              <tr>
+                <td><strong>File-only</strong></td>
+                <td><code>false</code> (UI disabled)</td>
+                <td>Everything in <code>config.json</code>; restart-to-change</td>
+                <td>Multi-node clusters; declarative-only shops</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-4"><strong>Precedence rule:</strong> If <code>config_store</code> has data, the file's providers/governance are ignored after first run.</p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Where it lives on disk</span>
+          <h3 class="slide-title">Workshop-local storage: <code>./bifrost/</code></h3>
+          <div class="code-block" data-label="DIRECTORY TREE"><pre><code>./bifrost/                ← Beat 4.1.3 set this via --app-dir
+├── config.json           ← plugins (semantic_cache); restart-to-load
+├── config.db             ← providers, VKs, budgets, routing rules, prompts (SQLite)
+├── config.db-shm         ← SQLite shared-memory (WAL mode)
+├── config.db-wal         ← write-ahead log
+├── logs.db               ← LLM request/response logs (separate SQLite)
+└── logs.db-shm / logs.db-wal</code></pre></div>
+          <ul class="slide-bullets mt-4">
+            <li><strong>Defaults note:</strong> If <code>--app-dir</code> is NOT specified, Bifrost uses the OS config directory — <code>~/.config/bifrost/</code> on macOS/Linux. We chose workshop-local so attendees with pre-existing Bifrost installs don't collide.</li>
+            <li><strong>Production note:</strong> SQLite is the default for single-node OSS. The storage swap (SQLite → PostgreSQL via <code>config_store.type: "postgres"</code> in <code>config.json</code>) is the foundation real production deployments build on. Same UI, different backend — invisible to attendees' app code.</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 3 / 3 · Verify (60-second HO)</span>
+          <h3 class="slide-title">Restart-safe by default</h3>
+          <ol class="slide-bullets">
+            <li><code>Ctrl-C</code> your Bifrost terminal</li>
+            <li><code>npm run bifrost</code> again</li>
+            <li>Refresh the dashboard</li>
+            <li>Providers · VK · budget · all still there</li>
+          </ol>
+          <p class="font-body-lg text-body-lg text-on-background mt-6 border-l-4 border-primary pl-6 py-2"><em>"Restart-safe by default. That's production-grade behavior, not an accident."</em></p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-6"><strong>Production-tier callout:</strong> OSS gives you this on day one. A real production deployment runs on <strong>Bifrost Enterprise</strong> — same persistence model, plus <strong>clustering</strong> (multi-node), <strong>SSO / OIDC</strong> (Okta, Entra, Google, GitHub), <strong>Vault</strong> for API key management, <strong>RBAC</strong> + team-level governance, and <strong>in-VPC deployment</strong>. The mental model you're learning now is what scales up.</p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1 — name the split:</strong> <em>"Bifrost has two config layers. config.json — the file you started it with — holds storage backends, encryption key, and plugins. That's the layer you'll see in a few minutes when we talk about the semantic_cache plugin. config_store — by default a SQLite database — holds everything you've been creating in the UI: providers, virtual keys, governance rules. Two layers, two behaviors. The file requires restart to reload. The database persists automatically."</em></p>
+          <p><strong>Slide 1 — three modes:</strong> <em>"And there are three operating modes you'll see in production. <strong>Pure UI</strong> — what we're doing today. config.json is minimal, dashboard is the source of truth. Fastest to get started. <strong>Bootstrap + UI</strong> — providers and governance go in config.json, which seeds an empty config_store on first run. After that, the UI takes over for daily edits, but you've got a reproducible bring-up artifact. This is what most production teams settle into. <strong>File-only</strong> — config_store.enabled: false. UI is disabled. Everything is declarative in config.json, every change is a restart. This is the multi-node cluster pattern from Beat 4.8.E — when you can't have one node's UI edits drift away from the others'. <strong>Precedence rule to remember:</strong> if config_store already has data, the file's providers and governance are ignored. The file seeds the empty store; it doesn't override a populated one. There's a sample full config.json in the appendix — talk through it with your team when you're picking a mode."</em></p>
+          <p><strong>Slide 2 — show the disk:</strong> <em>"Both stores live inside the workshop's <code>./bifrost/</code> folder — because back in Beat 4.1.3 we started Bifrost with <code>--app-dir ./bifrost</code>. That flag is the reason your state isn't in <code>~/.config/bifrost</code>. config.db is your providers, VKs, budgets, routing rules, prompts. logs.db is your observability data — every request and response, separate database so logs growth doesn't bloat config queries. SQLite is the default. When you outgrow single-node SQLite — when you need shared state across a cluster — you swap the storage type in config.json to PostgreSQL. Same code, same UI, different backend. That's how Bifrost scales to enterprise without anyone rewriting their app."</em></p>
+          <p><strong>Slide 3 — verify it:</strong> <em>"Sixty seconds. Stop Bifrost. Start it again. Refresh the dashboard. Every provider, every key, every budget you created — still there. Restart-safe by default. That's production-grade behavior, not an accident."</em></p>
+          <p><strong>Slide 3 — production-tier framing:</strong> <em>"One more frame before we move on. What you just verified is OSS Bifrost's day-one behavior, and it's already production-grade. But when this is the gateway in front of a real production application, the working assumption is you're at the <strong>Enterprise tier</strong>. Same Bifrost, same persistence model — plus clustering across nodes, SSO with Okta or Entra, Vault for API keys, RBAC and team governance, in-VPC deployment. We're not demoing Enterprise features today — but every muscle you build in this workshop transfers straight up. OSS teaches the model. Enterprise is what you run when the model is supporting real traffic."</em></p>
+          <p><strong>Stage direction:</strong> make the restart real — let attendees see the Bifrost terminal shut down and boot back up. The "everything's still there" moment is what sells it. Don't talk through the restart; let the dashboard refresh be the punchline.</p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><strong>Instructor terminal — show the storage on disk</strong> (from workshop repo root):</p>
+          <div class="code-block" data-label="INSPECT STATE"><pre><code>ls -la ./bifrost/</code></pre></div>
+          <p>You should see <code>config.json</code> (the file Beat 4.8.F references for the semantic_cache plugin entry), plus <code>config.db</code>, <code>config.db-shm</code>, <code>config.db-wal</code>, <code>logs.db</code>, <code>logs.db-shm</code>, <code>logs.db-wal</code>. The <code>-shm</code> and <code>-wal</code> files are SQLite's write-ahead-log machinery — they appear when the database is open. <em>"Workshop-local — because we passed <code>--app-dir ./bifrost</code>. Without that flag, this state would be in <code>~/.config/bifrost/</code> and we'd be sharing it with any other Bifrost on this machine. Isolated state is a workshop choice; defaults are fine for production where one machine runs one Bifrost."</em></p>
+          <p><strong>Attendee restart cycle:</strong></p>
+          <div class="code-block" data-label="ATTENDEE TERMINAL"><pre><code># In your Bifrost terminal
+Ctrl-C
+
+# Then:
+npm run bifrost</code></pre></div>
+          <p>Refresh the browser tab on <code>localhost:8080</code>. Confirm everything's still there.</p>
+          <p><strong>Production scaling reference</strong> (for Q&amp;A if asked, or for Beat 4.8.E Cluster Config callback):</p>
+          <div class="code-block" data-label="POSTGRES SWAP"><pre><code>{
+  "$schema": "https://www.getbifrost.ai/schema",
+  "config_store": {
+    "enabled": true,
+    "type": "postgres",
+    "config": {
+      "host": "env.PG_HOST",
+      "port": "5432",
+      "user": "env.PG_USER",
+      "password": "env.PG_PASSWORD",
+      "db_name": "bifrost",
+      "ssl_mode": "require"
+    }
+  }
+}</code></pre></div>
+          <p class="font-mono-tag text-mono-tag text-on-surface-variant">Source: docs.getbifrost.ai/deployment-guides/config-json/storage</p>
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="border-t-4 border-border-primary mt-16 pt-6 flex justify-between items-center">
+    <a href="block-4-virtual-key.html" class="font-mono-tag text-mono-tag bg-surface-variant px-4 py-3 border-2 border-border-primary hover:bg-primary/10 transition-colors">← Topic 4.4 — Virtual Key</a>
+    <span class="font-mono-tag text-mono-tag text-on-surface-variant">Topic 4.5 of 10</span>
+    <a href="block-4-routing.html" class="font-mono-tag text-mono-tag bg-primary text-on-primary px-4 py-3 border-2 border-border-primary hover:bg-primary-container transition-colors">Topic 4.6 — Routing Rule →</a>
+  </nav>
+
+</div>
+</main>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
