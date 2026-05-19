@@ -249,7 +249,7 @@
               <tr>
                 <td><strong>Overfit</strong></td>
                 <td>Passes on your fixture, fails everywhere else</td>
-                <td>Optimizer's 60/40 train/test gap</td>
+                <td>Optimizer's 60/40 train/test gap — <em>if optimization is gaining traction</em></td>
               </tr>
             </tbody>
           </table>
@@ -261,7 +261,7 @@
           <ul class="slide-bullets">
             <li><strong>Non-discriminating</strong> — planted in your eval set. Watch for it.</li>
             <li><strong>Flaky</strong> — described, not planted (too noisy to teach with)</li>
-            <li><strong>Overfit</strong> — surfaces in the optimizer report at end of block</li>
+            <li><strong>Overfit</strong> — <em>may</em> surface in the optimizer report. If it doesn't, the lesson at the end of the block is different.</li>
           </ul>
         </article>
 
@@ -270,7 +270,7 @@
           <p>Show the table. Walk the three rows.</p>
           <p><strong>Row 1:</strong> <em>"Non-discriminating — passes for both your skill and the baseline. Means your test doesn't measure what your skill does — it just measures what any model tends to do. We've planted one of these in your eval set."</em></p>
           <p><strong>Row 2:</strong> <em>"Flaky — same input, different result across re-runs. Usually shows up in LLM-as-judge assertions where the rubric is too vague. The benchmark shows mean ± stddev. High variance means you can't trust the eval. We didn't plant a flaky one because they're noisy to teach with — but you'll meet them in production."</em></p>
-          <p><strong>Row 3:</strong> <em>"Overfit — your eval passes on the fixture you wrote it for, fails everywhere else. Surfaces in the description optimizer's train-vs-test gap. Watch for that gap when the optimizer report comes up at the end of the block."</em></p>
+          <p><strong>Row 3:</strong> <em>"Overfit — your eval passes on the fixture you wrote it for, fails everywhere else. Where it would surface: the optimizer's train-vs-test gap in Topic 2.3 — if the optimizer is gaining traction. If scores plateau instead, the lesson at the end of the block is different. Either way, you'll learn something about the ceiling on description-only optimization."</em></p>
           <p>Verbal anchor on the second slide: <em>"Three pathologies. Each surfaces in a specific place. By the time we're done, you'll be able to walk the loop on your own."</em></p>
         </aside>
 

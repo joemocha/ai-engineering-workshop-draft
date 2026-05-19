@@ -40,15 +40,16 @@
 
   <div class="mb-6">
     <span class="font-mono-tag text-mono-tag bg-secondary-container px-3 py-1.5 border-2 border-border-primary">BLOCK 2 · BUILD &amp; EVAL A SKILL</span>
-    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">11:40 – 12:00 · 20 min · 10L / 10HO</span>
+    <span class="font-mono-tag text-mono-tag ml-2 text-on-surface-variant">11:40 – 12:03 · 23 min · 13L / 10HO</span>
   </div>
 
   <header class="border-4 border-border-primary bg-surface p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(34,22,16,1)] mb-10">
     <p class="font-mono-tag text-mono-tag uppercase text-on-surface-variant mb-2">TOPIC 2.3 / 3</p>
-    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Description Optimizer</h1>
+    <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-background uppercase break-words">Optimizer &amp; Ceiling</h1>
     <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-3xl">
-      Auto-iterate the <code>description</code> field on a held-out test set. The third pathology —
-      <strong>overfit</strong> — surfaces here. Then recap the artifact's journey and bridge to Sam.
+      Auto-iterate the <code>description</code> field on a held-out test set. Read what the optimizer's
+      data tells us — gap, plateau, or otherwise. Pull a Block 1 callback (CoT) up to the tool altitude.
+      <strong>Knowing the ceiling beats chasing another ten percent.</strong>
     </p>
   </header>
 
@@ -60,9 +61,10 @@
         <ol>
           <li><a href="#beat-2-3-1"><span class="toc-num">2.3.1</span>Launch optimizer</a></li>
           <li><a href="#beat-2-3-2"><span class="toc-num">2.3.2</span>Narrate while it runs</a></li>
-          <li><a href="#beat-2-3-3"><span class="toc-num">2.3.3</span>View HTML report</a></li>
-          <li><a href="#beat-2-3-4"><span class="toc-num">2.3.4</span>Recap</a></li>
-          <li><a href="#beat-2-3-5"><span class="toc-num">2.3.5</span>Bridge to Sam</a></li>
+          <li><a href="#beat-2-3-3"><span class="toc-num">2.3.3</span>Read the plateau</a></li>
+          <li><a href="#beat-2-3-4"><span class="toc-num">2.3.4</span>CoT for tools</a></li>
+          <li><a href="#beat-2-3-5"><span class="toc-num">2.3.5</span>Recap</a></li>
+          <li><a href="#beat-2-3-6"><span class="toc-num">2.3.6</span>Bridge to Sam</a></li>
         </ol>
       </nav>
     </aside>
@@ -191,120 +193,207 @@ pick description with best TEST score</code></pre></div>
       </section>
 
       <!-- ============================================================
-           BEAT 2.3.3 — View HTML report
+           BEAT 2.3.3 — Read the plateau (reframed post-dry-run 2026-05-18)
       ============================================================ -->
       <section id="beat-2-3-3" class="beat">
         <header class="beat-header">
           <span class="beat-number">2.3.3</span>
-          <h2>View the HTML report</h2>
+          <h2>Read the plateau</h2>
           <div class="meta-row">
-            <span class="meta-chip">5 min</span>
+            <span class="meta-chip">6 min</span>
             <span class="meta-chip">Hands-on</span>
           </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-3" style="font-style:italic">
+            Reframed beat (Path B, post-dry-run 2026-05-18). The optimizer plateaued — 5 iterations all tied at 6/12 train · 4/8 test · 0/10 positive triggers. Story shifted from "see the train-test gap" to "see what the optimizer can't reach."
+          </p>
         </header>
 
         <article class="slide-card">
-          <span class="slide-label">Slide 1 / 3 · Reading the report</span>
+          <span class="slide-label">Slide 1 / 5 · Reading the report</span>
           <h3 class="slide-title">Five rows, one per iteration</h3>
           <ul class="slide-bullets">
             <li>Proposed description (full text)</li>
             <li>Train score (12 queries × 3 runs = 36 trigger decisions)</li>
             <li>Test score (8 queries × 3 runs = 24 trigger decisions)</li>
-            <li><strong>The gap</strong> between train and test</li>
+            <li><strong>The gap</strong> between train and test — <em>if there is one</em></li>
           </ul>
         </article>
 
         <article class="slide-card">
-          <span class="slide-label">Slide 2 / 3 · Spot overfit</span>
-          <h3 class="slide-title">When train &gt; test by a lot</h3>
-          <ul class="slide-bullets">
-            <li>Iteration <code>[N]</code> — train <code>[high]</code>, test <code>[lower]</code></li>
-            <li>That description was tuned to the training queries</li>
-            <li>It didn't generalize</li>
-            <li><strong>The optimizer did not pick it</strong></li>
-          </ul>
-          <p class="font-mono-tag text-mono-tag text-on-surface-variant mt-3">[N], [high], [lower] filled from dry-run capture</p>
+          <span class="slide-label">Slide 2 / 5 · The plateau</span>
+          <h3 class="slide-title">Five iterations. Same score.</h3>
+          <p style="font-size:32px;font-weight:900;line-height:1.2;letter-spacing:-0.02em;color:#a04100;margin:12px 0 8px 0">6/12 train · 4/8 test</p>
+          <p style="font-size:18px;font-weight:700;line-height:1.4;color:#1b1c1c">Every iteration. No gap. No winner. Optimizer kept iter 1 (ties go to original).</p>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            The story I expected isn't the story this report has.
+          </p>
         </article>
 
         <article class="slide-card">
-          <span class="slide-label">Slide 3 / 3 · Winner</span>
-          <h3 class="slide-title">Best test score wins</h3>
+          <span class="slide-label">Slide 3 / 5 · Where the score is hiding</span>
+          <h3 class="slide-title">Zero sensitivity. Hundred percent specificity.</h3>
           <ul class="slide-bullets">
-            <li>Winning iteration: <code>[N]</code></li>
-            <li>Best test score: <code>[X]</code></li>
-            <li>Goes into <code>SKILL.md</code> frontmatter automatically</li>
-            <li>Before/after description in the report</li>
+            <li><strong>0/10 positive queries</strong> triggered — across all 5 iterations</li>
+            <li><strong>10/10 negative queries</strong> correctly didn't trigger</li>
+            <li>The skill is dormant on real-world language</li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 4 / 5 · Iter 1 vs Iter 5</span>
+          <h3 class="slide-title">A better description didn't move the score</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+            <div style="border:2px solid #221610;padding:12px;background:#f5f3f3">
+              <p class="font-mono-tag text-mono-tag text-on-surface-variant mb-2">ITER 1 — ORIGINAL</p>
+              <p style="font-size:13px;line-height:1.5">Point at any code repo. Produces a structured briefing — architecture, entry points, data flow, key dependencies, test patterns. Use this whenever the user asks to understand, summarize, onboard to, or get a briefing on a codebase, even if they don't say "inspect."</p>
+            </div>
+            <div style="border:2px solid #221610;padding:12px;background:#f5f3f3">
+              <p class="font-mono-tag text-mono-tag text-on-surface-variant mb-2">ITER 5 — REWRITTEN</p>
+              <p style="font-size:13px;line-height:1.5">Invoke for any request where the user wants to understand how an existing codebase works — not change it, not compare frameworks, but map it. Classic triggers: lost in an inherited repo, exploring a client's legacy app, onboarding to an unfamiliar service.</p>
+            </div>
+          </div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-4" style="font-style:italic">
+            The optimizer wrote a better description. The score didn't move. <strong>The description isn't the bottleneck.</strong>
+          </p>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 5 / 5 · What this tells us</span>
+          <h3 class="slide-title">Optimizers can only optimize what they touch</h3>
+          <ul class="slide-bullets">
+            <li>The description was the lever. It got pulled. The score didn't budge.</li>
+            <li>Bottleneck lives elsewhere: trigger detection, eval harness, model config</li>
+            <li><strong>That's the lesson the optimizer didn't intend to teach but did anyway</strong></li>
           </ul>
         </article>
 
         <aside class="notes-block">
           <span class="block-label">Speaker notes</span>
-          <p><strong>Slide 1 as the report opens:</strong> <em>"Report's up. Five rows, one per iteration. Each row shows the proposed description, train score, test score, and the gap."</em></p>
-          <p><strong>Slide 2 — find an overfit iteration if one exists:</strong> <em>"Look at iteration [N]. Train score is [high]. Test score is [lower]. That's overfit — the description was tuned to the training queries and didn't generalize. The optimizer didn't pick it."</em> (If no iteration shows overfit cleanly, explain the principle from the slide and skip the live pointer.)</p>
-          <p><strong>Slide 3 — celebrate the winner:</strong> <em>"Winning iteration is [N]. Best test score. The optimizer selected on test, not train. That description goes into your SKILL.md frontmatter automatically — you don't have to copy-paste."</em></p>
-          <p>Open <code>SKILL.md</code> and scroll to the frontmatter: <em>"Look at your skill. Description has changed. Before-after comparison is in the report. The improvement is concrete — and the methodology is portable. You can do this for any skill, in 10 minutes of runtime, after one iteration of human iteration."</em></p>
-          <p>Anchor: <em>"The 'best description' the plugin selected is the one with the best held-out score. If it had selected on train score, you'd have an overfit description that worked great on the 12 queries you wrote and failed on everything else. That's why train/test splits exist."</em></p>
+          <p><strong>Slide 1:</strong> <em>"Report's up. Five rows, one per iteration. Train and test scores per row. The story I planned to tell here — 'see the train-test gap, that's overfit' — isn't the story this report has. Look at the scores."</em></p>
+          <p><strong>Slide 2:</strong> <em>"Every iteration scored the same. Six on twelve train. Four on eight test. Five iterations. Flat. No gap to point at. No winning iteration to celebrate — the optimizer kept iteration one because tied scores go to the original."</em></p>
+          <p><strong>Slide 3 — drill into per-query:</strong> <em>"Of ten positive queries — the should-trigger cases — the skill fired on zero. Out of thirty attempts per iteration. Of ten negative queries — should-not-trigger — the skill correctly didn't fire on all of them. Hundred percent specificity. Zero sensitivity. The skill is dormant on real-world language."</em></p>
+          <p><strong>Slide 4 — read iter 5 description aloud:</strong> <em>"Look at iteration five's description. [Read aloud from the right column.] That is visibly better-tuned to queries like 'I just inherited this Nuxt project' than iteration one's description. The optimizer wrote a better description. The score didn't move. The description isn't the bottleneck."</em></p>
+          <p><strong>Slide 5 — sit with the lesson:</strong> <em>"What the optimizer told us — by giving us a plateau — is that the bottleneck lives somewhere else. Maybe in the trigger detection itself. Maybe in how Claude weighs descriptions against natural language. Maybe the eval harness needs a different config. Honest answer: we'd need to investigate to know for sure. And that investigation is the lesson. Optimizers can only optimize what they're allowed to touch."</em></p>
         </aside>
 
         <aside class="demo-block">
           <span class="block-label">Demo piece — click sequence</span>
           <p>Browser opens automatically when the optimizer finishes (HTML served locally).</p>
           <ol class="slide-bullets" style="counter-reset:a">
-            <li>Scan the 5-iteration table</li>
-            <li>Click the iteration with the biggest train/test gap (call it out)</li>
-            <li>Click the winning iteration (call it out)</li>
-            <li>Switch to terminal:</li>
+            <li>Scan the 5-iteration overview block — point at identical scores</li>
+            <li>Drill into per-query results for any iteration — highlight 0/10 positives</li>
+            <li>Open the descriptions column · scroll iter 1 vs iter 5 side-by-side</li>
+            <li>Anchor on Slide 5</li>
           </ol>
-          <div class="code-block" data-label="SHOW UPDATED FRONTMATTER"><pre><code>cat skills/project-inspector/SKILL.md | head -5</code></pre></div>
-          <p>Shows the new description in frontmatter.</p>
-          <p><strong>📸 Dry-run capture target:</strong> screenshot of the report showing the 5 iterations + train/test scores. Lives at <code>assets/block2-optimizer-report.png</code>.</p>
-          <p><strong>📋 Dry-run note:</strong> which iteration won (highest test score)? Is there a visible train&gt;test gap on any iteration? Pre-fill the <code>[N]</code> placeholders on slides 2 + 3 from dry-run data.</p>
+          <p><strong>📸 Dry-run capture:</strong> <code>assets/block2-optimizer-plateau.png</code> — full report screenshot showing 5 tied iterations + per-query breakdown. Source: <code>optimizer-runs/optimizer-results-2026-05-18_014405.json</code>.</p>
         </aside>
       </section>
 
       <!-- ============================================================
-           BEAT 2.3.4 — Recap
+           BEAT 2.3.4 — CoT for tools (Block 1 callback)
       ============================================================ -->
       <section id="beat-2-3-4" class="beat">
         <header class="beat-header">
           <span class="beat-number">2.3.4</span>
-          <h2>Recap</h2>
+          <h2>CoT for tools <span style="font-size:14px;font-weight:500;text-transform:none;letter-spacing:0;color:#5a4136">· Block 1 callback</span></h2>
           <div class="meta-row">
             <span class="meta-chip">3 min</span>
+            <span class="meta-chip">Lecture</span>
+            <span class="meta-chip">Doctrine close</span>
+          </div>
+        </header>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 1 / 3 · Block 1 callback</span>
+          <h3 class="slide-title">CoT — why it works</h3>
+          <ul class="slide-bullets">
+            <li>Don't trust the model to invent the right thinking steps</li>
+            <li>You tell it: <em>"Think step by step. First X, then Y, then Z."</em></li>
+            <li><strong>You write the structure. The model fills it in.</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card">
+          <span class="slide-label">Slide 2 / 3 · Same principle, one altitude up</span>
+          <h3 class="slide-title">Tool-CoT — when triggering hits its ceiling</h3>
+          <ul class="slide-bullets">
+            <li>Don't trust the model to invent the right tool either</li>
+            <li>Tell it: <em>"Use the project-inspector skill on this repo."</em></li>
+            <li><strong>Auto-trigger is convenient. Explicit invocation is reliable. In production, you do both.</strong></li>
+          </ul>
+        </article>
+
+        <article class="slide-card" style="background:#221610;color:#fbf9f9;border-color:#a04100">
+          <span class="slide-label" style="color:#ffb693">Slide 3 / 3 · Two patterns. You already use one.</span>
+          <h3 class="slide-title" style="color:#ffffff">Direct what the AI writes — direct which tool it uses</h3>
+          <div style="display:flex;gap:24px;justify-content:center;margin:20px 0;flex-wrap:wrap">
+            <div style="font-size:36px;font-weight:900;letter-spacing:-0.03em;color:#fe6b00">CoT</div>
+            <div style="font-size:36px;font-weight:900;letter-spacing:-0.03em;color:#ffdbcc">·</div>
+            <div style="font-size:36px;font-weight:900;letter-spacing:-0.03em;color:#fe6b00">Explicit invocation</div>
+          </div>
+          <p style="font-style:italic;font-weight:700;color:#ffdbcc;border-left:6px solid #fe6b00;padding-left:20px;margin:16px 0;font-size:18px;line-height:1.5">
+            The plateau is honest data. Description engineering has limits. Knowing where they are before you ship is worth more than another ten percent on a triggering benchmark.
+          </p>
+        </article>
+
+        <aside class="notes-block">
+          <span class="block-label">Speaker notes</span>
+          <p><strong>Slide 1:</strong> <em>"Block 1. Chain-of-thought. Why does CoT work? Because you don't trust the model to invent the right thinking steps on its own. You tell it. 'Think step by step. First do X, then Y, then Z.' You write the structure of the reasoning. The model fills it in."</em></p>
+          <p><strong>Slide 2:</strong> <em>"Now scale that idea up one level. Skill triggering. Why would you trust the model to invent the right tool for the job? You wouldn't. You shouldn't. Same principle. Tell it. 'Use the project-inspector skill on this repo.' 'Invoke the test-runner.' The plateau we just looked at is the data showing you the ceiling on description-only triggering. Auto-trigger is convenient. Explicit invocation is reliable. In production, you do both."</em></p>
+          <p><strong>Slide 3:</strong> <em>"You already do this with CoT — you write the thinking steps because you don't trust the model to know them. Same move with skills: write the description because you want it to trigger; invoke explicitly when it has to trigger. The optimizer's plateau is honest data: description engineering has limits. Knowing where the limits are before you ship is worth more than another ten percent on a triggering benchmark."</em></p>
+        </aside>
+
+        <aside class="demo-block">
+          <span class="block-label">Demo piece</span>
+          <p><em>None.</em> Narrative beat with three slides. No clicks.</p>
+        </aside>
+      </section>
+
+      <!-- ============================================================
+           BEAT 2.3.5 — Recap (was 2.3.4)
+      ============================================================ -->
+      <section id="beat-2-3-5" class="beat">
+        <header class="beat-header">
+          <span class="beat-number">2.3.5</span>
+          <h2>Recap</h2>
+          <div class="meta-row">
+            <span class="meta-chip">2 min</span>
             <span class="meta-chip">Lecture</span>
           </div>
         </header>
 
         <article class="slide-card">
           <span class="slide-label">Slide 1 / 2 · The journey</span>
-          <h3 class="slide-title">One artifact, six stages</h3>
+          <h3 class="slide-title">One artifact, seven stages</h3>
           <ol class="slide-bullets" style="list-style:decimal;padding-left:24px">
             <li>v0 prompt ("summarize this codebase") — Block 1.2</li>
-            <li>v5 prompt (5-layer enhancement) — Block 1.2</li>
+            <li>v5 prompt (AI-as-Coach, 5-component rubric) — Block 1.2</li>
             <li>v5 → working SKILL.md — Beat A</li>
             <li>Benchmarked vs baseline — Beats C–E</li>
-            <li>Eval suite <em>itself</em> evaluated; planted pathology caught — Beat F</li>
-            <li>Description optimized on held-out test set — Topic 2.3</li>
+            <li>Eval suite <em>itself</em> evaluated; real skill bug + 3 non-discriminating assertions — Beat F</li>
+            <li>Coached the skill — Beat G</li>
+            <li>Ran the optimizer · <strong>learned its ceiling</strong> — Topic 2.3</li>
           </ol>
         </article>
 
         <article class="slide-card" style="background:#221610;color:#fbf9f9;border-color:#a04100">
-          <span class="slide-label" style="color:#ffb693">Slide 2 / 2 · Anchor</span>
-          <h3 class="slide-title" style="color:#ffffff">Three altitudes of evaluation</h3>
-          <ul class="slide-bullets" style="font-size:22px">
+          <span class="slide-label" style="color:#ffb693">Slide 2 / 2 · Four lessons</span>
+          <h3 class="slide-title" style="color:#ffffff">Four lessons in seventy-five minutes</h3>
+          <ul class="slide-bullets" style="font-size:20px">
             <li style="color:#fbf9f9"><strong style="color:#fe6b00">Does the output work?</strong></li>
             <li style="color:#fbf9f9"><strong style="color:#fe6b00">Do the tests test anything?</strong></li>
-            <li style="color:#fbf9f9"><strong style="color:#fe6b00">Will the skill trigger when it should?</strong></li>
+            <li style="color:#fbf9f9"><strong style="color:#fe6b00">Does the description help — and where does it stop?</strong></li>
+            <li style="color:#fbf9f9"><strong style="color:#fe6b00">When triggering hits its ceiling, do you invoke explicitly?</strong></li>
           </ul>
           <p style="color:#ffdbcc;margin-top:20px;font-weight:700;font-style:italic">
-            Seventy-five minutes. One artifact.
+            One artifact. Four altitudes. That's the discipline.
           </p>
         </article>
 
         <aside class="notes-block">
           <span class="block-label">Speaker notes</span>
-          <p><strong>Slide 1:</strong> <em>"Let's trace the artifact. v0 was 'summarize this codebase' — a naked prompt, Block 1.2. v5 was the same prompt enhanced via AI-as-Coach this morning — you directed; the AI typed; the 5 components were your rubric. v5 became a skill, Beat A. The skill got benchmarked against a baseline, Beats C–E. The eval suite itself got evaluated, Beat F — and we caught a planted pathology. We improved both the skill and the eval, Beat G. And finally, the description was optimized on a held-out test set, Topic 2.3."</em></p>
-          <p><strong>Slide 2 — the anchor</strong> (this is the workshop's closing-of-the-morning line): <em>"One artifact. Three altitudes of evaluation: does the output work? Do the tests test anything? Will the skill trigger when it should? Seventy-five minutes."</em></p>
+          <p><strong>Slide 1:</strong> <em>"Trace the artifact. v0 — naked prompt, Block 1.2. v5 — same prompt, enhanced via AI-as-Coach this morning, five components as your rubric. v5 became a skill in Beat A. The skill got benchmarked, Beats C–E. The eval suite itself got evaluated in Beat F — and we caught a real skill bug and three non-discriminating assertions in one pass. We coached the skill in Beat G. And finally we ran the optimizer and learned its ceiling. The data told us auto-triggering has limits."</em></p>
+          <p><strong>Slide 2 — the workshop-morning anchor:</strong> <em>"One artifact. Four lessons. Does the output work? Do the tests test anything? Does the description help — and where does it stop helping? And when triggering hits its ceiling, do you invoke explicitly? Seventy-five minutes. That's the discipline."</em></p>
         </aside>
 
         <aside class="demo-block">
@@ -314,11 +403,11 @@ pick description with best TEST score</code></pre></div>
       </section>
 
       <!-- ============================================================
-           BEAT 2.3.5 — Bridge to Sam
+           BEAT 2.3.6 — Bridge to Sam (was 2.3.5)
       ============================================================ -->
-      <section id="beat-2-3-5" class="beat">
+      <section id="beat-2-3-6" class="beat">
         <header class="beat-header">
-          <span class="beat-number">2.3.5</span>
+          <span class="beat-number">2.3.6</span>
           <h2>Bridge to Sam</h2>
           <div class="meta-row">
             <span class="meta-chip">2 min</span>
