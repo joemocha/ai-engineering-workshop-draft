@@ -5,7 +5,7 @@
 ---
 
 **Subject suggestion:** Block 3 prereqs to add to the attendee email
-
+s
 Hey Martin —
 
 Block 3 lab needs two additions to the attendee prereq email. Both are free / no signup beyond accounts most attendees already have. Adding these brings Block 3 in line with Blocks 1, 2, 4 on setup-before-arrival.

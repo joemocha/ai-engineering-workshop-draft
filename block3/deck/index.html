@@ -42,7 +42,7 @@
     <h2 class="h2">Pi: minimal terminal coding harness.</h2>
     <div class="grid g3 mt-l">
       <div class="card card-accent"><h4>Minimal</h4><p class="dim">No MCP, no sub-agents, no plan mode in core. Extensions add what you need, nothing you don't.</p></div>
-      <div class="card card-accent"><h4>Defaults to Gemini</h4><p class="dim">Native web grounding makes today's security CVE lookup free. <span class="mono">--provider</span> switches model with one flag.</p></div>
+      <div class="card card-accent"><h4>Defaults to GPT-5.4</h4><p class="dim">Runs on <span class="mono">--provider openai</span> out of the box. <span class="mono">--provider</span> swaps vendors with one flag; verifier skills shell out to other CLIs when they need a different lens.</p></div>
       <div class="card card-accent"><h4>Auto-discovers</h4><p class="dim"><span class="mono">.pi/skills/</span> + <span class="mono">.pi/extensions/</span> load on session start. Project-local, no install step.</p></div>
     </div>
     <div class="terminal mt-l">
@@ -53,7 +53,7 @@ $ pi --version
 <span class="cmt"># launch from the workshop repo root:</span>
 $ <span class="kw">cd</span> ai-engineering-workshop &amp;&amp; pi</pre>
     </div>
-    <aside class="notes">Pi is the runtime. Minimal terminal harness, defaults to Gemini. If you finished the prereq you have it installed. If you don't, raise your hand and grab a neighbor for ninety seconds. Don't wait for the lab to find out.</aside>
+    <aside class="notes">Pi is the runtime. Minimal terminal harness, defaults to GPT-5.4 on the OpenAI provider. Gemini's web grounding comes in later via a subprocess, not Pi's in-process model. If you finished the prereq you have it installed. If you don't, raise your hand and grab a neighbor for ninety seconds. Don't wait for the lab to find out.</aside>
   </section>
 
   <!-- 4. YOUR TURN prompt -->
@@ -88,7 +88,7 @@ $ <span class="kw">cd</span> ai-engineering-workshop &amp;&amp; pi</pre>
     <div class="grid g3 mt-l">
       <div class="card card-accent"><h4>Wrong cwd</h4><p class="dim">Pi must launch from the repo root for project-local skills to auto-discover.</p><span class="tag mt-s">pwd ?</span></div>
       <div class="card card-accent"><h4>Skill not under .pi/</h4><p class="dim">Pi looks at <span class="mono">.pi/skills/&lt;name&gt;/SKILL.md</span>. Block 2's <span class="mono">skills/</span> path isn't the same.</p><span class="tag mt-s">copy, don't symlink yet</span></div>
-      <div class="card card-accent"><h4>Missing API key</h4><p class="dim"><span class="mono">GEMINI_API_KEY</span> for the default provider. Or pass <span class="mono">--provider openai</span> with <span class="mono">OPENAI_API_KEY</span>.</p><span class="tag mt-s">env | grep</span></div>
+      <div class="card card-accent"><h4>Missing API key</h4><p class="dim"><span class="mono">OPENAI_API_KEY</span> for the default GPT-5.4 provider. Gemini CLI authenticates separately via your Google account — that's a different surface.</p><span class="tag mt-s">env | grep</span></div>
     </div>
     <aside class="notes">Three failures cover ~95% of the stuck-points. Held during circulation. Sam circulates, helps people who are stuck, gives a five-minute warning at the 12-minute mark.</aside>
   </section>
@@ -200,8 +200,8 @@ $ <span class="kw">cd</span> ai-engineering-workshop &amp;&amp; pi</pre>
 4. Cross-reference with <span class="mono">npm audit</span> if available
 5. Emit JSON: { verified, lens, findings[], recommendation }</pre>
     </div>
-    <p class="lede mt-m">It doesn't shell out to a separate process. It uses Gemini's native web grounding to look up CVEs by pinned version. <span class="mono">Multi-CLI at the workflow altitude.</span></p>
-    <aside class="notes">Read the description line. That's what makes Pi reach for this skill when the trigger words show up. Read the process. One thing to notice. This skill doesn't shell out to a separate process. It uses Gemini's native web grounding to look up CVEs by pinned version. Same composition move at the infrastructure altitude in Block 4.</aside>
+    <p class="lede mt-m">It shells out to the Gemini CLI via <span class="mono">pi.exec("gemini", …)</span> for web-grounded CVE lookup. Pi runs on GPT-5.4; the verifier reaches across a vendor boundary to a different CLI to get a lens GPT-5.4 doesn't have. <span class="mono">Multi-CLI at the workflow altitude.</span></p>
+    <aside class="notes">Read the description line. That's what makes Pi reach for this skill when the trigger words show up. Read the process. One thing to notice. This skill shells out to a separate process — the Gemini CLI — via pi.exec. Pi itself is running GPT-5.4 on the OpenAI provider. The verifier reaches across the vendor boundary because Gemini has web grounding that GPT-5.4 doesn't get for free. Same composition move at the infrastructure altitude in Block 4: gateway across vendors.</aside>
   </section>
 
   <!-- 12. The reveal -->
@@ -474,7 +474,7 @@ $ <span class="kw">cd</span> ai-engineering-workshop &amp;&amp; pi</pre>
     <aside class="notes">Common Q&amp;A questions and short pre-loaded answers:
 
 1. "How do you keep the auto-fire from looping?" Fingerprint the inspector output, dedupe at the extension level. The version in your repo does that.
-2. "What if Pi defaults to a different model?" pi --provider anthropic, or --provider openai. Skills are model-agnostic. Only Gemini's web grounding made the security CVE lookup free.
+2. "What if I want to swap Pi's model?" Pi defaults to GPT-5.4 (--provider openai). pi --provider anthropic for Claude, --provider gemini to flip in-process. Skills are model-agnostic. Today's CVE lookup is free because the verifier shells out to the Gemini CLI — that's where the web grounding lives, not in Pi's chat loop.
 3. "What about cost?" Workshop fixtures are tiny. Real audits cost real tokens. Block 4 is where you learn to put budgets and caches around that.
 4. "Can I run multiple Pi sessions in parallel?" Yes. Pi has RPC mode. That's the showcase shape.
 
