@@ -1,49 +1,278 @@
-/* tech-sharing — 技术分享 dark, code-forward */
-.tpl-tech-sharing{
-  --bg:#0d1117;--bg-soft:#161b22;--surface:#161b22;--surface-2:#1c2230;
-  --border:rgba(139,148,158,.22);--border-strong:rgba(139,148,158,.4);
-  --text-1:#e6edf3;--text-2:#8b949e;--text-3:#6e7681;
-  --accent:#7ee787;--accent-2:#79c0ff;--accent-3:#ff7b72;
-  --grad:linear-gradient(120deg,#7ee787 0%,#79c0ff 60%,#d2a8ff 100%);
-  --radius:14px;--radius-lg:20px;
-  --shadow:0 20px 60px rgba(0,0,0,.5);
-  font-family:'Inter','Noto Sans SC',sans-serif;
+/* block3/deck — brutalist editorial theme (matches docs/Design.md)
+ * Overrides base.css defaults and rewrites .tpl-tech-sharing to
+ * the Neo-Industrial Brutalist visual language used across docs/.
+ *
+ * Tokens:
+ *   primary       #a04100   burnt orange (load-bearing accents)
+ *   primary-ctnr  #fe6b00   bright orange (highlights, gradient stops)
+ *   border        #221610   deep brown-black (the only border color, 4px)
+ *   background    #fbf9f9   page cream
+ *   surface-low   #f5f3f3   slightly recessed
+ *   peach         #f6ded3   secondary-container (chips, soft fills)
+ *   peach-soft    #ffdbcc   primary-fixed (kbd, hover overlays)
+ *   neutral       #e4e2e2   surface-variant
+ *   blue          #00629f   tertiary (demo accent / "Copied" state)
+ *   on-primary    #ffffff
+ *
+ * Signature: 4px borders + 8px 8px 0 0 offset shadow. No blur, no
+ * rounded corners beyond 0.25rem, no glassmorphism, no soft gradients.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;700;800;900&display=swap');
+
+.tpl-tech-sharing {
+  --bg:#fbf9f9;
+  --bg-soft:#f8f6f6;
+  --surface:#fbf9f9;
+  --surface-2:#f5f3f3;
+  --surface-variant:#e4e2e2;
+  --peach:#f6ded3;
+  --peach-soft:#ffdbcc;
+  --border:#221610;
+  --border-strong:#221610;
+  --text-1:#221610;
+  --text-2:#221610;
+  --text-3:#221610;
+  --accent:#a04100;
+  --accent-2:#fe6b00;
+  --accent-3:#00629f;
+  /* "gradient" is solid bright orange — Design.md bans soft gradients,
+   * but background-clip:text inline styles in the deck need a background. */
+  --grad:linear-gradient(90deg,#fe6b00 0%,#fe6b00 100%);
+  --radius:0.25rem;
+  --radius-lg:0.25rem;
+  --shadow:8px 8px 0 0 #221610;
+  font-family:'Public Sans','Inter','Noto Sans SC',sans-serif;
 }
-.tpl-tech-sharing{background:#0d1117;color:var(--text-1)}
-.tpl-tech-sharing .slide{padding:72px 96px;background:#0d1117;color:var(--text-1)}
-.tpl-tech-sharing .slide::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(60% 50% at 90% 10%,rgba(121,192,255,.12),transparent 60%),
-  radial-gradient(50% 50% at 10% 90%,rgba(126,231,135,.08),transparent 60%);
-  pointer-events:none;z-index:0}
-.tpl-tech-sharing .slide>*{position:relative;z-index:1}
-.tpl-tech-sharing .h1{font-size:78px;line-height:1.03;font-weight:800;letter-spacing:-.03em;color:#fff}
-.tpl-tech-sharing .h2{font-size:54px;font-weight:700;letter-spacing:-.025em;color:#fff}
-.tpl-tech-sharing h3,.tpl-tech-sharing h4{color:#fff}
-.tpl-tech-sharing .kicker{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;text-transform:none;letter-spacing:.02em}
-.tpl-tech-sharing .kicker::before{content:"> "}
-.tpl-tech-sharing .mono{font-family:'JetBrains Mono','IBM Plex Mono',monospace}
-.tpl-tech-sharing .terminal{background:#010409;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);font-family:'JetBrains Mono',monospace;font-size:15px;line-height:1.65}
-.tpl-tech-sharing .terminal .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#161b22;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-3)}
-.tpl-tech-sharing .terminal .dot{width:12px;height:12px;border-radius:50%;background:#ff5f56}
-.tpl-tech-sharing .terminal .dot:nth-child(2){background:#ffbd2e}
-.tpl-tech-sharing .terminal .dot:nth-child(3){background:#27c93f}
-.tpl-tech-sharing .terminal pre{margin:0;padding:24px 28px;color:#e6edf3;overflow:auto;max-height:440px}
-.tpl-tech-sharing .kw{color:#ff7b72}
-.tpl-tech-sharing .fn{color:#d2a8ff}
-.tpl-tech-sharing .str{color:#a5d6ff}
-.tpl-tech-sharing .cmt{color:#8b949e;font-style:italic}
-.tpl-tech-sharing .num{color:#79c0ff}
-.tpl-tech-sharing .card{background:var(--surface);border:1px solid var(--border);box-shadow:none}
-.tpl-tech-sharing .card-accent{border-top:3px solid var(--accent)}
-.tpl-tech-sharing .pill{background:var(--surface-2);color:var(--text-2);border-color:var(--border)}
-.tpl-tech-sharing .pill-accent{background:rgba(126,231,135,.12);color:var(--accent);border-color:rgba(126,231,135,.35)}
-.tpl-tech-sharing .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-2)}
-.tpl-tech-sharing .agenda-row{display:flex;align-items:baseline;gap:24px;padding:18px 0;border-bottom:1px dashed var(--border);font-family:'JetBrains Mono',monospace}
-.tpl-tech-sharing .agenda-row .num{color:var(--accent);flex:none;width:48px}
-.tpl-tech-sharing .agenda-row .t{color:#fff;font-size:24px;flex:1;font-family:'Inter',sans-serif;font-weight:600}
-.tpl-tech-sharing .agenda-row .d{color:var(--text-3);font-size:13px}
-.tpl-tech-sharing .speaker{display:flex;align-items:center;gap:14px;margin-top:28px}
-.tpl-tech-sharing .speaker .av{width:56px;height:56px;border-radius:50%;background:var(--grad)}
-.tpl-tech-sharing .speaker b{display:block;color:#fff;font-size:18px}
-.tpl-tech-sharing .speaker span{color:var(--text-3);font-size:13px;font-family:'JetBrains Mono',monospace}
-.tpl-tech-sharing .lede{color:var(--text-2)}
+
+/* ============================== SLIDE SURFACE ============================== */
+.tpl-tech-sharing,
+.tpl-tech-sharing .deck { background:var(--bg); color:var(--text-1) }
+
+.tpl-tech-sharing .slide {
+  padding:72px 96px;
+  background:var(--bg);
+  color:var(--text-1);
+  /* Subtle radial-dot grid — the docs/ "blueprint" feel. */
+  background-image:radial-gradient(rgba(34,22,16,0.06) 1px, transparent 1px);
+  background-size:24px 24px;
+  background-position:0 0;
+}
+
+/* Drop the deck's soft glow overlay from the dark theme — replace with nothing. */
+.tpl-tech-sharing .slide::before { content:none }
+
+.tpl-tech-sharing .slide > * { position:relative; z-index:1 }
+
+/* Emphasis slides (.center.tc) — Design.md "dark slide" variant.
+ * Reserved for spine moments: Skills can lie / Agentic engineering / Handoff / Q&A. */
+.tpl-tech-sharing .slide.center.tc {
+  background:#221610;
+  background-image:none;
+  color:#fbf9f9;
+}
+.tpl-tech-sharing .slide.center.tc h1,
+.tpl-tech-sharing .slide.center.tc h2,
+.tpl-tech-sharing .slide.center.tc h3,
+.tpl-tech-sharing .slide.center.tc h4 { color:#fbf9f9 }
+.tpl-tech-sharing .slide.center.tc .lede,
+.tpl-tech-sharing .slide.center.tc .dim { color:#ffdbcc }
+.tpl-tech-sharing .slide.center.tc .kicker { color:#fe6b00 }
+
+/* ============================== TYPOGRAPHY ============================== */
+.tpl-tech-sharing .h1 {
+  font-family:'Public Sans',sans-serif;
+  font-size:72px; line-height:1.05; font-weight:900;
+  letter-spacing:-0.05em; color:var(--text-1);
+  text-transform:uppercase;
+}
+.tpl-tech-sharing .h2 {
+  font-family:'Public Sans',sans-serif;
+  font-size:54px; line-height:1.1; font-weight:900;
+  letter-spacing:-0.03em; color:var(--text-1);
+  text-transform:uppercase;
+}
+.tpl-tech-sharing h3, .tpl-tech-sharing h4 { color:var(--text-1); font-weight:800 }
+.tpl-tech-sharing h4 { font-size:22px; text-transform:uppercase; letter-spacing:-0.01em }
+
+.tpl-tech-sharing .kicker {
+  color:var(--accent);
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px; font-weight:700;
+  text-transform:uppercase; letter-spacing:0.05em;
+}
+.tpl-tech-sharing .kicker::before { content:""; }
+
+.tpl-tech-sharing .lede {
+  color:var(--text-1);
+  font-size:20px; line-height:1.5; font-weight:700;
+  max-width:62ch;
+}
+.tpl-tech-sharing .dim { color:#55403a; font-weight:500 }
+.tpl-tech-sharing .mono { font-family:'JetBrains Mono',monospace; font-weight:700 }
+
+/* Gradient text — keep mechanism, retint to brutalist orange. */
+.tpl-tech-sharing [style*="--grad"] { background:var(--grad) }
+
+/* ============================== TERMINAL / CODE BLOCK ============================== */
+/* Design.md "code-block": hard-bordered, offset shadow, dark interior, mono header strip. */
+.tpl-tech-sharing .terminal {
+  background:#221610;
+  border:4px solid #221610;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  font-family:'JetBrains Mono',monospace;
+  font-size:15px; line-height:1.65;
+}
+.tpl-tech-sharing .terminal .bar {
+  display:flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  background:#221610;
+  border-bottom:2px solid #fe6b00;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px; font-weight:700;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:#fbf9f9;
+}
+.tpl-tech-sharing .terminal .bar > span:last-child { margin-left:auto; color:#ffdbcc }
+.tpl-tech-sharing .terminal .dot { width:10px; height:10px; border-radius:50%; background:#fe6b00 }
+.tpl-tech-sharing .terminal .dot:nth-child(2) { background:#ffdbcc }
+.tpl-tech-sharing .terminal .dot:nth-child(3) { background:#a04100 }
+.tpl-tech-sharing .terminal pre {
+  margin:0; padding:24px 28px;
+  color:#fbf9f9;
+  background:#221610;
+  overflow:auto; max-height:440px;
+}
+
+/* Syntax — orange / peach / cream palette, no rainbow. */
+.tpl-tech-sharing .kw  { color:#fe6b00; font-weight:700 }
+.tpl-tech-sharing .fn  { color:#ffdbcc; font-weight:700 }
+.tpl-tech-sharing .str { color:#f6ded3 }
+.tpl-tech-sharing .cmt { color:#a89890; font-style:italic }
+.tpl-tech-sharing .num { color:#fe6b00 }
+
+/* ============================== CARDS ============================== */
+.tpl-tech-sharing .card {
+  background:var(--bg);
+  border:4px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px 30px;
+}
+.tpl-tech-sharing .card-accent {
+  background:rgba(254,107,0,0.08);
+  border-top:4px solid var(--border);   /* same 4px black, accent comes from fill */
+  border-left:4px solid var(--accent);
+}
+.tpl-tech-sharing .card h4 { color:var(--text-1); margin-bottom:8px }
+.tpl-tech-sharing .card .dim { color:#55403a }
+
+/* ============================== CHIPS / TAGS ============================== */
+.tpl-tech-sharing .tag {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px;
+  border-radius:var(--radius);
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px; font-weight:700;
+  letter-spacing:0.05em;
+  background:var(--peach);
+  border:2px solid var(--border);
+  color:var(--border);
+  text-transform:uppercase;
+}
+.tpl-tech-sharing .pill {
+  background:var(--peach);
+  color:var(--border);
+  border:2px solid var(--border);
+  font-family:'JetBrains Mono',monospace;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.tpl-tech-sharing .pill-accent {
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--border);
+}
+
+/* ============================== AGENDA ROWS ============================== */
+.tpl-tech-sharing .agenda-row {
+  display:flex; align-items:baseline; gap:24px;
+  padding:18px 0;
+  border-bottom:2px solid var(--border);
+  font-family:'Public Sans',sans-serif;
+}
+.tpl-tech-sharing .agenda-row .num {
+  color:#fff;
+  background:var(--accent);
+  border:2px solid var(--border);
+  padding:4px 10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px; font-weight:800;
+  flex:none; width:auto;
+}
+.tpl-tech-sharing .agenda-row .t {
+  color:var(--text-1);
+  font-size:22px; flex:1;
+  font-family:'Public Sans',sans-serif;
+  font-weight:800;
+}
+.tpl-tech-sharing .agenda-row .d {
+  color:var(--accent);
+  font-size:12px; font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+  text-transform:uppercase; letter-spacing:0.05em;
+}
+
+/* ============================== SPEAKER / FOOTER ============================== */
+.tpl-tech-sharing .speaker {
+  display:flex; align-items:center; gap:14px;
+  margin-top:28px;
+  padding:14px 18px;
+  background:var(--bg);
+  border:4px solid var(--border);
+  box-shadow:var(--shadow);
+}
+.tpl-tech-sharing .speaker .av {
+  width:48px; height:48px;
+  border-radius:0;
+  background:var(--accent);
+  border:2px solid var(--border);
+}
+.tpl-tech-sharing .speaker b {
+  display:block;
+  color:var(--text-1);
+  font-size:18px; font-weight:900;
+  text-transform:uppercase; letter-spacing:-0.01em;
+}
+.tpl-tech-sharing .speaker span {
+  color:var(--border);
+  font-size:12px; font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+  text-transform:uppercase; letter-spacing:0.05em;
+}
+
+.tpl-tech-sharing .deck-footer {
+  color:var(--border);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.tpl-tech-sharing .slide.center.tc .deck-footer { color:#ffdbcc }
+
+/* ============================== PROGRESS BAR ============================== */
+.tpl-tech-sharing .progress-bar { background:var(--surface-variant) }
+.tpl-tech-sharing .progress-bar > span { background:var(--accent) }
+
+/* ============================== EM / STRONG ============================== */
+.tpl-tech-sharing em { font-style:italic; color:var(--accent); font-weight:800 }
+.tpl-tech-sharing strong { color:var(--text-1); font-weight:900 }
+.tpl-tech-sharing .slide.center.tc em { color:#fe6b00 }
+.tpl-tech-sharing .slide.center.tc strong { color:#fbf9f9 }
+
+/* ============================== LINKS ============================== */
+.tpl-tech-sharing a { color:var(--accent); font-weight:800 }
+.tpl-tech-sharing a:hover { text-decoration:underline }
